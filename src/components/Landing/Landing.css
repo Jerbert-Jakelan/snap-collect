@@ -1,0 +1,64 @@
+body {
+  color: black;
+  padding: 20px 30px;
+  font-family: sans-serif;
+}
+
+#user-profile {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  border-radius: 5px;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 2px 2px 5px #000;
+  border: 1px solid #000;
+ 
+}
+  hr {
+    margin: 20px auto;
+    width: 50%;
+    border: 1px solid red;
+  }
+  
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+  }
+  
+  h2 {
+    font-size: 30px;
+  }
+  
+  h3 {
+    font-size: 18px;
+  }
+  
+  h4 {
+    font-size: 16px;
+    
+  }
+  
+  p {
+    font-size: 14px;
+  }
+  
+  .top {
+    padding: 20px;
+    
+  }
+  
+  .subscriptions {
+    text-align: center;
+  }
+  
+  .avatar {
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-flex;
+    margin-bottom: 15px;
+    border: 1px solid #000;
+  }
+  
+    img {
+      width: 100%;
+    }
