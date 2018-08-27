@@ -7,6 +7,8 @@ const session = require("express-session");
 const passport = require("passport");
 const Auth0Strategy = require("./strategy");
 
+const colController = require('./controllers/collectionsController');
+
 const app = express();
 
 app.use(
@@ -34,6 +36,7 @@ massive(process.env.DB_CONNECTION)
 
 app.use(json());
 
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -49,26 +52,26 @@ app.use(
 passport.serializeUser((user, done) => {
   console.log(user);
   app
-    .get("db")
-    .auth0.getUserAuthId(user.user_id)
-    .then(response => {
-      if (!response[0]) {
-        app
-          .get("db")
-          .auth0.addUserAuthId([
-            user.displayName,
-            user.user_id,
-            user._json.picture
-          ])
-          .then(res => {
-            return done(null, res[0]);
-          })
-          .catch(err => console.log(err));
-      } else {
-        return done(null, response[0]);
-      }
-    })
-    .catch(err => console.log(err));
+  .get("db")
+  .auth0.getUserAuthId(user.user_id)
+  .then(response => {
+    if (!response[0]) {
+      app
+      .get("db")
+      .auth0.addUserAuthId([
+        user.displayName,
+        user.user_id,
+        user._json.picture
+      ])
+      .then(res => {
+        return done(null, res[0]);
+      })
+      .catch(err => console.log(err));
+    } else {
+      return done(null, response[0]);
+    }
+  })
+  .catch(err => console.log(err));
 });
 
 // logic to be done with this new version of user.
@@ -94,6 +97,11 @@ app.get("/me", (req, res, next) => {
     res.status(200).send(req.user);
   }
 });
+
+app.post('/api/collections', colController.addCollection);
+app.delete('/api/collections/:collection_id', colController.deleteCollection);
+app.get('/api/collections', colController.getCollections);
+app.put('/api/collections/:collection_id', colController.editCollection);
 
 // this server port. must match what we put in auth0
 const port = 3001;
