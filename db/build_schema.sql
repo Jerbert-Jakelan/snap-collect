@@ -5,14 +5,14 @@ CREATE TABLE IF NOT EXISTS users (
     profile_pic TEXT
 );
 
-CREATE TABLE IF NOT EXISTS catagories (
-    catagory_id SERIAL PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS categories (
+    category_id SERIAL PRIMARY KEY,
     name VARCHAR(50)
 );
 
 CREATE TABLE IF NOT EXISTS collections (
     collection_id SERIAL PRIMARY KEY,
-    catagory_id INTEGER REFERENCES catagories(catagory_id),
+    category_id INTEGER REFERENCES categories(category_id),
     user_id INTEGER REFERENCES users(user_id),
     name VARCHAR(50)
 );
