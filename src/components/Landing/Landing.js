@@ -27,7 +27,7 @@ class Avatar extends Component {
     if (!image) return null;
     return (
      <div className="avatar" style={style}>
-           <img src={this.props.image} /> 
+           <img src={this.props.image} alt="user pic" /> 
      </div>
     );
   }
@@ -48,9 +48,9 @@ class Collections extends Component {
         <CardBody>
           <CardTitle> My Collections</CardTitle>
           <div className="collections" >
-            <img style={style} src={this.props.info.myCollections[0]}/>
-            <img style={style} src={this.props.info.myCollections[1]}/>
-            <img style={style} src={this.props.info.myCollections[2]}/>
+            <img style={style} alt="collection pic" src={this.props.info.myCollections[0]}/>
+            <img style={style} alt="collection pic" src={this.props.info.myCollections[1]}/>
+            <img style={style} alt="collection pic" src={this.props.info.myCollections[2]}/>
           </div>
         </CardBody>
         <CardFooter></CardFooter>

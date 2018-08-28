@@ -1,6 +1,6 @@
 const addCollection = (req, res) => {
   let {catId, name} = req.body;
-  let userId = req.user.user_id;;
+  let userId = req.user.user_id;
 
   req.app.get('db').collections.add_collection([name, catId, userId])
     .then(collections => res.status(200).send(collections))
