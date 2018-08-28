@@ -1,0 +1,35 @@
+/* .card-contain {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+} */
+.image-source {
+  max-height: 250px;
+  max-width: 200px;
+}
+.card-info {
+  height: 400px;
+  width: 225px;
+  border-radius: 4px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+  font-size: 5px;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch;
+  align-content: stretch;
+  /* padding: 60px 0; */
+}
