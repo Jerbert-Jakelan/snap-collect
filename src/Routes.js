@@ -6,7 +6,7 @@ class Routes extends Component {
   render() {
     return (
       <Switch>
-        <Route path="/" component={Landing} exact />
+        <Route path="/" component={Landing} exact />    
       </Switch>
     );
   }
