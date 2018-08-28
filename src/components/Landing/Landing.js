@@ -47,7 +47,7 @@ class Collections extends Component {
       <Card>
         <CardHeader>My Collections</CardHeader>
         <CardBody>
-          <Button outline><AddNewCollection/></Button>
+          <AddNewCollection/>
           <div className="collections" >
             <img style={style} alt="collection pic" src={this.props.info.myCollections[0]}/>
             <img style={style} alt="collection pic" src={this.props.info.myCollections[1]}/>

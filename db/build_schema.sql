@@ -14,7 +14,8 @@ CREATE TABLE IF NOT EXISTS collections (
     collection_id SERIAL PRIMARY KEY,
     category_id INTEGER REFERENCES categories(category_id),
     user_id INTEGER REFERENCES users(user_id),
-    name VARCHAR(50)
+    name VARCHAR(50),
+    collection_pic TEXT 
 );
 
 CREATE TABLE IF NOT EXISTS cards (
