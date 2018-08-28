@@ -3,7 +3,7 @@ import './Landing.css';
 // import Collections from '../Collections/Collections';
 import { Card, CardHeader, CardFooter, CardBody } from 'reactstrap';
 import AddNewCollection from './AddNewCollection/AddNewCollection';
-
+import EditProfile from './EditProfile/EditProfile'
 
 //Hard coded example user profile data
 var user = {
@@ -29,6 +29,7 @@ class Avatar extends Component {
     return (
      <div className="avatar" style={style}>
            <img src={this.props.image} alt="user pic" /> 
+           {/* <EditProfile /> */}
      </div>
     );
   }
