@@ -2,18 +2,33 @@
   "short_name": "Snap Collect",
   "name": "Snap Collect",
   "icons": [
+    
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "./Icons/64x64.png",
+      "sizes": "64x64",
+      "type": "image/png"
     },
-    {  "src": "images/splashIcon.png // Android: Requires a PNG at least 512x512 for your startup screen. This is used along with your app name (above) and background color (below) to generate a splash screen. Learn more: https://developers.google.com/web/fundamentals/web-app-manifest/#add_a_splash_screen",
-      "sizes": "512x512",
-      "type": "image/png"}
+  
+    {
+      "src": "./Icons/128x128.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+   
+    {
+      "src": "./Icons/cam256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+    "src": "./Icons/cam256x256.png",
+    "sizes": "512x512",
+      "type": "image/png"
+    }
   ],
-  "start_url": "/", 
+  "start_url": ".", 
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#018786",
   "background_color": "#ffffff"
 }
 
