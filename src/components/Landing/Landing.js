@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './Landing.css';
 // import Collections from '../Collections/Collections';
-import { Card, CardHeader, CardFooter, CardBody,
-  CardTitle } from 'reactstrap';
+import { Card, Button,  CardHeader, CardFooter, CardBody } from 'reactstrap';
+import AddNewCollection from './AddNewCollection/AddNewCollection';
+
 
 //Hard coded example user profile data
 var user = {
@@ -44,9 +45,9 @@ class Collections extends Component {
   return (
     <div>
       <Card>
-        <CardHeader></CardHeader>
+        <CardHeader>My Collections</CardHeader>
         <CardBody>
-          <CardTitle> My Collections</CardTitle>
+          <Button outline><AddNewCollection/></Button>
           <div className="collections" >
             <img style={style} alt="collection pic" src={this.props.info.myCollections[0]}/>
             <img style={style} alt="collection pic" src={this.props.info.myCollections[1]}/>
