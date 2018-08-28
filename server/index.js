@@ -84,10 +84,9 @@ passport.deserializeUser((user, done) => {
 app.get(
   "/login",
   passport.authenticate("auth0", {
-    successRedirect: "/",
-    // if it fails it redirects to login
-    failureRedirect: "/login",
-    failureFlash: false
+    successRedirect: process.env.SUCCESS_REDIRECT,
+    failureRedirect: process.env.FAILURE_REDIRECT
+    // failureFlash: false
   })
 );
 
