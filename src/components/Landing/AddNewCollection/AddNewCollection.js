@@ -53,14 +53,14 @@ onFileDrop = (file) => {
   
     return (
         <div>
-        <Button color="danger" onClick={this.toggle}>Update</Button>
+        <Button outline color="danger" onClick={this.toggle}>Add New</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>Update a Menu item</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Create New Collection</ModalHeader>
           <ModalBody>
       <Form type="multipart/form-data" onSubmit={this.addProduct} className="container" style={{maxWidth:600}}>
         <FormGroup>
           
-          <Label for="itemName">Item Name</Label>
+          <Label for="itemName">Collection Name</Label>
           <Input type="text"
            name="name" 
            id="itemName" 
@@ -70,26 +70,16 @@ onFileDrop = (file) => {
            />
         </FormGroup>
 
-        <FormGroup>
-          <Label for="itemPrice"></Label>
-            <Input type="number" 
-            name="price" 
-            id="itemPrice" 
-            placeholder="Enter Dollar amount" 
-            value={this.state.price}
-            onChange={this.onChange1}
-            />
-        </FormGroup>
-        
+        <Label for="itemPrice">Choose Sport</Label>
             <select
             type="select"
             value={this.onchange2.val}
             onChange={(e) => this.onchange2(e.target.value)}>
-              <option name="categoryId" value="1">Soup</option>
-              <option name="categoryId" value="2">Salad</option>
-              <option name="categoryId" value="3">Sandwitch</option>
-              <option name="categoryId" value="4">Deserts</option>
-              <option name="categoryId" value="5">Bar</option>
+              <option name="categoryId" value="1">Baseball</option>
+              <option name="categoryId" value="2">Football</option>
+              <option name="categoryId" value="3">Soccer</option>
+              <option name="categoryId" value="4">Basketball</option>
+              <option name="categoryId" value="5">Hockey</option>
             </select>
         
         <FormGroup>
