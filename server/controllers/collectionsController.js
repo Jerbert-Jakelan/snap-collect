@@ -1,5 +1,12 @@
-const addCollection = (req, res) => {
+const updateProfile = (req, res) => {
+  // need to write to update profile pic
+}
 
+
+
+
+const addCollection = (req, res) => {
+  
   let userId = req.user.user_id;
   let {name, description, categoryId, collectionPic} = req.body
   // console.log("crud post req ", req.body)
@@ -44,9 +51,11 @@ const editCollection = (req, res) => {
     });
 }
 
+
 module.exports = {
   addCollection,
   deleteCollection,
   getCollections,
-  editCollection
+  editCollection,
+  updateProfile
 }

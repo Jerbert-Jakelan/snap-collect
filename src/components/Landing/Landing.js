@@ -29,7 +29,7 @@ class Avatar extends Component {
     return (
      <div className="avatar" style={style}>
            <img src={this.props.image} alt="user pic" /> 
-           {/* <EditProfile /> */}
+           
      </div>
     );
   }
@@ -76,6 +76,7 @@ class MainPanel extends Component {
                width={100}
                height={100}
             /> 
+            <EditProfile />
             <h2>{info.name}</h2>
             <h3>{info.location}</h3>
           <hr />
