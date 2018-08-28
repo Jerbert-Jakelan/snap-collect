@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Landing.css';
 // import Collections from '../Collections/Collections';
-import { Card, Button,  CardHeader, CardFooter, CardBody } from 'reactstrap';
+import { Card, CardHeader, CardFooter, CardBody } from 'reactstrap';
 import AddNewCollection from './AddNewCollection/AddNewCollection';
 
 
