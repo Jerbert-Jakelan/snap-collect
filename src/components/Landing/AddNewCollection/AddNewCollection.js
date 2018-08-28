@@ -9,15 +9,14 @@ class AddNewCollection extends Component {
     super(props);
     this.state={
       name:'',
-      price:'',
       description:'',
       categoryId:'',
-      productImage:'',
+      collectionPic:'',
       modal: false
     }
     this.onChange1=this.onChange1.bind(this);
     this.onchange2=this.onchange2.bind(this);
-    this.updateProduct=this.updateProduct.bind(this);
+    this.updateNewCollection=this.updateNewCollection.bind(this);
     this.toggle = this.toggle.bind(this);
 }
 
@@ -28,7 +27,6 @@ toggle() {
   }
 
 onChange1(e){
-  // console.log('this is e ', e)
   this.setState({[e.target.name]: e.target.value});
 }
 onchange2(val){ 
@@ -38,76 +36,75 @@ onchange2(val){
   })
 }
 
-updateProduct = async(e) => {
+updateNewCollection = (e) => {
   e.preventDefault();
-const { name, price, description, categoryId, productImage} = this.state;
-axios.post(`/api/product/update`, { name, price, description, categoryId, productImage})
+const { name, description, categoryId, collectionPic} = this.state;
+ axios.post('/api/collections', { name, description, categoryId, collectionPic})
 }
 
-
 onFileDrop = (file) => {
-  this.setState({productImage: file[0]});
+  this.setState({collectionPic: file[0]});
 }
 
   render() {
-  
+  console.log(this.state)
     return (
         <div>
         <Button outline color="danger" onClick={this.toggle}>Add New</Button>
+
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Create New Collection</ModalHeader>
           <ModalBody>
-      <Form type="multipart/form-data" onSubmit={this.addProduct} className="container" style={{maxWidth:600}}>
-        <FormGroup>
-          
-          <Label for="itemName">Collection Name</Label>
-          <Input type="text"
-           name="name" 
-           id="itemName" 
-           placeholder="Enter item name" 
-           value={this.state.name}
-           onChange={this.onChange1} 
-           />
-        </FormGroup>
+            <Form type="multipart/form-data" onSubmit={this.updateNewCollection} className="container" style={{maxWidth:600}}>
+              <FormGroup>
+                  <Label for="itemName">Collection Name</Label>
+                  <Input type="text"
+                  name="name" 
+                  id="itemName" 
+                  placeholder="Enter item name" 
+                  value={this.state.name}
+                  onChange={this.onChange1} 
+                  />
+              </FormGroup>
 
-        <Label for="itemPrice">Choose Sport</Label>
-            <select
-            type="select"
-            value={this.onchange2.val}
-            onChange={(e) => this.onchange2(e.target.value)}>
-              <option name="categoryId" value="1">Baseball</option>
-              <option name="categoryId" value="2">Football</option>
-              <option name="categoryId" value="3">Soccer</option>
-              <option name="categoryId" value="4">Basketball</option>
-              <option name="categoryId" value="5">Hockey</option>
-            </select>
+              <Label for="itemPrice">Choose Sport</Label>
+              <select
+              type="select"
+              value={this.onchange2.val}
+              onChange={(e) => this.onchange2(e.target.value)}>
+                <option name="categoryId" value="1">Baseball</option>
+                <option name="categoryId" value="2">Football</option>
+                <option name="categoryId" value="3">Soccer</option>
+                <option name="categoryId" value="4">Basketball</option>
+                <option name="categoryId" value="5">Hockey</option>
+              </select>
         
-        <FormGroup>
-          <Label for="description">Description Area</Label>
-            <Input type="textarea" 
-            name="description" 
-            id="description" 
-            placeholder="Optional...." 
-            value={this.state.description}
-            onChange={this.onChange1}
-            />
-        </FormGroup>
+              <FormGroup>
+                <Label for="description">Description Area</Label>
+                  <Input type="textarea" 
+                  name="description" 
+                  id="description" 
+                  placeholder="Optional...." 
+                  value={this.state.description}
+                  onChange={this.onChange1}
+                  />
+              </FormGroup>
 
-        <FormGroup>
-            <Label for="file">File</Label>
-              <Dropzone id="file" onDrop={this.onFileDrop}  >
-              <img style={{width: '199px', height: '198px'}} src={this.state.productImage.preview && this.state.productImage.preview} />
-              </Dropzone>
-        </FormGroup>
+              <FormGroup>
+                  <Label for="file">File</Label>
+                    <Dropzone id="file" onDrop={this.onFileDrop}  >
+                    <img style={{width: '199px', height: '198px'}} src={this.state.collectionPic.preview && this.state.collectionPic.preview} />
+                    </Dropzone>
+              </FormGroup>
      
-        <Button  onClick={ () =>this.updateProduct(this.props.id)} type="submit">Submit</Button>
-      </Form>
-      </ModalBody>
+            <Button  type="submit">Submit</Button>
+            </Form>
+          </ModalBody>
           <ModalFooter>
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
-        </div>
+      </div>
     )
   }
 }
