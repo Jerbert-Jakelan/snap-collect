@@ -2,7 +2,7 @@ const addCollection = (req, res) => {
 
   let userId = req.user.user_id;
   let {name, description, categoryId, collectionPic} = req.body
-  console.log("crud post req ", req.body)
+  // console.log("crud post req ", req.body)
   req.app.get('db').collections.add_collection([name, userId, description, categoryId, collectionPic])
     .then(collections => res.status(200).send(collections))
     .catch(err => {
