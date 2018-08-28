@@ -51,7 +51,7 @@ app.use(
 
 // serialUser is what properties from the user we want back.
 passport.serializeUser((user, done) => {
-  console.log(user);
+  // console.log(user);
   app
   .get("db")
   .auth0.getUserAuthId(user.user_id)
