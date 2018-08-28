@@ -84,7 +84,7 @@ passport.deserializeUser((user, done) => {
 app.get(
   "/login",
   passport.authenticate("auth0", {
-    successRedirect: "/dashboard",
+    successRedirect: "/",
     // if it fails it redirects to login
     failureRedirect: "/login",
     failureFlash: false

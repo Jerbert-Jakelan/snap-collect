@@ -11,9 +11,6 @@ body {
   border-radius: 5px;
   text-align: center;
   overflow: hidden;
-  box-shadow: 2px 2px 5px #000;
-  border: 1px solid #000;
- 
 }
   hr {
     margin: 20px auto;
@@ -42,8 +39,8 @@ body {
     font-size: 14px;
   }
   
-  .top {
-    padding: 20px;
+  .top, .subscriptions {
+    padding-top: 20px;
     
   }
   
@@ -61,4 +58,13 @@ body {
   
     img {
       width: 100%;
+    }
+
+    .collections{
+      width: 100%;
+      display: flex;
+    }
+
+    .collections>img{
+      margin: auto;
     }

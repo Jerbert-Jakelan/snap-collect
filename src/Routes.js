@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {Switch, Route} from 'react-router-dom';
-import Landing from './components/Landing/Landing';
 import CollectionDetail from './components/CollectionDetail/CollectionDetail';
+import Landing from "./components/Landing/Landing";
+import Login from "./components/Login/Login";
 
 class Routes extends Component {
   render() {
@@ -9,6 +10,7 @@ class Routes extends Component {
       <Switch>
         <Route path="/" component={Landing} exact />
         <Route path="/collection/:collection_id" component={CollectionDetail} />
+        <Route path="/login" component={Login} />
       </Switch>
     );
   }
