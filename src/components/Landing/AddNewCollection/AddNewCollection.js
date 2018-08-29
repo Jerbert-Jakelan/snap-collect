@@ -38,11 +38,23 @@ onchange2(val){
 
 updateNewCollection = (e) => {
   e.preventDefault();
-const { name, description, categoryId, collectionPic} = this.state;
- axios.post('/api/collections', { name, description, categoryId, collectionPic})
+  const { name, description, categoryId, collectionPic} = this.state;
+
+  const formData = new FormData();
+  formData.append("file", collectionPic);
+  formData.append("name", name);
+  formData.append("description", description);
+  formData.append("categoryId", categoryId);
+  
+  axios.post('/api/collections', formData, {
+    headers: {
+      "Content-Type": "multipart/form-data"
+    }
+  })
 }
 
 onFileDrop = (file) => {
+  console.log(file[0]);
   this.setState({collectionPic: file[0]});
 }
 
