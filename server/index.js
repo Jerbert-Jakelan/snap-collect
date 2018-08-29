@@ -8,9 +8,9 @@ const passport = require("passport");
 const Auth0Strategy = require("./strategy");
 
 // controllers
-const profileController = require('./controllers/profileController')
-const colController = require('./controllers/collectionsController');
-const cardController = require('./controllers/cardController');
+const profileController = require("./controllers/profileController");
+const colController = require("./controllers/collectionsController");
+const cardController = require("./controllers/cardController");
 
 const app = express();
 
@@ -39,7 +39,6 @@ massive(process.env.DB_CONNECTION)
 
 app.use(json());
 
-
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -58,26 +57,26 @@ passport.serializeUser((user, done) => {
     user.user_id,
     user._json.picture) 
   app
-  .get("db")
-  .auth0.getUserAuthId(user.user_id)
-  .then(response => {
-    if (!response[0]) {
-      app
-      .get("db")
-      .auth0.addUserAuthId([
-        user.displayName,
-        user.user_id,
-        user._json.picture
-      ])
-      .then(res => {
-        return done(null, res[0]);
-      })
-      .catch(err => console.log(err));
-    } else {
-      return done(null, response[0]);
-    }
-  })
-  .catch(err => console.log(err));
+    .get("db")
+    .auth0.getUserAuthId(user.user_id)
+    .then(response => {
+      if (!response[0]) {
+        app
+          .get("db")
+          .auth0.addUserAuthId([
+            user.displayName,
+            user.user_id,
+            user._json.picture
+          ])
+          .then(res => {
+            return done(null, res[0]);
+          })
+          .catch(err => console.log(err));
+      } else {
+        return done(null, response[0]);
+      }
+    })
+    .catch(err => console.log(err));
 });
 
 // logic to be done with this new version of user.
@@ -104,6 +103,18 @@ app.get("/me", (req, res, next) => {
 });
 
 //update profile
+<<<<<<< HEAD
+app.put("/api/profile/update", profileController.updateProfile);
+
+app.post("/api/collections", colController.addCollection);
+app.delete("/api/collections/:collection_id", colController.deleteCollection);
+app.get("/api/collections", colController.getCollections);
+app.put("/api/collections/:collection_id", colController.editCollection);
+
+app.post("/api/cards", cardController.createCard);
+app.get("/api/cards/:collection_id", cardController.getCards);
+app.delete("/api/cards/:card_id", cardController.delCards);
+=======
 app.put('/api/profile/update', profileController.updateProfile );
 app.get('/api/getProfile', profileController.getUser);
 
@@ -116,6 +127,7 @@ app.put('/api/collections/:collection_id', colController.editCollection);
 //card endpoints
 app.post('/api/cards', cardController.createCard);
 app.get('/api/cards/:collection_id', cardController.getCards);
+>>>>>>> master
 
 // this server port. must match what we put in auth0
 const port = 3001;
