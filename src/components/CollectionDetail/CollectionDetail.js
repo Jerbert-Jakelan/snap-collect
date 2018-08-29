@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Alert } from 'reactstrap';
 import CardForm from "../CardForm/CardForm";
+import Card from "../Card/Card";
+import { Alert } from "reactstrap";
 import "./CollectionDetail.css";
 
 class CollectionDetail extends Component {
   state = {
     cards: [],
-    dupMessage: '',
+    dupMessage: "",
     visible: false
   };
 
@@ -23,43 +24,35 @@ class CollectionDetail extends Component {
   };
 
   resolveSearch = result => {
-    if(result.message) {
-      this.setState({dupMessage: result.message, visible: true});
+    if (result.message) {
+      this.setState({ dupMessage: result.message, visible: true });
     } else {
-      this.setState({cards: result});
+      this.setState({ cards: result });
     }
   };
 
   onDismiss = () => {
     this.setState({ visible: false });
-  }
+  };
 
   render() {
     let cards = this.state.cards.map(card => {
-      return (
-        <div key={card.card_id} className="card-info">
-          <img alt="?" className="image-source" src={card.image} />
-          <h2>
-            Player:
-            {card.name}
-          </h2>
-          <h3>
-            Year:
-            {card.year}
-          </h3>
-        </div>
-      );
+      return <Card key={card.card_id} card={card} />;
     });
     return (
-      <div>
-        <Alert color="warning" isOpen={this.state.visible} toggle={this.onDismiss}>
+      <div className="collection-home">
+        <Alert
+          color="warning"
+          isOpen={this.state.visible}
+          toggle={this.onDismiss}
+        >
           {this.state.dupMessage}
         </Alert>
         <CardForm
           collectionId={this.props.match.params.collection_id}
           resolveSearch={this.resolveSearch}
         />
-        <div className="card"> {cards} </div>
+        <div className="card-wrapper"> {cards} </div>
       </div>
     );
   }
