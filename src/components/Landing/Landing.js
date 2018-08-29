@@ -18,6 +18,14 @@ var user = {
 
 //This is for user picture
 class Avatar extends Component {
+  constructor(){
+    super();
+    this.state={
+      profilePic:""
+    }
+  }
+  // axios.get("")
+
   render() {
     var image = this.props.image,
         style = {

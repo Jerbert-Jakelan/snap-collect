@@ -32,9 +32,8 @@ class CardForm extends Component {
           "Content-Type": "multipart/form-data"
         }
       })
-      .then(cards => {
-        console.log(cards);
-        // this.props.updateCards(cards.data);
+      .then(result => {
+        this.props.resolveSearch(result.data);
         this.setState({file: null, name: '', team: '', year: ''});
         console.log('Success!');
       })
@@ -50,15 +49,18 @@ class CardForm extends Component {
           <input 
             type="text"
             name="name"
-            onChange={this.handleChange} />
+            onChange={this.handleChange}
+            value={this.state.name} />
           <input 
             type="text"
             name="team"
-            onChange={this.handleChange} />
+            onChange={this.handleChange}
+            value={this.state.team} />
           <input 
             type="text"
             name="year"
-            onChange={this.handleChange} />
+            onChange={this.handleChange}
+            value={this.state.year}  />
           <input
             label="Card Image"
             type="file"
