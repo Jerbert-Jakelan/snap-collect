@@ -99,6 +99,8 @@ app.get("/me", (req, res, next) => {
 });
 
 app.post('api/profile/update', )
+
+//Collections endpoints
 app.post('/api/collections', colController.addCollection);
 app.delete('/api/collections/:collection_id', colController.deleteCollection);
 app.get('/api/collections', colController.getCollections);
