@@ -33,7 +33,8 @@ class CardForm extends Component {
         }
       })
       .then(cards => {
-        this.props.updateCards(cards.data);
+        console.log(cards);
+        // this.props.updateCards(cards.data);
         this.setState({file: null, name: '', team: '', year: ''});
         console.log('Success!');
       })
