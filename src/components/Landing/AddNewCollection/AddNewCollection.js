@@ -10,7 +10,7 @@ class AddNewCollection extends Component {
     this.state={
       name:'',
       description:'',
-      categoryId:'',
+      categoryId: 2,
       collectionPic:'',
       modal: false
     }
