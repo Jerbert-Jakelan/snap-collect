@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Alert } from 'reactstrap';
 import CardForm from "../CardForm/CardForm";
 import "./CollectionDetail.css";
 
 class CollectionDetail extends Component {
   state = {
-    cards: []
+    cards: [],
+    dupMessage: '',
+    visible: false
   };
 
   componentDidMount() {
@@ -19,12 +22,19 @@ class CollectionDetail extends Component {
       .catch(err => console.log(err));
   };
 
-  updateCards = cards => {
-    this.setState({ cards });
+  resolveSearch = result => {
+    if(result.message) {
+      this.setState({dupMessage: result.message, visible: true});
+    } else {
+      this.setState({cards: result});
+    }
   };
 
+  onDismiss = () => {
+    this.setState({ visible: false });
+  }
+
   render() {
-    console.log(this.state.cards);
     let cards = this.state.cards.map(card => {
       return (
         <div key={card.card_id} className="card-info">
@@ -42,9 +52,12 @@ class CollectionDetail extends Component {
     });
     return (
       <div>
+        <Alert color="warning" isOpen={this.state.visible} toggle={this.onDismiss}>
+          {this.state.dupMessage}
+        </Alert>
         <CardForm
           collectionId={this.props.match.params.collection_id}
-          updateCards={this.updateCards}
+          resolveSearch={this.resolveSearch}
         />
         <div className="card"> {cards} </div>
       </div>
