@@ -25,6 +25,20 @@ const updateProfile = (req, res) => {
       });
   }
 
+  const getUser = (req,res) =>{
+    let user_id = req.user.user_id;
+    req.app.get('db').userProfile.getUser(user_id)
+    .then(payload => res.status(200).json(payload))
+    .catch(err => {
+      console.log(err)
+      res.status(500);
+    });
+  }
+
+
+
+
   module.exports = {
-    updateProfile
+    updateProfile,
+    getUser
   }
