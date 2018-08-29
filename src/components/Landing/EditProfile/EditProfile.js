@@ -22,23 +22,31 @@ class EditProfile extends Component {
 }
 
 toggle2() {
+  // console.log("TOGGLE 2 FIRED")
     this.setState({
-      modal: !this.state.modal
+      modal: !this.state.modal,
+      // city: '',
+      // state: '',
+      // name: ''
     });
   }
 
 onChange(e){
-  // console.log('this is state ', this.state)
+  // console.log('this is state ', e)
+  // console.log(e.target.value)
   this.setState({[e.target.name]: e.target.value});
+  // console.log(this.state)
 }
-
 
 updateProfile = (e) => {
-  console.log('HIT')
+  // console.log('HIT')
   e.preventDefault();
-const { name, city, state, photo, user_id} = this.state;
-axios.put(`/api/profile/update`, { name, city, state, photo})
+  // console.log(this.state)
+let { name, city, state, photo} = this.state;
+console.log(name, city, state, photo)
+axios.put(`/api/profile/update`, { name, city, state, photo:photo.preview})
 }
+
 
 
 onFileDrop2 = (file) => {
@@ -46,6 +54,7 @@ onFileDrop2 = (file) => {
 }
 
   render() {
+    let { name, city, state} = this.state;
     return (
         <div>
         <Button outline size='sm' color="info" onClick={this.toggle2}>Update</Button>
@@ -60,7 +69,7 @@ onFileDrop2 = (file) => {
            name="name" 
            id="profileName" 
            placeholder="Enter name" 
-           value={this.state.name}
+           value={name}
            onChange={this.onChange} 
            />
         </FormGroup>
@@ -70,7 +79,7 @@ onFileDrop2 = (file) => {
            name="city" 
            id="cityName" 
            placeholder="Enter city" 
-           value={this.state.city}
+           value={city}
            onChange={this.onChange} 
            />
            
@@ -79,7 +88,7 @@ onFileDrop2 = (file) => {
            name="state" 
            id="stateName" 
            placeholder="Enter state" 
-           value={this.state.state}
+           value={state}
            onChange={this.onChange} 
            />
 
@@ -88,10 +97,10 @@ onFileDrop2 = (file) => {
               <Dropzone id="file1" onDrop={this.onFileDrop2}  >
               <img alt="profilePic" style={{width: '199px', height: '198px'}} src={this.state.photo.preview && this.state.photo.preview} />
               </Dropzone>
-              <Button type="button">Add Files</Button>
+              {/* <Button type="button">Add Files</Button> */}
         </FormGroup>
      
-        <Button  type="submit">Submit</Button>
+        <Button  type="submit" onClick={this.toggle2}>Submit</Button>
       </Form>
       </ModalBody>
           <ModalFooter>
