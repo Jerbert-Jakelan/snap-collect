@@ -28,7 +28,7 @@ class CollectionDetail extends Component {
     let cards = this.state.cards.map(card => {
       return (
         <div key={card.card_id} className="card-info">
-          <img className="image-source" src={card.image} />
+          <img alt="?" className="image-source" src={card.image} />
           <h2>
             Player:
             {card.name}

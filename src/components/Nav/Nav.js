@@ -4,7 +4,6 @@ import "./Nav.css";
 
 export default class Nav extends Component {
   render() {
-    console.log(this.props);
     if (this.props.pathname === "/login") {
       return null;
     }

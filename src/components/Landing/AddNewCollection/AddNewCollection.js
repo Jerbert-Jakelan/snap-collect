@@ -47,7 +47,7 @@ onFileDrop = (file) => {
 }
 
   render() {
-  console.log(this.state)
+
     return (
         <div>
         <Button outline color="danger" onClick={this.toggle}>Add New</Button>
@@ -58,7 +58,8 @@ onFileDrop = (file) => {
             <Form type="multipart/form-data" onSubmit={this.updateNewCollection} className="container" style={{maxWidth:600}}>
               <FormGroup>
                   <Label for="itemName">Collection Name</Label>
-                  <Input type="text"
+                  <Input 
+                  type="text"
                   name="name" 
                   id="itemName" 
                   placeholder="Enter item name" 
@@ -72,16 +73,17 @@ onFileDrop = (file) => {
               type="select"
               value={this.onchange2.val}
               onChange={(e) => this.onchange2(e.target.value)}>
-                <option name="categoryId" value="1">Baseball</option>
-                <option name="categoryId" value="2">Football</option>
-                <option name="categoryId" value="3">Soccer</option>
-                <option name="categoryId" value="4">Basketball</option>
-                <option name="categoryId" value="5">Hockey</option>
+                <option name="categoryId" value={parseInt(2)}>Baseball</option>
+                <option name="categoryId" value="3">Football</option>
+                <option name="categoryId" value="6">Soccer</option>
+                <option name="categoryId" value="5">Basketball</option>
+                <option name="categoryId" value="4">Hockey</option>
               </select>
         
               <FormGroup>
                 <Label for="description">Description Area</Label>
-                  <Input type="textarea" 
+                  <Input 
+                  type="text" 
                   name="description" 
                   id="description" 
                   placeholder="Optional...." 
