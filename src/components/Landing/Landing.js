@@ -1,67 +1,101 @@
 import React, { Component } from 'react';
 import './Landing.css';
 // import Collections from '../Collections/Collections';
-import { Card, CardHeader, CardFooter, CardBody } from 'reactstrap';
+import { Card, CardHeader, CardFooter, CardBody, CardText } from 'reactstrap';
 import AddNewCollection from './AddNewCollection/AddNewCollection';
 import EditProfile from './EditProfile/EditProfile';
+import axios from 'axios';
 
-//Hard coded example user profile data
-var user = {
-  basicInfo: {
-    name: "The Babe",
-    location: "New York, NY",
-    photo: "http://3.bp.blogspot.com/-XHBaFcpD8lE/Vo3dK5IUcbI/AAAAAAAABQk/2-A8yiTrRj8/s1600/52T%2BRUTH%2BHOF.jpg",
-    myCollections: ['http://3.bp.blogspot.com/-XHBaFcpD8lE/Vo3dK5IUcbI/AAAAAAAABQk/2-A8yiTrRj8/s1600/52T%2BRUTH%2BHOF.jpg', 'http://3.bp.blogspot.com/-XHBaFcpD8lE/Vo3dK5IUcbI/AAAAAAAABQk/2-A8yiTrRj8/s1600/52T%2BRUTH%2BHOF.jpg ', 'http://3.bp.blogspot.com/-XHBaFcpD8lE/Vo3dK5IUcbI/AAAAAAAABQk/2-A8yiTrRj8/s1600/52T%2BRUTH%2BHOF.jpg '],
-    mySubscriptions: ['Bad News Bears group ', 'I hate Hockey group ', 'Collect Pokiemon group ']
-  }
-}
-
-//This is for user picture
 class Avatar extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state={
-      profilePic:""
+      profile:[],
+      collection:[]
     }
   }
-  // axios.get("")
+  componentDidMount = () => {
+    this.getUser();
+    this.getCollections();
+  };
+  getUser = () => {
+  axios.get('/api/getProfile').then(res =>{
+    this.setState({
+        profile: res.data
+    })
+  })
+  }
+  getCollections = () => {
+    axios.get('/api/collections').then(payload =>{
+      this.setState({
+          collection: payload.data
+      })
+    })
+    }
 
   render() {
-    var image = this.props.image,
-        style = {
-          width: this.props.width || 50,
-          height: this.props.height || 50
-        }; 
-    
-    if (!image) return null;
+    const {profile, collection} = this.state
+
+    let loop = profile.map((e,i) =>{  
     return (
-     <div className="avatar" style={style}>
-           <img src={this.props.image} alt="user pic" /> 
-           
-     </div>
-    );
+      <ProfileLanding 
+      index={i}
+      key={e.user_id}
+      image={e.profile_pic}
+      name={e.name}
+      city={e.city}
+      state={e.state}
+      />
+    )})
+
+    let looper2 = collection.map((e,i) =>{  
+      return (
+        <Collections
+        index={i}
+        key={e.collection_id}
+        collId={e.collection_id}
+        image={e.collection_pic}
+        name={e.name}
+        description={e.description}
+        />
+      )})
+
+    return (
+      <div>
+           {loop}
+           <AddNewCollection/>
+           {looper2}
+      </div>
+     )
   }
 }
 
-// collection cards  under subscriptions
-class Collections extends Component {
-  render(){
-   const style = {
-      width:  50,
-      height: 50
-    };
+const ProfileLanding = (props) =>  {
+  return (
+    <div>
+       <div className="avatar" style={{height:50, width:50}} >
+          <img src={props.image} alt="user pic" />
+      </div>
+      <EditProfile/>
+      <h2>{props.name}</h2>
+          <h3>{props.city}</h3>
+          <h3>{props.state}</h3>
+    </div>
+  )
+}
+
+const Collections = (props) => {
     
   return (
     <div>
       <Card>
-        <CardHeader>My Collections</CardHeader>
+        <CardHeader>{props.name}</CardHeader>
         <CardBody>
-          <AddNewCollection/>
+          
           <div className="collections" >
-            <img style={style} alt="collection pic" src={this.props.info.myCollections[0]}/>
-            <img style={style} alt="collection pic" src={this.props.info.myCollections[1]}/>
-            <img style={style} alt="collection pic" src={this.props.info.myCollections[2]}/>
+            <img style={{height:50, width:50}} alt="alt" src={props.collection_pic}/>
           </div>
+          <CardText>{props.description}</CardText>
         </CardBody>
         <CardFooter></CardFooter>
       </Card>
@@ -69,46 +103,16 @@ class Collections extends Component {
     </div>
   );
 }
-}
 
 //This is for user 
-class MainPanel extends Component {
-  render() {
-    var info = this.props.info;
-    if (!info) return null;
-    return (
-     <div>
-        <div className="top">
-            <Avatar 
-               image={info.photo} 
-               width={100}
-               height={100}
-            /> 
-            <EditProfile />
-            <h2>{info.name}</h2>
-            <h3>{info.location}</h3>
-          <hr />
 
-        </div>
-
-        <div className="subscriptions">
-          <h4>My Subscriptions</h4>
-          <p>{info.mySubscriptions[0]}</p>
-          <p>{info.mySubscriptions[1]}</p>
-          <p>{info.mySubscriptions[2]}</p>
-        </div>
-        <Collections info={user.basicInfo} />
-      </div>
-    );
-  }
-}
 
 class Landing extends Component {
   render() {
     return (
       <div>
         <div id="user-profile">
-          <MainPanel info={user.basicInfo} />
+          <Avatar/>
         </div>
       </div>
     )
