@@ -8,9 +8,10 @@ class Routes extends Component {
   render() {
     return (
       <Switch>
-        <Route path="/" component={Landing} exact />
+        <Route path="/" component={Login} exact />
+        <Route path="/dashboard" component={Landing} exact />
+
         <Route path="/collection/:collection_id" component={CollectionDetail} />
-        <Route path="/login" component={Login} />
       </Switch>
     );
   }
