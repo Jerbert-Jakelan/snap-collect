@@ -103,18 +103,6 @@ app.get("/me", (req, res, next) => {
 });
 
 //update profile
-<<<<<<< HEAD
-app.put("/api/profile/update", profileController.updateProfile);
-
-app.post("/api/collections", colController.addCollection);
-app.delete("/api/collections/:collection_id", colController.deleteCollection);
-app.get("/api/collections", colController.getCollections);
-app.put("/api/collections/:collection_id", colController.editCollection);
-
-app.post("/api/cards", cardController.createCard);
-app.get("/api/cards/:collection_id", cardController.getCards);
-app.delete("/api/cards/:card_id", cardController.delCards);
-=======
 app.put('/api/profile/update', profileController.updateProfile );
 app.get('/api/getProfile', profileController.getUser);
 
@@ -127,7 +115,7 @@ app.put('/api/collections/:collection_id', colController.editCollection);
 //card endpoints
 app.post('/api/cards', cardController.createCard);
 app.get('/api/cards/:collection_id', cardController.getCards);
->>>>>>> master
+app.delete("/api/cards/:card_id", cardController.delCards);
 
 // this server port. must match what we put in auth0
 const port = 3001;

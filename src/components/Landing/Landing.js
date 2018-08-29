@@ -93,7 +93,7 @@ const Collections = (props) => {
         <CardBody>
           
           <div className="collections" >
-            <img style={{height:50, width:50}} alt="alt" src={props.collection_pic}/>
+            <img style={{height:50, width:50}} alt="alt" src={props.image}/>
           </div>
           <CardText>{props.description}</CardText>
         </CardBody>
