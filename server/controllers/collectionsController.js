@@ -1,8 +1,16 @@
-const addCollection = (req, res) => {
-  let {catId, name} = req.body;
-  let userId = req.user.user_id;
+const updateProfile = (req, res) => {
+  // need to write to update profile pic
+}
 
-  req.app.get('db').collections.add_collection([name, catId, userId])
+
+
+
+const addCollection = (req, res) => {
+  
+  let userId = req.user.user_id;
+  let {name, description, categoryId, collectionPic} = req.body
+  // console.log("crud post req ", req.body)
+  req.app.get('db').collections.add_collection([name, userId, description, categoryId, collectionPic])
     .then(collections => res.status(200).send(collections))
     .catch(err => {
       console.log(err);
@@ -43,9 +51,11 @@ const editCollection = (req, res) => {
     });
 }
 
+
 module.exports = {
   addCollection,
   deleteCollection,
   getCollections,
-  editCollection
+  editCollection,
+  updateProfile
 }

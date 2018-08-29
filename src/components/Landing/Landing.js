@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './Landing.css';
 // import Collections from '../Collections/Collections';
-import { Card, Button,  CardHeader, CardFooter, CardBody } from 'reactstrap';
+import { Card, CardHeader, CardFooter, CardBody } from 'reactstrap';
 import AddNewCollection from './AddNewCollection/AddNewCollection';
-
+import EditProfile from './EditProfile/EditProfile'
 
 //Hard coded example user profile data
 var user = {
@@ -29,6 +29,7 @@ class Avatar extends Component {
     return (
      <div className="avatar" style={style}>
            <img src={this.props.image} alt="user pic" /> 
+           
      </div>
     );
   }
@@ -75,6 +76,7 @@ class MainPanel extends Component {
                width={100}
                height={100}
             /> 
+            <EditProfile />
             <h2>{info.name}</h2>
             <h3>{info.location}</h3>
           <hr />

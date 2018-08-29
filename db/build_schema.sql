@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS collections (
     category_id INTEGER REFERENCES categories(category_id),
     user_id INTEGER REFERENCES users(user_id),
     name VARCHAR(50),
+    description VARCHAR(300),
     collection_pic TEXT 
 );
 

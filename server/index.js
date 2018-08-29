@@ -51,7 +51,7 @@ app.use(
 
 // serialUser is what properties from the user we want back.
 passport.serializeUser((user, done) => {
-  console.log(user);
+  // console.log(user);
   app
   .get("db")
   .auth0.getUserAuthId(user.user_id)
@@ -84,10 +84,9 @@ passport.deserializeUser((user, done) => {
 app.get(
   "/login",
   passport.authenticate("auth0", {
-    successRedirect: "/",
-    // if it fails it redirects to login
-    failureRedirect: "/login",
-    failureFlash: false
+    successRedirect: process.env.SUCCESS_REDIRECT,
+    failureRedirect: process.env.FAILURE_REDIRECT
+    // failureFlash: false
   })
 );
 
@@ -99,6 +98,7 @@ app.get("/me", (req, res, next) => {
   }
 });
 
+app.post('api/profile/update', )
 app.post('/api/collections', colController.addCollection);
 app.delete('/api/collections/:collection_id', colController.deleteCollection);
 app.get('/api/collections', colController.getCollections);
