@@ -22,6 +22,7 @@ export default class Card extends Component {
   render() {
     return (
       <div
+        data-cy-cards
         className={`card-info ${this.state.rotate}`}
         onClick={this.rotateCard}
       >
