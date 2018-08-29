@@ -6,6 +6,7 @@ const massive = require("massive");
 const session = require("express-session");
 const passport = require("passport");
 const Auth0Strategy = require("./strategy");
+const profileController = require('./controllers/profileController')
 
 const colController = require('./controllers/collectionsController');
 const cardController = require('./controllers/cardController');
@@ -98,7 +99,10 @@ app.get("/me", (req, res, next) => {
   }
 });
 
-app.post('api/profile/update', )
+//update profile
+app.post('api/profile/update', profileController.updateProfile );
+
+
 app.post('/api/collections', colController.addCollection);
 app.delete('/api/collections/:collection_id', colController.deleteCollection);
 app.get('/api/collections', colController.getCollections);

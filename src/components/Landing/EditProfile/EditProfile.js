@@ -9,12 +9,14 @@ class EditProfile extends Component {
     super(props);
     this.state={
       name:'',
-      location:'',
+      city:'',
+      state: '',
       photo:'',
       modal: false
     }
     this.onChange1=this.onChange1.bind(this);
     this.onChange2=this.onChange2.bind(this);
+    this.onChange3=this.onChange3.bind(this);
     this.updateProfile=this.updateProfile.bind(this);
     this.toggle = this.toggle.bind(this);
 }
@@ -31,14 +33,18 @@ onChange1(e){
 }
 onChange2(e){
     // console.log('this is e ', e)
-    this.setState({[e.target.location]: e.target.value});
+    this.setState({[e.target.city]: e.target.value});
+  }
+onChange3(e){
+    // console.log('this is e ', e)
+    this.setState({[e.target.state]: e.target.value});
   }
 
 
 updateProfile = async(e) => {
   e.preventDefault();
-const { name, location, photo} = this.state;
-axios.post(`/api/profile/update`, { name, location, photo})
+const { name, city, state, photo} = this.state;
+axios.post(`/api/profile/update`, { name, city, state, photo})
 }
 
 
@@ -66,13 +72,22 @@ onFileDrop = (file) => {
            />
         </FormGroup>
 
-        <Label for="location">Location</Label>
+        <Label for="city">City</Label>
         <Input type="text"
-           name="location" 
-           id="LocationName" 
-           placeholder="Enter location" 
-           value={this.state.name}
+           name="city" 
+           id="cityName" 
+           placeholder="Enter city" 
+           value={this.state.city}
            onChange={this.onChange2} 
+           />
+           
+        <Label for="state">State</Label>
+        <Input type="text"
+           name="state" 
+           id="StateName" 
+           placeholder="Enter state" 
+           value={this.state.state}
+           onChange={this.onChange3} 
            />
         
         {/* <FormGroup>
