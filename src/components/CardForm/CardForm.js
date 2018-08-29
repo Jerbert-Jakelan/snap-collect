@@ -47,16 +47,19 @@ class CardForm extends Component {
       <div>
         <form onSubmit={this.submitFile}>
           <input 
+            data-cy-card-name-input
             type="text"
             name="name"
             onChange={this.handleChange}
             value={this.state.name} />
           <input 
+            data-cy-card-team-input
             type="text"
             name="team"
             onChange={this.handleChange}
             value={this.state.team} />
           <input 
+            data-cy-card-year-input
             type="text"
             name="year"
             onChange={this.handleChange}
