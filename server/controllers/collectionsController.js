@@ -1,16 +1,7 @@
-const updateProfile = (req, res) => {
-  // need to write to update profile pic
-}
-
-
-
-
 const addCollection = (req, res) => {
   
   let userId = req.user.user_id;
-  console.log("crud user is... ", userId)
   let {name, description, categoryId, collectionPic} = req.body
-  console.log("crud post req ", req.body)
   req.app.get('db').collections.add_collection([categoryId, userId, name, description, collectionPic])
     .then(collections => res.status(200).send(collections))
     .catch(err => {
@@ -57,6 +48,5 @@ module.exports = {
   addCollection,
   deleteCollection,
   getCollections,
-  editCollection,
-  updateProfile
+  editCollection
 }
