@@ -3,7 +3,7 @@ import './Landing.css';
 // import Collections from '../Collections/Collections';
 import { Card, CardHeader, CardFooter, CardBody } from 'reactstrap';
 import AddNewCollection from './AddNewCollection/AddNewCollection';
-// import EditProfile from './EditProfile/EditProfile'
+import EditProfile from './EditProfile/EditProfile'
 
 //Hard coded example user profile data
 var user = {

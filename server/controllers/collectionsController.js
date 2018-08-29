@@ -1,3 +1,9 @@
+const updateProfile = (req, res) => {
+  // need to write to update profile pic
+}
+
+
+
 
 const addCollection = (req, res) => {
   
