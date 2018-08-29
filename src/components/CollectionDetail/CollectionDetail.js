@@ -40,7 +40,7 @@ class CollectionDetail extends Component {
       return <Card key={card.card_id} card={card} />;
     });
     return (
-      <div>
+      <div className="collection-home">
         <Alert
           color="warning"
           isOpen={this.state.visible}
@@ -52,7 +52,7 @@ class CollectionDetail extends Component {
           collectionId={this.props.match.params.collection_id}
           resolveSearch={this.resolveSearch}
         />
-        <div className="card"> {cards} </div>
+        <div className="card-wrapper"> {cards} </div>
       </div>
     );
   }

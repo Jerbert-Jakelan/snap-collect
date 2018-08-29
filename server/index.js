@@ -6,8 +6,9 @@ const massive = require("massive");
 const session = require("express-session");
 const passport = require("passport");
 const Auth0Strategy = require("./strategy");
-const profileController = require('./controllers/profileController')
 
+// controllers
+const profileController = require('./controllers/profileController')
 const colController = require('./controllers/collectionsController');
 const cardController = require('./controllers/cardController');
 
@@ -100,7 +101,7 @@ app.get("/me", (req, res, next) => {
 });
 
 //update profile
-app.post('api/profile/update', profileController.updateProfile );
+app.put('/api/profile/update', profileController.updateProfile );
 
 
 app.post('/api/collections', colController.addCollection);

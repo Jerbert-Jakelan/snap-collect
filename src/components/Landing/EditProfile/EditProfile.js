@@ -12,107 +12,90 @@ class EditProfile extends Component {
       city:'',
       state: '',
       photo:'',
-      modal: false
+      modal: false,
+      user_id: ''
     }
-    this.onChange1=this.onChange1.bind(this);
-    this.onChange2=this.onChange2.bind(this);
-    this.onChange3=this.onChange3.bind(this);
+    this.onChange=this.onChange.bind(this);
     this.updateProfile=this.updateProfile.bind(this);
-    this.toggle = this.toggle.bind(this);
+    this.toggle2 = this.toggle2.bind(this);
+    this.onFileDrop2 = this.onFileDrop2.bind(this);
 }
 
-toggle() {
+toggle2() {
     this.setState({
       modal: !this.state.modal
     });
   }
 
-onChange1(e){
-  // console.log('this is e ', e)
+onChange(e){
+  // console.log('this is state ', this.state)
   this.setState({[e.target.name]: e.target.value});
 }
-onChange2(e){
-    // console.log('this is e ', e)
-    this.setState({[e.target.city]: e.target.value});
-  }
-onChange3(e){
-    // console.log('this is e ', e)
-    this.setState({[e.target.state]: e.target.value});
-  }
 
 
-updateProfile = async(e) => {
+updateProfile = (e) => {
+  console.log('HIT')
   e.preventDefault();
-const { name, city, state, photo} = this.state;
-axios.post(`/api/profile/update`, { name, city, state, photo})
+const { name, city, state, photo, user_id} = this.state;
+axios.put(`/api/profile/update`, { name, city, state, photo})
 }
 
 
-onFileDrop = (file) => {
+onFileDrop2 = (file) => {
   this.setState({photo: file[0]});
 }
 
   render() {
     return (
         <div>
-        <Button outline size='sm' color="info" onClick={this.toggle}>Update</Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>Create New Collection</ModalHeader>
+        <Button outline size='sm' color="info" onClick={this.toggle2}>Update</Button>
+        <Modal isOpen={this.state.modal} toggle={this.toggle2} className={this.props.className}>
+          <ModalHeader toggle={this.toggle2}>Update Your Profile</ModalHeader>
           <ModalBody>
-      <Form type="multipart/form-data" onSubmit={this.addProduct} className="container" style={{maxWidth:600}}>
+      <Form type="multipart/form-data" onSubmit={this.updateProfile} className="container" style={{maxWidth:600}}>
         <FormGroup>
           
-          <Label for="itemName">Name</Label>
+          <Label for="profileName">Name</Label>
           <Input type="text"
            name="name" 
-           id="ProfileName" 
+           id="profileName" 
            placeholder="Enter name" 
            value={this.state.name}
-           onChange={this.onChange1} 
+           onChange={this.onChange} 
            />
         </FormGroup>
 
-        <Label for="city">City</Label>
+        <Label for="cityName">City</Label>
         <Input type="text"
            name="city" 
            id="cityName" 
            placeholder="Enter city" 
            value={this.state.city}
-           onChange={this.onChange2} 
+           onChange={this.onChange} 
            />
            
-        <Label for="state">State</Label>
+        <Label for="stateName">State</Label>
         <Input type="text"
            name="state" 
-           id="StateName" 
+           id="stateName" 
            placeholder="Enter state" 
            value={this.state.state}
-           onChange={this.onChange3} 
+           onChange={this.onChange} 
            />
-        
-        {/* <FormGroup>
-          <Label for="description">Description Area</Label>
-            <Input type="textarea" 
-            name="description" 
-            id="description" 
-            placeholder="Optional...." 
-            value={this.state.description}
-            onChange={this.onChange1}
-            />
-        </FormGroup> */}
 
         <FormGroup>
-            <Label for="file">Photo</Label>
-              <Dropzone id="file" onDrop={this.onFileDrop}  >
-              <img style={{width: '199px', height: '198px'}} src={this.state.photo.preview && this.state.photo.preview} />
+            <Label for="file1">Photo</Label>
+              <Dropzone id="file1" onDrop={this.onFileDrop2}  >
+              <img alt="profilePic" style={{width: '199px', height: '198px'}} src={this.state.photo.preview && this.state.photo.preview} />
               </Dropzone>
+              <Button type="button">Add Files</Button>
         </FormGroup>
      
-        <Button  onClick={ () =>this.updateProfile(this.props.id)} type="submit">Submit</Button>
+        <Button  type="submit">Submit</Button>
       </Form>
       </ModalBody>
           <ModalFooter>
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+            <Button color="secondary" onClick={this.toggle2}>Cancel</Button>
           </ModalFooter>
         </Modal>
         </div>

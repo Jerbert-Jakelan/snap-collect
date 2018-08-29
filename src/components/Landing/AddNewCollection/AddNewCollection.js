@@ -73,7 +73,7 @@ onFileDrop = (file) => {
               type="select"
               value={this.onchange2.val}
               onChange={(e) => this.onchange2(e.target.value)}>
-                <option name="categoryId" value={parseInt(2)}>Baseball</option>
+                <option name="categoryId" value="2">Baseball</option>
                 <option name="categoryId" value="3">Football</option>
                 <option name="categoryId" value="6">Soccer</option>
                 <option name="categoryId" value="5">Basketball</option>
