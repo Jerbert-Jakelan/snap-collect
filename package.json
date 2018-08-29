@@ -8,6 +8,7 @@
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.1.1",
+    "cypress": "^3.1.0",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
@@ -30,7 +31,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "dev": "concurrently \"nodemon\" \"npm start\""
+    "dev": "concurrently \"nodemon\" \"npm start\"",
+    "cypress": "cypress open"
   },
   "main": "server/index.js",
   "proxy": "http://localhost:3001",
