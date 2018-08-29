@@ -1,3 +1,10 @@
+const updateProfile = (req, res) => {
+  // need to write to update profile pic
+}
+
+
+
+
 const addCollection = (req, res) => {
   
   let userId = req.user.user_id;
@@ -45,9 +52,11 @@ const editCollection = (req, res) => {
     });
 }
 
+
 module.exports = {
   addCollection,
   deleteCollection,
   getCollections,
-  editCollection
+  editCollection,
+  updateProfile
 }
