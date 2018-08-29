@@ -4,6 +4,7 @@ import './Landing.css';
 import { Card, CardHeader, CardFooter, CardBody } from 'reactstrap';
 import AddNewCollection from './AddNewCollection/AddNewCollection';
 import EditProfile from './EditProfile/EditProfile';
+import axios from 'axios';
 
 //Hard coded example user profile data
 var user = {
@@ -21,10 +22,20 @@ class Avatar extends Component {
   constructor(){
     super();
     this.state={
-      profilePic:""
+      profile:""
     }
   }
-  // axios.get("")
+  componentDidMount = () => {
+    this.getUser();
+  };
+
+  getUser = () => {
+  axios.get('/api/getProfile').then(res =>{
+    this.SetState({
+        profile:res.data
+    })
+  })
+  }
 
   render() {
     var image = this.props.image,
@@ -34,12 +45,14 @@ class Avatar extends Component {
         }; 
     
     if (!image) return null;
+
+    const {profile} = this.state
+    let loop = profile.map((e,i) =>{
     return (
      <div className="avatar" style={style}>
-           <img src={this.props.image} alt="user pic" /> 
-           
+           <img src={e.profile_pic} alt="user pic" />  
      </div>
-    );
+    )})
   }
 }
 
