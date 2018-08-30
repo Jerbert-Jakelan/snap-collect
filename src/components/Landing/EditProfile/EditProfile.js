@@ -12,6 +12,8 @@ import {
 } from "reactstrap";
 import Dropzone from "react-dropzone";
 import axios from "axios";
+import {connect} from 'react-redux';
+import {setUser} from '../../../ducks/reducer';
 
 class EditProfile extends Component {
   constructor(props) {
@@ -65,6 +67,9 @@ class EditProfile extends Component {
       headers: {
         "Content-Type": "multipart/form-data"
       }
+    })
+    .then(user => {
+      this.props.setUser(user.data[0]);
     });
   };
 
@@ -152,4 +157,6 @@ class EditProfile extends Component {
   }
 }
 
-export default EditProfile;
+const mapStateToProps = state => state;
+
+export default connect(mapStateToProps, {setUser})(EditProfile);

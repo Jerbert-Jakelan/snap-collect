@@ -51,10 +51,12 @@ updateNewCollection = (e) => {
       "Content-Type": "multipart/form-data"
     }
   })
+  .then(collections => {
+    this.props.updateCollections(collections.data)
+  })
 }
 
 onFileDrop = (file) => {
-  console.log(file[0]);
   this.setState({collectionPic: file[0]});
 }
 
