@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import "./Card.css";
 
 export default class Card extends Component {
@@ -16,10 +17,16 @@ export default class Card extends Component {
       this.setState({ rotate: "" });
     }
   };
-
-  deleteCard() {}
-
+  /////////////////////////////
+  deleteCard = (collection_id, card_id) => {
+    console.log(this.props.card);
+    axios.delete(`/api/cards/${collection_id}/${card_id}`).then(cards => {
+      this.props.updateCards(cards.data);
+    });
+  };
+  /////////////////////////////
   render() {
+    // console.log(this.props.card.card_id);
     return (
       <div>
         <div
@@ -41,7 +48,14 @@ export default class Card extends Component {
             </h3>
           </div>
         </div>
-        <button onClick={() => console.log("chopsticks")}>
+        <button
+          onClick={() =>
+            this.deleteCard(
+              this.props.card.collection_id,
+              this.props.card.card_id
+            )
+          }
+        >
           Delete this card
         </button>
       </div>
