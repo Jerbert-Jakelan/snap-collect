@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './Landing.css';
-import { Card, CardHeader, CardFooter, CardBody, CardText } from 'reactstrap';
 import AddNewCollection from './AddNewCollection/AddNewCollection';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {setUser} from '../../ducks/reducer';
 import ProfileLanding from './ProfileLanding/ProfileLanding';
+import {Link} from 'react-router-dom';
+import Collections from './Collections/Collections'
 
 class Avatar extends Component {
   constructor(props){
@@ -16,16 +17,9 @@ class Avatar extends Component {
     }
   }
   componentDidMount = () => {
-    // this.getUser();
     this.getCollections();
   };
-  // getUser = () => {
-  // axios.get('/api/getProfileDefault').then(res =>{
-  //   this.setState({
-  //       profile: res.data
-  //   })
-  // })
-  // }
+
   getCollections = () => {
     axios.get('/api/collections').then(payload =>{
       this.setState({
@@ -59,23 +53,6 @@ class Avatar extends Component {
       </div>
      )
   }
-}
-
-const Collections = (props) => {
-  return (
-    <div>
-      <Card>
-        <CardHeader>{props.name}</CardHeader>
-        <CardBody>
-          <div className="collections" >
-            <img style={{height:50, width:50}} alt="alt" src={props.image}/>
-          </div>
-          <CardText>{props.description}</CardText>
-        </CardBody>
-        <CardFooter></CardFooter>
-      </Card>
-    </div>
-  );
 }
 
 class Landing extends Component {
