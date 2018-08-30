@@ -4,7 +4,7 @@ import "./Nav.css";
 
 export default class Nav extends Component {
   render() {
-    if (this.props.pathname === "/login") {
+    if (this.props.pathname === "/") {
       return null;
     }
     return (
@@ -12,7 +12,7 @@ export default class Nav extends Component {
         <div className="dropdown">
           <button className="drop-btn">Menu</button>
           <div className="dropdown-content">
-            <Link to="/" className="route">
+            <Link to="/dashboard" className="route">
               Dashboard
             </Link>
           </div>
