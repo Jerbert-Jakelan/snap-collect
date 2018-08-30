@@ -5,6 +5,9 @@ import { Card, CardHeader, CardFooter, CardBody, CardText } from 'reactstrap';
 import AddNewCollection from './AddNewCollection/AddNewCollection';
 import EditProfile from './EditProfile/EditProfile';
 import axios from 'axios';
+import {connect} from 'react-redux';
+import {setUser} from '../../ducks/reducer';
+import ProfileLanding from './ProfileLanding/ProfileLanding';
 
 class Avatar extends Component {
   constructor(props){
@@ -33,20 +36,13 @@ class Avatar extends Component {
     })
     }
 
+
+  updateCollections = collection => {
+    this.setState({collection});
+  }
+
   render() {
     const {profile, collection} = this.state
-
-    let loop = profile.map((e,i) =>{  
-    return (
-      <ProfileLanding 
-      index={i}
-      key={e.user_id}
-      image={e.profile_pic}
-      name={e.name}
-      city={e.city}
-      state={e.state}
-      />
-    )})
 
     let looper2 = collection.map((e,i) =>{  
       return (
@@ -62,26 +58,13 @@ class Avatar extends Component {
 
     return (
       <div>
-           {loop}
-           <AddNewCollection/>
+           <ProfileLanding />
+           <AddNewCollection
+            updateCollections={this.updateCollections}/>
            {looper2}
       </div>
      )
   }
-}
-
-const ProfileLanding = (props) =>  {
-  return (
-    <div>
-       <div className="avatar" style={{height:50, width:50}} >
-          <img src={props.image} alt="user pic" />
-      </div>
-      <EditProfile/>
-      <h2>{props.name}</h2>
-          <h3>{props.city}</h3>
-          <h3>{props.state}</h3>
-    </div>
-  )
 }
 
 const Collections = (props) => {
@@ -108,6 +91,12 @@ const Collections = (props) => {
 
 
 class Landing extends Component {
+  async componentDidMount() {
+    let user = await axios.get('/api/getProfile');
+    console.log(user);
+    this.props.setUser(user.data[0]);
+  }
+
   render() {
     return (
       <div>
@@ -118,6 +107,7 @@ class Landing extends Component {
     )
   }
 }
-     
 
-export default Landing;
+const mapStateToProps = state => state;
+
+export default connect(mapStateToProps, {setUser})(Landing);
