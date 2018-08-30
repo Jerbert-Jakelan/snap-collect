@@ -17,16 +17,15 @@ export default class Card extends Component {
       this.setState({ rotate: "" });
     }
   };
-  /////////////////////////////
+  
   deleteCard = (collection_id, card_id) => {
     console.log(this.props.card);
     axios.delete(`/api/cards/${collection_id}/${card_id}`).then(cards => {
       this.props.updateCards(cards.data);
     });
   };
-  /////////////////////////////
+  
   render() {
-    // console.log(this.props.card.card_id);
     return (
       <div>
         <div
