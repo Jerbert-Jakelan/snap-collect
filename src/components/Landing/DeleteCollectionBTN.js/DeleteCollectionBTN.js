@@ -9,6 +9,7 @@ class DeleteCollectionsBTN extends Component{
                 .catch(err => console.log(err))
     }
     render(){
+        console.log(this.props.id)
     return(
         <div>
             <Button onClick={ ()=> this.handleDeleteCollection(this.props.id)}>Delete</Button>

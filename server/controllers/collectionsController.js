@@ -47,7 +47,7 @@ const addCollection = (req, res) => {
 
 const deleteCollection = (req, res) => {
   let userId = req.user.user_id;
-
+console.log("***REQ PARAMS ***", req.params.collection_id)
   req.app.get('db').collections.delete_collection([req.params.collection_id, userId])
     .then(collections => res.status(200).send(collections))
     .catch(err => {
