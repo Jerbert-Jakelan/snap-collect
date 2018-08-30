@@ -3,15 +3,13 @@ import axios from 'axios';
 import { Button } from 'reactstrap';
 
 class DeleteCollectionsBTN extends Component{
-    constructor(props){
-        super(props);
-    }
     handleDeleteCollection = (id) => {
-        axios.delete(`/api/deleteCollection/${id}`)
-            .then(() => this.props.getCollections())
+        axios.delete(`/api/collections/${id}`)
+            // .then(() => this.props.getCollections())
                 .catch(err => console.log(err))
     }
     render(){
+        console.log(this.props.id)
     return(
         <div>
             <Button onClick={ ()=> this.handleDeleteCollection(this.props.id)}>Delete</Button>

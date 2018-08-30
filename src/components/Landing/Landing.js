@@ -5,7 +5,7 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import {setUser} from '../../ducks/reducer';
 import ProfileLanding from './ProfileLanding/ProfileLanding';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import Collections from './Collections/Collections'
 
 class Avatar extends Component {
