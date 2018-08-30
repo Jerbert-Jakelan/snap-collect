@@ -1,111 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
 
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/Icons/cam256x256.png">
-    <link rel="manifest" href="/manifest.json">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
 
-    <title>Snap Collect</title>
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/Icons/cam256x256.png">
+  <link rel="manifest" href="/manifest.json">
 
+  <link href="https://fonts.googleapis.com/css?family=Pridi:500" rel="stylesheet">
+  <title>Snap Collect</title>
 
   <!-- Use viewport-fit=cover to fill the iPhone X notch and also prevent content going under the status bar (if it's translucent) -->
   <!-- More info: https://css-tricks.com/the-notch-and-css/ -->
-  <meta name="viewport"
-  content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
 
-<!-- More PWA settings are in the manifest: https://gist.github.com/sconstantinides/8181934ecf82acde62589bac379f6676 -->
-<link rel="manifest"
-  href="%PUBLIC_URL%/manifest.json">
+  <!-- More PWA settings are in the manifest: https://gist.github.com/sconstantinides/8181934ecf82acde62589bac379f6676 -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
 
-<!-- Android: Define the nav bar color -->
-<!-- More info: https://developers.google.com/web/fundamentals/design-and-ux/browser-customization/#color_browser_elements -->
-<meta name="theme-color"
-  content="#ffffff">
+  <!-- Android: Define the nav bar color -->
+  <!-- More info: https://developers.google.com/web/fundamentals/design-and-ux/browser-customization/#color_browser_elements -->
+  <meta name="theme-color" content="#ffffff">
 
-<!-- iOS specific styles -->
+  <!-- iOS specific styles -->
 
-<meta name="apple-mobile-web-app-capable"
-  content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
 
-<!-- Possible values include default, black, or black-translucent; only black-translucent is truly full screen -->
-<!-- More info: https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html -->
-<meta name="apple-mobile-web-app-status-bar-style"
-  content="black-translucent">
+  <!-- Possible values include default, black, or black-translucent; only black-translucent is truly full screen -->
+  <!-- More info: https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-<!-- Home screen icon -->
-<link rel="apple-touch-icon"
-  href="%PUBLIC_URL%/images/appIcon.png">
+  <!-- Home screen icon -->
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/images/appIcon.png">
 
-<!-- iOS startup images -->
-<!-- More info and Sketch template: https://medium.com/@applification/progressive-web-app-splash-screens-80340b45d210 -->
+  <!-- iOS startup images -->
+  <!-- More info and Sketch template: https://medium.com/@applification/progressive-web-app-splash-screens-80340b45d210 -->
 
-<!-- iPhone SE -->
-<link rel="apple-touch-startup-image"
-  href="%PUBLIC_URL%/images/launch-640x1136.png"
-  media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
-<link rel="apple-touch-startup-image"
-  href="%PUBLIC_URL%/images/launch-640x1136-landscape.png"
-  media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <!-- iPhone SE -->
+  <link rel="apple-touch-startup-image" href="%PUBLIC_URL%/images/launch-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="%PUBLIC_URL%/images/launch-640x1136-landscape.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
 
-<!-- iPhone 6/7/8 -->
-<link rel="apple-touch-startup-image"
-  href="%PUBLIC_URL%/images/launch-750x1294.png"
-  media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
-<link rel="apple-touch-startup-image"
-  href="%PUBLIC_URL%/images/launch-750x1294-landscape.png"
-  media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <!-- iPhone 6/7/8 -->
+  <link rel="apple-touch-startup-image" href="%PUBLIC_URL%/images/launch-750x1294.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="%PUBLIC_URL%/images/launch-750x1294-landscape.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
 
-<!-- iPhone 6+/7+/8+ -->
-<link rel="apple-touch-startup-image"
-  href="%PUBLIC_URL%/images/launch-1242x2148.png"
-  media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
-<link rel="apple-touch-startup-image"
-  href="%PUBLIC_URL%/images/launch-1242x2148-landscape.png"
-  media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <!-- iPhone 6+/7+/8+ -->
+  <link rel="apple-touch-startup-image" href="%PUBLIC_URL%/images/launch-1242x2148.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="%PUBLIC_URL%/images/launch-1242x2148-landscape.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
 
-<!-- iPhone X -->
-<link rel="apple-touch-startup-image"
-  href="%PUBLIC_URL%/images/launch-1125x2436.png"
-  media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
-<link rel="apple-touch-startup-image"
-  href="%PUBLIC_URL%/images/launch-1125x2436-landscape.png"
-  media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <!-- iPhone X -->
+  <link rel="apple-touch-startup-image" href="%PUBLIC_URL%/images/launch-1125x2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="%PUBLIC_URL%/images/launch-1125x2436-landscape.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
 
-<!-- iPad 3/4/Pro 9.7" -->
-<link rel="apple-touch-startup-image"
-  href="%PUBLIC_URL%/images/launch-1536x2048.png"
-  media="(min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
-<link rel="apple-touch-startup-image"
-  href="%PUBLIC_URL%/images/launch-1536x2048-landscape.png"
-  media="(min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape)">
+  <!-- iPad 3/4/Pro 9.7" -->
+  <link rel="apple-touch-startup-image" href="%PUBLIC_URL%/images/launch-1536x2048.png" media="(min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="%PUBLIC_URL%/images/launch-1536x2048-landscape.png" media="(min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape)">
 
-<!-- iPad Pro 10.5" -->
-<link rel="apple-touch-startup-image"
-  href="%PUBLIC_URL%/images/launch-1668x2224.png"
-  media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
-<link rel="apple-touch-startup-image"
-  href="%PUBLIC_URL%/images/launch-1668x2224-landscape.png"
-  media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape)">
+  <!-- iPad Pro 10.5" -->
+  <link rel="apple-touch-startup-image" href="%PUBLIC_URL%/images/launch-1668x2224.png" media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="%PUBLIC_URL%/images/launch-1668x2224-landscape.png" media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape)">
 
-<!-- iPad Pro 12.9" -->
-<link rel="apple-touch-startup-image"
-  href="%PUBLIC_URL%/images/launch-2048x2732.png"
-  media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
-<link rel="apple-touch-startup-image"
-  href="%PUBLIC_URL%/images/launch-2048x2732-landscape.png"
-  media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape)">
+  <!-- iPad Pro 12.9" -->
+  <link rel="apple-touch-startup-image" href="%PUBLIC_URL%/images/launch-2048x2732.png" media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="%PUBLIC_URL%/images/launch-2048x2732-landscape.png" media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape)">
 
 
-    
-  </head>
-  <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <div id="root"></div>
-  </body>
+
+</head>
+
+<body id="mainBody">
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div id="root"></div>
+</body>
+
 </html>
