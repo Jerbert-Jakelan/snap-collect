@@ -18,6 +18,7 @@ export default class Login extends Component {
           <h4>Welcome to</h4>
           <h1 className="appName">Snap Collect</h1>
           <div className="imgDiv">
+            <div className="loader" />
             <img
               className="loginImg"
               src={require("./cam256x256.png")}

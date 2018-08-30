@@ -12,6 +12,7 @@
 .landingMainDiv {
   font-family: "Pridi", serif;
   color: rgba(255, 255, 255, 0.838);
+  text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.434);
   /* background-color: rgba(211, 208, 208, 0.242); */
 }
 .landingDiv2 {
@@ -46,9 +47,11 @@
 
 .loginImg {
   /* width: 32%; */
-  margin: 10px 0px 50px 0px;
-  max-width: 30%;
-  /* max-height: 75%; */
+  margin: 30px 0px 50px 0px;
+  max-width: 36%;
+  border: 9px solid #ddd;
+  border-radius: 50%;
+  border-style: double;
 }
 
 .hr {
@@ -83,4 +86,38 @@ button {
 .pHidden {
   display: none;
   font-size: 2em;
+}
+/* .loader {
+  position: relative;
+  left: 41%;
+  top: 39%;
+  background-position-x: 0%;
+  background-position-y: 0%;
+  border: 2px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 2px solid #72c9b9;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 6s linear infinite;
+  animation: spin 6s linear infinite;
+  align-content: center;
+} */
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
