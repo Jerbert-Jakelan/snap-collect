@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import './Landing.css';
-// import Collections from '../Collections/Collections';
 import { Card, CardHeader, CardFooter, CardBody, CardText } from 'reactstrap';
 import AddNewCollection from './AddNewCollection/AddNewCollection';
-import EditProfile from './EditProfile/EditProfile';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {setUser} from '../../ducks/reducer';
@@ -18,16 +16,16 @@ class Avatar extends Component {
     }
   }
   componentDidMount = () => {
-    this.getUser();
+    // this.getUser();
     this.getCollections();
   };
-  getUser = () => {
-  axios.get('/api/getProfile').then(res =>{
-    this.setState({
-        profile: res.data
-    })
-  })
-  }
+  // getUser = () => {
+  // axios.get('/api/getProfileDefault').then(res =>{
+  //   this.setState({
+  //       profile: res.data
+  //   })
+  // })
+  // }
   getCollections = () => {
     axios.get('/api/collections').then(payload =>{
       this.setState({
@@ -35,14 +33,11 @@ class Avatar extends Component {
       })
     })
     }
-
-
   updateCollections = collection => {
     this.setState({collection});
   }
-
   render() {
-    const {profile, collection} = this.state
+    const {collection} = this.state
 
     let looper2 = collection.map((e,i) =>{  
       return (
@@ -55,7 +50,6 @@ class Avatar extends Component {
         description={e.description}
         />
       )})
-
     return (
       <div>
            <ProfileLanding />
@@ -68,13 +62,11 @@ class Avatar extends Component {
 }
 
 const Collections = (props) => {
-    
   return (
     <div>
       <Card>
         <CardHeader>{props.name}</CardHeader>
         <CardBody>
-          
           <div className="collections" >
             <img style={{height:50, width:50}} alt="alt" src={props.image}/>
           </div>
@@ -82,21 +74,15 @@ const Collections = (props) => {
         </CardBody>
         <CardFooter></CardFooter>
       </Card>
-      
     </div>
   );
 }
 
-//This is for user 
-
-
 class Landing extends Component {
   async componentDidMount() {
     let user = await axios.get('/api/getProfile');
-    console.log(user);
     this.props.setUser(user.data[0]);
   }
-
   render() {
     return (
       <div>
@@ -109,5 +95,4 @@ class Landing extends Component {
 }
 
 const mapStateToProps = state => state;
-
 export default connect(mapStateToProps, {setUser})(Landing);

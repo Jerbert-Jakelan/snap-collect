@@ -10,8 +10,8 @@ const ProfileLanding = (props) =>  {
       </div>
       <EditProfile/>
       <h2>{props.user.name}</h2>
-          <h3>{props.user.city}</h3>
-          <h3>{props.user.state}</h3>
+      <h3>{props.user.city}</h3>
+      <h3>{props.user.state}</h3>
     </div>
   )
 }
