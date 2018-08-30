@@ -1,3 +1,86 @@
+#mainBody {
+  /* background-color: rgb(211, 208, 208); */
+  font-family: "Pridi", serif;
+  padding: 0;
+}
+
+#root {
+  background-image: url("./blur.jpg");
+  /* padding: auto; */
+}
+
+.landingMainDiv {
+  font-family: "Pridi", serif;
+  color: rgba(255, 255, 255, 0.838);
+  /* background-color: rgba(211, 208, 208, 0.242); */
+}
+.landingDiv2 {
+  padding: 17% 5% 20% 5%;
+}
+
+.appName {
+  font-size: 8vw;
+}
+
+.appDescDiv {
+  /* border: 1px solid black; */
+  height: 20vh;
+}
+
+.appDescription {
+  font-size: 4vw;
+  margin: 0 40px 0 40px;
+}
+
 .list {
   list-style-type: none;
+}
+
+.imgDiv {
+  /* border: 1px dotted black; */
+  /* height: 200px; */
+  /* width: 200px; */
+  align-content: center;
+  /* display: flex; */
+}
+
+.loginImg {
+  /* width: 32%; */
+  margin: 10px 0px 50px 0px;
+  max-width: 30%;
+  /* max-height: 75%; */
+}
+
+.hr {
+  width: 78vw;
+}
+
+.loginSeg {
+  margin: 0px 30px 0px 30px;
+  height: 20vh;
+  /* width: 20vw; */
+  /* border: 1px solid rgb(0, 128, 128); */
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.loginSegText {
+  margin: 3vh 0px 0px 0px;
+  font-size: 3vw;
+}
+.clickHereText {
+  font-size: 4vw;
+}
+
+.loginText {
+  font-size: 4vw;
+}
+
+button {
+  border-radius: 10%;
+}
+
+.pHidden {
+  display: none;
+  font-size: 2em;
 }
