@@ -42,12 +42,22 @@ updateProfile = (e) => {
   // console.log('HIT')
   e.preventDefault();
   // console.log(this.state)
-let { name, city, state, photo} = this.state;
-console.log(name, city, state, photo)
-axios.put(`/api/profile/update`, { name, city, state, photo:photo.preview})
+  let { name, city, state, photo} = this.state;
+
+  const formData = new FormData();
+
+  formData.append("file", photo);
+  formData.append("name", name);
+  formData.append("city", city);
+  formData.append("state", state);
+
+  console.log(name, city, state, photo)
+  axios.put(`/api/profile/update`, formData, {
+    headers: {
+      "Content-Type": "multipart/form-data"
+    }
+  })
 }
-
-
 
 onFileDrop2 = (file) => {
   this.setState({photo: file[0]});
