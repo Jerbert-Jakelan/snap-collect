@@ -140,18 +140,18 @@ const downloadImg = (url, fileName) => {
     });
   });
 };
-
+/////////////////////////////
 const delCards = (req, res) => {
   req.app
     .get("db")
-    .cards.delete_card([req.params.card_id])
-    .then(collections => res.status(200).send(collections))
+    .cards.delete_card([req.params.card_id, req.params.collection_id])
+    .then(cards => res.status(200).send(cards))
     .catch(err => {
       console.log(err);
       res.sendStatus(500);
     });
 };
-
+/////////////////////////////
 module.exports = {
   createCard,
   getCards,

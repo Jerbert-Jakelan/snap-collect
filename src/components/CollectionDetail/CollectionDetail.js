@@ -23,6 +23,10 @@ class CollectionDetail extends Component {
       .catch(err => console.log(err));
   };
 
+  updateCards = cards => {
+    this.setState({ cards: cards });
+  };
+
   resolveSearch = result => {
     if (result.message) {
       this.setState({ dupMessage: result.message, visible: true });
@@ -37,7 +41,9 @@ class CollectionDetail extends Component {
 
   render() {
     let cards = this.state.cards.map(card => {
-      return <Card key={card.card_id} card={card} />;
+      return (
+        <Card updateCards={this.updateCards} key={card.card_id} card={card} />
+      );
     });
     return (
       <div className="collection-home">
