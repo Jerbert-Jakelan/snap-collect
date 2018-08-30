@@ -10,7 +10,7 @@ class Nav extends Component {
       return null;
     }
     if (this.props.pathname === `/collection/${this.props.selectedCollection}`) {
-      return <DeleteCollectionsBTN/>;
+      return <DeleteCollectionsBTN id={this.props.selectedCollection}/>;
     }
     console.log(this.props)
     return (
