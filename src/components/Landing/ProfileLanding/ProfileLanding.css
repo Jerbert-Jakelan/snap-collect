@@ -1,0 +1,11 @@
+.profileText {
+  text-transform: capitalize;
+  font-family: "Pridi", serif;
+  color: rgba(255, 255, 255, 0.838);
+  text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.434);
+  margin: 20px 0 20px 0;
+}
+
+.profileText2 {
+  margin: 10px 0 1px 0;
+}

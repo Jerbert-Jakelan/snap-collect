@@ -41,7 +41,7 @@ export default class Login extends Component {
               <h4 className="clickHereText">Click here to sign up</h4>
               <h4 className="loginText">or log in</h4>
               <a href={process.env.REACT_APP_LOGIN}>
-                <button classname="buttonLanding">Get Started</button>
+                <button className="buttonLanding">Get Started</button>
               </a>
             </div>
           </div>
