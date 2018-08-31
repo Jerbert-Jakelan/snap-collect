@@ -12,8 +12,8 @@ import {
 } from "reactstrap";
 import Dropzone from "react-dropzone";
 import axios from "axios";
-import {connect} from 'react-redux';
-import {setUser} from '../../../ducks/reducer';
+import { connect } from "react-redux";
+import { setUser } from "../../../ducks/reducer";
 
 class EditProfile extends Component {
   constructor(props) {
@@ -36,9 +36,6 @@ class EditProfile extends Component {
     // console.log("TOGGLE 2 FIRED")
     this.setState({
       modal: !this.state.modal
-      // city: '',
-      // state: '',
-      // name: ''
     });
   }
 
@@ -63,14 +60,15 @@ class EditProfile extends Component {
     formData.append("state", state);
 
     console.log(name, city, state, photo);
-    axios.put(`/api/profile/update`, formData, {
-      headers: {
-        "Content-Type": "multipart/form-data"
-      }
-    })
-    .then(user => {
-      this.props.setUser(user.data[0]);
-    });
+    axios
+      .put(`/api/profile/update`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      })
+      .then(user => {
+        this.props.setUser(user.data[0]);
+      });
   };
 
   onFileDrop2 = file => {
@@ -159,4 +157,7 @@ class EditProfile extends Component {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, {setUser})(EditProfile);
+export default connect(
+  mapStateToProps,
+  { setUser }
+)(EditProfile);

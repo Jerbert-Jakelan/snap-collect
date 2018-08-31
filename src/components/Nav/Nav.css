@@ -21,7 +21,8 @@
 
 .drop-btn {
   background-color: #607d8b;
-  color: white;
+  color: rgba(255, 255, 255, 0.838);
+  text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.434);
   padding: 15px;
   font-size: 16px;
   border: none;
@@ -35,10 +36,11 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #757575;
+  background-color: #44878695;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.208);
   z-index: 1;
+  border-radius: 2%;
 }
 
 .dropdown-content a {
@@ -50,6 +52,7 @@
 
 .dropdown-content a:hover {
   background-color: #bdbdbd;
+  text-decoration: none;
 }
 
 .dropdown:hover .dropdown-content {
@@ -64,5 +67,8 @@
 /* Header */
 .header {
   margin-left: 75px;
+  color: rgba(255, 255, 255, 0.838);
+  text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.434);
+  margin: auto;
 }
 /* Header -end- */

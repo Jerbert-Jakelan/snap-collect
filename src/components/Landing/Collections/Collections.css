@@ -1,0 +1,13 @@
+.cardDisplay {
+  margin: 5px 0 5px 0;
+}
+
+.card {
+  border-radius: 11px;
+}
+
+.collectionImage {
+  height: 150px;
+  width: auto;
+  justify-content: center;
+}

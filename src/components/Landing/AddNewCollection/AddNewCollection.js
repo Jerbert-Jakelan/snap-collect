@@ -1,3 +1,4 @@
+import "./AddNewCollection.css";
 import React, { Component } from "react";
 import {
   Button,
@@ -73,8 +74,15 @@ class AddNewCollection extends Component {
   render() {
     return (
       <div>
-        <Button outline color="danger" onClick={this.toggle}>
-          Add New
+        <hr />
+        <Button
+          className="collectionButton"
+          size="sm"
+          outline
+          color="secondary"
+          onClick={this.toggle}
+        >
+          Add New Collection
         </Button>
 
         <Modal
