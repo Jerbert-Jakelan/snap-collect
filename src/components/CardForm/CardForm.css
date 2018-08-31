@@ -1,0 +1,16 @@
+.search-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: stretch;
+  margin: 15px;
+  height: 260px;
+  width: 375px;
+  border-radius: 10px;
+}
+
+.collect-input {
+  margin: 10px;
+}

@@ -1,17 +1,19 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component } from "react";
+import axios from "axios";
+import { Button } from "reactstrap";
+import "./CardForm.css";
 
 class CardForm extends Component {
   state = {
-    name: '',
+    name: "",
     cardImage: null,
-    team: '',
-    year: ''
-  }
+    team: "",
+    year: ""
+  };
 
   handleChange = e => {
-    this.setState({[e.target.name]: e.target.value});
-  }
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   handleFileUpload = e => {
     this.setState({ file: e.target.files });
@@ -26,16 +28,17 @@ class CardForm extends Component {
     formData.append("team", this.state.team);
     formData.append("year", this.state.year);
     formData.append("collection", this.props.collectionId);
-    
-    axios.post(`/api/cards`, formData, {
+
+    axios
+      .post(`/api/cards`, formData, {
         headers: {
           "Content-Type": "multipart/form-data"
         }
       })
       .then(result => {
         this.props.resolveSearch(result.data);
-        this.setState({file: null, name: '', team: '', year: ''});
-        console.log('Success!');
+        this.setState({ file: null, name: "", team: "", year: "" });
+        console.log("Success!");
       })
       .catch(err => {
         console.log(err);
@@ -44,32 +47,45 @@ class CardForm extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.submitFile}>
-          <input 
+      <div className="form-contain">
+        <form className="search-form" onSubmit={this.submitFile}>
+          <input
+            className="collect-input"
             data-cy-card-name-input
             type="text"
             name="name"
+            placeholder="Name"
             onChange={this.handleChange}
-            value={this.state.name} />
-          <input 
+            value={this.state.name}
+          />
+          <input
+            className="collect-input"
             data-cy-card-team-input
             type="text"
             name="team"
+            placeholder="Team"
             onChange={this.handleChange}
-            value={this.state.team} />
-          <input 
+            value={this.state.team}
+          />
+          <input
+            className="collect-input"
             data-cy-card-year-input
             type="text"
             name="year"
+            placeholder="Year"
             onChange={this.handleChange}
-            value={this.state.year}  />
+            value={this.state.year}
+          />
           <input
+            className="collect-input"
             label="Card Image"
             type="file"
             accept=".png, .jpg, .jpeg"
-            onChange={this.handleFileUpload} />
-          <button type="submit">Create</button>
+            onChange={this.handleFileUpload}
+          />
+          <Button outline color="danger" type="submit">
+            Create
+          </Button>
         </form>
       </div>
     );
