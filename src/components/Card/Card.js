@@ -17,14 +17,14 @@ export default class Card extends Component {
       this.setState({ rotate: "" });
     }
   };
-  
+
   deleteCard = (collection_id, card_id) => {
     console.log(this.props.card);
     axios.delete(`/api/cards/${collection_id}/${card_id}`).then(cards => {
       this.props.updateCards(cards.data);
     });
   };
-  
+
   render() {
     return (
       <div>
@@ -34,7 +34,7 @@ export default class Card extends Component {
           onClick={this.rotateCard}
         >
           <div className="card-face front">
-            <img alt="?" src={this.props.card.image} />
+            <img className="image-source" alt="?" src={this.props.card.image} />
           </div>
           <div className="card-face back">
             <h2>
