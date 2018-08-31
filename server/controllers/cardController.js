@@ -4,6 +4,8 @@ const fileType = require("file-type");
 const bluebird = require("bluebird");
 const multiparty = require("multiparty");
 const cv = require("opencv4nodejs");
+const jo = require('jpeg-autorotate')
+const sharp = require('sharp');
 
 AWS.config.update({
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -37,35 +39,53 @@ const createCard = (req, res) => {
     const type = fileType(buffer);
     const timestamp = Date.now().toString();
     const fileName = `${timestamp}`;
-    const data = await uploadFile(buffer, fileName, type, collection);
+    
+    const options = {quality: 85}
 
-    let { kp, desc } = await mapTemplateImage(data.Location);
+    jo.rotate(buffer, options, async function(error, buffer, orientation, dimensions) {
+      if (error) {
+        console.log('An error occurred when rotating the file: ' + error.message)
+        return
+      }
+      console.log('Orientation was: ' + orientation)
+      console.log('Height after rotation: ' + dimensions.height)
+      console.log('Width after rotation: ' + dimensions.width)
+      
+      await sharp(buffer)
+      .resize(1000)
+      .toFile('./server/template.jpg');
 
-    let possibleMatch = await compareCards(req, collection[0], desc);
-
-    if (possibleMatch && possibleMatch.matches.length > 50) {
-      // let finalMatch = cv.drawMatches(cv.imread('./server/template.jpg'), possibleMatch.card, kp, possibleMatch.keyPoints, possibleMatch.matches);
-      // cv.imwrite('./server/result.jpg', finalMatch);
-      fs.unlink("./server/temp.jpg", err => console.log(err));
-      fs.unlink("./server/template.jpg", err => console.log(err));
-      res.send({
-        message: "You already have this card!",
-        image: possibleMatch.card.image
-      });
-    } else {
-      fs.unlink("./server/temp.jpg", err => console.log(err));
-      fs.unlink("./server/template.jpg", err => console.log(err));
-      let cards = await req.app
-        .get("db")
-        .cards.create_card([
-          name[0],
-          team[0],
-          year[0],
-          data.Location,
-          collection[0]
-        ]);
-      res.status(200).send(cards);
-    }
+      let jpegData = fs.readFileSync('./server/template.jpg');
+      
+      let desc = await mapTemplateImage();
+      
+      let possibleMatch = await compareCards(req, collection[0], desc);
+      
+      if (possibleMatch && possibleMatch.matches.length > 500) {
+        // let finalMatch = cv.drawMatches(cv.imread('./server/template.jpg'), possibleMatch.card, kp, possibleMatch.keyPoints, possibleMatch.matches);
+        // cv.imwrite('./server/result.jpg', finalMatch);
+        fs.unlink("./server/temp.jpg", err => console.log(err));
+        fs.unlink("./server/template.jpg", err => console.log(err));
+        res.send({
+          message: "You already have this card!",
+          image: possibleMatch.card.image
+        });
+      } else {
+        // fs.unlink("./server/temp.jpg", err => console.log(err));
+        // fs.unlink("./server/template.jpg", err => console.log(err));
+        const data = await uploadFile(jpegData, fileName, type, collection);
+        let cards = await req.app
+          .get("db")
+          .cards.create_card([
+            name[0],
+            team[0],
+            year[0],
+            data.Location,
+            parseInt(collection[0], 10)
+          ]);
+        res.status(200).send(cards);
+      }
+    })
   });
 };
 
@@ -79,6 +99,7 @@ const getCards = (req, res) => {
 
 const compareCards = async (req, colId, desc1) => {
   let cards = await req.app.get("db").cards.get_cards(colId);
+  console.log(cards);
   let best = null;
   const sift = new cv.SIFTDetector();
 
@@ -108,17 +129,17 @@ const compareCards = async (req, colId, desc1) => {
   return best;
 };
 
-const mapTemplateImage = url => {
+const mapTemplateImage = () => {
   return new Promise(async (resolve, reject) => {
-    let template = await downloadImg(url, "template");
-    let card = cv.imread(template);
+    // let template = await downloadImg(url, "template");
+    let card = cv.imread('./server/template.jpg');
 
     const sift = new cv.SIFTDetector();
     let kp = await sift.detectAsync(card);
 
     let desc = await sift.computeAsync(card, kp);
 
-    resolve({ kp, desc });
+    resolve(desc);
   });
 };
 

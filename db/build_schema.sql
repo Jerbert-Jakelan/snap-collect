@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS cards (
     team VARCHAR(50),
     tradable BOOLEAN,
     year VARCHAR(10),
-    collection_id INTEGER REFERENCES collections(collection_id) ON DELETE CASCADE;
+    collection_id INTEGER REFERENCES collections(collection_id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS trades (
