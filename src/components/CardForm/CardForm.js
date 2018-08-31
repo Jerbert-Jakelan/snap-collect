@@ -53,6 +53,7 @@ class CardForm extends Component {
             className="collect-input"
             data-cy-card-name-input
             type="text"
+            required
             name="name"
             placeholder="Name"
             onChange={this.handleChange}
@@ -61,6 +62,7 @@ class CardForm extends Component {
           <input
             className="collect-input"
             data-cy-card-team-input
+            required
             type="text"
             name="team"
             placeholder="Team"
@@ -70,6 +72,7 @@ class CardForm extends Component {
           <input
             className="collect-input"
             data-cy-card-year-input
+            required
             type="text"
             name="year"
             placeholder="Year"
@@ -78,6 +81,7 @@ class CardForm extends Component {
           />
           <input
             className="collect-input"
+            required
             label="Card Image"
             type="file"
             accept=".png, .jpg, .jpeg"
