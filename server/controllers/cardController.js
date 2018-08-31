@@ -45,12 +45,8 @@ const createCard = (req, res) => {
     jo.rotate(buffer, options, async function(error, buffer, orientation, dimensions) {
       if (error) {
         console.log('An error occurred when rotating the file: ' + error.message)
-        return
       }
-      console.log('Orientation was: ' + orientation)
-      console.log('Height after rotation: ' + dimensions.height)
-      console.log('Width after rotation: ' + dimensions.width)
-      
+
       await sharp(buffer)
       .resize(1000)
       .toFile('./server/template.jpg');
