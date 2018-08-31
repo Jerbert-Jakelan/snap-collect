@@ -42,6 +42,7 @@ export default class Card extends Component {
           </div>
         </div>
         <button
+          className="deleteThisCard"
           onClick={() =>
             this.deleteCard(
               this.props.card.collection_id,
