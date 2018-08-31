@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  background-image: url("./components/Login/blur.jpg"),
+    url("./components/Login/blurflip.jpg");
+  background-repeat: no-repeat, repeat;
+  height: 100%;
 }
 
 .App-logo {
@@ -23,6 +27,10 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
