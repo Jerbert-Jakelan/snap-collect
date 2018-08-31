@@ -29,6 +29,7 @@
   backface-visibility: hidden;
   border-radius: 4px;
   box-shadow: 7px 7px 5px #0000006b;
+  text-transform: capitalize;
 }
 
 .rotate {

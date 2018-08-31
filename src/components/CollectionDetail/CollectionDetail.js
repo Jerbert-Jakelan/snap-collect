@@ -58,8 +58,8 @@ class CollectionDetail extends Component {
       )
       .map((e, i) => {
         return <Card updateCards={this.updateCards} key={e.card_id} card={e} />;
-        <div className="tableDiv" key={i}>
-          <div className="styleTable">{e.name}</div>
+        <div key={i}>
+          <div>{e.name}</div>
         </div>;
       });
 
