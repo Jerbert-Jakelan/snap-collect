@@ -26,7 +26,7 @@ class Collections extends Component {
             </div>
             <CardText>{this.props.description}</CardText>
           </CardBody>
-          <CardFooter />
+          {/* <CardFooter /> */}
         </Card>
       </div>
     );

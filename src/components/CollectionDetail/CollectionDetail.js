@@ -4,12 +4,14 @@ import CardForm from "../CardForm/CardForm";
 import Card from "../Card/Card";
 import { Alert } from "reactstrap";
 import "./CollectionDetail.css";
+import DeleteCollectionBTN from "../Landing/DeleteCollectionBTN.js/DeleteCollectionBTN";
 
 class CollectionDetail extends Component {
   state = {
     cards: [],
     dupMessage: "",
-    visible: false
+    visible: false,
+    input: ""
   };
 
   componentDidMount() {
@@ -39,14 +41,44 @@ class CollectionDetail extends Component {
     this.setState({ visible: false });
   };
 
-  render() {
-    let cards = this.state.cards.map(card => {
-      return (
-        <Card updateCards={this.updateCards} key={card.card_id} card={card} />
-      );
+  handleInput(val) {
+    this.setState({
+      input: val.toLowerCase()
     });
+  }
+
+  render() {
+    const { input } = this.state;
+    let cardSearch = this.state.cards
+      .filter(
+        e =>
+          e.name.toLowerCase().includes(input) ||
+          e.team.toLowerCase().includes(input) ||
+          e.year.toLowerCase().includes(input)
+      )
+      .map((e, i) => {
+        return <Card updateCards={this.updateCards} key={e.card_id} card={e} />;
+        <div className="tableDiv" key={i}>
+          <div className="styleTable">{e.name}</div>
+        </div>;
+      });
+
+    // let cards = this.state.cards.map(card => {
+    // });
+
     return (
       <div className="collection-home">
+        <hr />
+        {/* {cardSearch} */}
+        <hr />
+        <input
+          className="inputSearch"
+          placeholder="Search"
+          onChange={event => this.handleInput(event.target.value)}
+        />
+        <hr />
+
+        <DeleteCollectionBTN />
         <Alert
           color="warning"
           isOpen={this.state.visible}
@@ -58,7 +90,7 @@ class CollectionDetail extends Component {
           collectionId={this.props.match.params.collection_id}
           resolveSearch={this.resolveSearch}
         />
-        <div className="card-wrapper"> {cards} </div>
+        <div className="card-wrapper"> {cardSearch} </div>
       </div>
     );
   }
