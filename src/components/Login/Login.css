@@ -4,16 +4,6 @@
   padding: 0;
 }
 
-#root {
-  background-image: url("./blur.jpg"), url("blurflip.jpg");
-  /* background-size: auto; */
-
-  background-repeat: no-repeat, repeat;
-  /* background-position: top center, bottom center, center bottom; */
-
-  /* padding: auto; */
-}
-
 .landingMainDiv {
   /* background-image: url("./blur.jpg"); */
   font-family: "Pridi", serif;
