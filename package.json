@@ -28,6 +28,7 @@
     "react-scripts": "1.1.5",
     "reactstrap": "^6.4.0",
     "redux": "^4.0.0",
+    "s3": "^4.4.0",
     "sharp": "^0.20.7"
   },
   "scripts": {
