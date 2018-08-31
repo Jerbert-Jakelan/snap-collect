@@ -34,7 +34,7 @@ export default class Card extends Component {
           onClick={this.rotateCard}
         >
           <div className="card-face front">
-            <img alt="?" src={this.props.card.image} />
+            <img className="image-source" alt="?" src={this.props.card.image} />
           </div>
           <div className="card-face back">
             <h2>Player: {this.props.card.name}</h2>
