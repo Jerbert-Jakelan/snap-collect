@@ -16,7 +16,9 @@ class Avatar extends Component {
       collection:[]
     }
   }
-  componentDidMount = () => {
+  componentDidMount = async() => {
+    let user = await axios.get('/api/getProfile');
+    this.props.setUser(user.data[0]);
     this.getCollections();
   };
 
@@ -32,7 +34,6 @@ class Avatar extends Component {
   }
   render() {
     const {collection} = this.state
-
     let looper2 = collection.map((e,i) =>{  
       return (
         <Collections
@@ -56,10 +57,6 @@ class Avatar extends Component {
 }
 
 class Landing extends Component {
-  async componentDidMount() {
-    let user = await axios.get('/api/getProfile');
-    this.props.setUser(user.data[0]);
-  }
   render() {
     return (
       <div>
@@ -72,4 +69,4 @@ class Landing extends Component {
 }
 
 const mapStateToProps = state => state;
-export default connect(mapStateToProps, {setUser})(Landing);
+export default connect(mapStateToProps, {setUser})(Avatar);
