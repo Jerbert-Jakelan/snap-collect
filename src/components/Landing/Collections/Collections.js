@@ -9,7 +9,7 @@ class Collections extends Component {
   render() {
     console.log(this.props);
     return (
-      <div className="cardDisplay">
+      <div data-cy-collections className="cardDisplay">
         <Card>
           <CardHeader>{this.props.name}</CardHeader>
           <CardBody>
