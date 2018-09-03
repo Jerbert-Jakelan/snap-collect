@@ -21,6 +21,9 @@ class Nav extends Component {
             <Link to="/dashboard" className="route">
               Dashboard
             </Link>
+            <Link to="/publiccollections" className="route">
+              Public Collections
+            </Link>
           </div>
         </div>
         <h2 className="header">Snap Collect</h2>
