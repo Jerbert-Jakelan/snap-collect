@@ -94,26 +94,17 @@ const editCollection = (req, res) => {
       console.log(err);
       res.sendStatus(500);
     });
-<<<<<<< HEAD
 };
-=======
-}
 
 const getCategories = async (req, res) => {
-  let categories = await req.app.get('db').collections.get_categories();
+  let categories = await req.app.get("db").collections.get_categories();
   res.status(200).send(categories);
-}
->>>>>>> master
+};
 
 module.exports = {
   addCollection,
   deleteCollection,
   getCollections,
-<<<<<<< HEAD
-  editCollection
-};
-=======
   editCollection,
   getCategories
-}
->>>>>>> master
+};
