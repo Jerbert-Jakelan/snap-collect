@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import '../CollectionDetail/CollectionDetail.css';
 import axios from 'axios';
 import {Card} from 'reactstrap';
+import Collections from '../Landing/Collections/Collections'
 
 
 class PublicCollection extends Component{
@@ -21,7 +22,7 @@ class PublicCollection extends Component{
       };
 
       getUsers = () => {
-        axios.get('/api/getProfile')
+        axios.get('/api/getAllUsers')
         .then(res => {
           this.setState({
             users:res.data
@@ -56,9 +57,18 @@ class PublicCollection extends Component{
               e.description.toLowerCase().includes(input)
           )
           .map((e, i) => {
-            return <Card index={i} updateCollections={this.updateCollections} key={e.collection_id} card={e} />;
-          })
-    
+            return (
+              <Collections
+              index={i}
+              key={e.collection_id}
+              collId={e.collection_id}
+              image={e.collection_pic}
+              name={e.name}
+              description={e.description}
+              updateCollections={this.updateCollections}
+              />
+            )})
+          
         return (
           <div className="collection-home">
                 <input
