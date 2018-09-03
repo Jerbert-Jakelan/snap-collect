@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Button } from "reactstrap";
-import Loader from 'react-loader-spinner';
+import Loader from "react-loader-spinner";
 import "./CardForm.css";
 
 class CardForm extends Component {
@@ -23,7 +23,7 @@ class CardForm extends Component {
 
   submitFile = e => {
     e.preventDefault();
-    this.setState({loading: true});
+    this.setState({ loading: true });
     const formData = new FormData();
 
     formData.append("file", this.state.file[0]);
@@ -40,7 +40,13 @@ class CardForm extends Component {
       })
       .then(result => {
         this.props.resolveSearch(result.data);
-        this.setState({ file: null, name: "", team: "", year: "", loading: false });
+        this.setState({
+          file: null,
+          name: "",
+          team: "",
+          year: "",
+          loading: false
+        });
         console.log("Success!");
       })
       .catch(err => {
@@ -48,11 +54,14 @@ class CardForm extends Component {
       });
   };
 
-  
   render() {
-    let createBtn = this.state.loading ? 
-      <Loader type="Oval" color="#00BFFF" height="50"	width="50" /> :
-      <Button outline color="danger" type="submit">Create</Button>
+    let createBtn = this.state.loading ? (
+      <Loader type="Oval" color="#00BFFF" height="50" width="50" />
+    ) : (
+      <Button outline color="danger" type="submit">
+        Create
+      </Button>
+    );
 
     return (
       <div className="form-contain">

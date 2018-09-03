@@ -32,8 +32,8 @@ class AddNewCollection extends Component {
   }
 
   async componentDidMount() {
-    let categories = await axios.get('/api/categories');
-    this.setState({categories: categories.data});
+    let categories = await axios.get("/api/categories");
+    this.setState({ categories: categories.data });
   }
 
   toggle() {
@@ -80,7 +80,11 @@ class AddNewCollection extends Component {
   render() {
     let categories = this.state.categories.map(category => {
       return (
-        <option name="categoryId" value={category.category_id}>
+        <option
+          key={category.category_id}
+          name="categoryId"
+          value={category.category_id}
+        >
           {category.name}
         </option>
       );

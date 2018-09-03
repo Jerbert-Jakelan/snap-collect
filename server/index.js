@@ -106,10 +106,10 @@ app.get("/api/getProfile", profileController.getUser);
 
 //collection endpoints
 app.post("/api/collections", colController.addCollection);
-app.delete("/api/collections/:collection_id", colController.deleteCollection);
 app.get("/api/collections", colController.getCollections);
 app.put("/api/collections/:id", colController.editCollection);
-app.get('/api/categories', colController.getCategories);
+app.delete("/api/collections/:collection_id", colController.deleteCollection);
+app.get("/api/categories", colController.getCategories);
 
 //card endpoints
 app.post("/api/cards", cardController.createCard);

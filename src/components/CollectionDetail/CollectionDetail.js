@@ -3,7 +3,7 @@ import axios from "axios";
 import CardForm from "../CardForm/CardForm";
 import Card from "../Card/Card";
 import { Alert, Button } from "reactstrap";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import "./CollectionDetail.css";
 import DeleteCollectionBTN from "../Landing/DeleteCollectionBTN.js/DeleteCollectionBTN";
 
@@ -74,7 +74,7 @@ class CollectionDetail extends Component {
         />
         <hr />
 
-        <DeleteCollectionBTN />
+        <DeleteCollectionBTN id={this.props.match.params.collection_id} />
 
         <Alert
           color="warning"
@@ -90,7 +90,9 @@ class CollectionDetail extends Component {
         <div className="card-wrapper"> {cardSearch} </div>
         <div>
           <h3>Explore ~ Find ~ Trade ~ Communicate</h3>
-          <Link to="/PublicCollection"><Button>Click Meeee</Button></Link>
+          <Link to="/PublicCollection">
+            <Button>Click Meeee</Button>
+          </Link>
         </div>
       </div>
     );
