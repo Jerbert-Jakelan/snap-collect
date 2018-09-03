@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import CardForm from "../CardForm/CardForm";
 import Card from "../Card/Card";
-import { Alert } from "reactstrap";
+import { Alert, Button } from "reactstrap";
+import { Link } from 'react-router-dom';
 import "./CollectionDetail.css";
 import DeleteCollectionBTN from "../Landing/DeleteCollectionBTN.js/DeleteCollectionBTN";
 import { Link } from "react-router-dom";
@@ -59,27 +60,26 @@ class CollectionDetail extends Component {
       )
       .map((e, i) => {
         return <Card updateCards={this.updateCards} key={e.card_id} card={e} />;
-        <div key={i}>
-          <div>{e.name}</div>
-        </div>;
+        // <div key={i}>
+        //   <div>{e.name}</div>
+        // </div>;
       });
-
-    // let cards = this.state.cards.map(card => {
-    // });
 
     return (
       <div className="collection-home">
         <hr />
-        {/* {cardSearch} */}
-        <hr />
         <input
           className="inputSearch"
-          placeholder="Search"
+          placeholder="Search My collection"
           onChange={event => this.handleInput(event.target.value)}
         />
         <hr />
 
+<<<<<<< HEAD
         <DeleteCollectionBTN id={this.props.match.params.collection_id} />
+=======
+        <DeleteCollectionBTN />
+>>>>>>> master
 
         <Alert
           color="warning"
@@ -93,6 +93,10 @@ class CollectionDetail extends Component {
           resolveSearch={this.resolveSearch}
         />
         <div className="card-wrapper"> {cardSearch} </div>
+        <div>
+          <h3>Explore ~ Find ~ Trade ~ Communicate</h3>
+          <Link to="/PublicCollection"><Button>Click Meeee</Button></Link>
+        </div>
       </div>
     );
   }

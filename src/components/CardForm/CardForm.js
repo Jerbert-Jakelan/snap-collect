@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Button } from "reactstrap";
+import Loader from 'react-loader-spinner';
 import "./CardForm.css";
 
 class CardForm extends Component {
@@ -8,7 +9,8 @@ class CardForm extends Component {
     name: "",
     cardImage: null,
     team: "",
-    year: ""
+    year: "",
+    loading: false
   };
 
   handleChange = e => {
@@ -21,6 +23,7 @@ class CardForm extends Component {
 
   submitFile = e => {
     e.preventDefault();
+    this.setState({loading: true});
     const formData = new FormData();
 
     formData.append("file", this.state.file[0]);
@@ -37,7 +40,7 @@ class CardForm extends Component {
       })
       .then(result => {
         this.props.resolveSearch(result.data);
-        this.setState({ file: null, name: "", team: "", year: "" });
+        this.setState({ file: null, name: "", team: "", year: "", loading: false });
         console.log("Success!");
       })
       .catch(err => {
@@ -45,7 +48,12 @@ class CardForm extends Component {
       });
   };
 
+  
   render() {
+    let createBtn = this.state.loading ? 
+      <Loader type="Oval" color="#00BFFF" height="50"	width="50" /> :
+      <Button outline color="danger" type="submit">Create</Button>
+
     return (
       <div className="form-contain">
         <form className="search-form" onSubmit={this.submitFile}>
@@ -78,6 +86,7 @@ class CardForm extends Component {
             placeholder="Year"
             onChange={this.handleChange}
             value={this.state.year}
+            maxLength="10"
           />
           <input
             className="collect-input"
@@ -87,9 +96,13 @@ class CardForm extends Component {
             accept=".png, .jpg, .jpeg"
             onChange={this.handleFileUpload}
           />
+<<<<<<< HEAD
           <Button className="createBtn" outline color="danger" type="submit">
             Create
           </Button>
+=======
+          {createBtn}
+>>>>>>> master
         </form>
       </div>
     );

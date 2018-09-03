@@ -56,17 +56,17 @@ class Avatar extends Component {
   }
 }
 
-class Landing extends Component {
-  render() {
-    return (
-      <div>
-        <div id="user-profile">
-          <Avatar/>
-        </div>
-      </div>
-    )
-  }
-}
+// class Landing extends Component {
+//   render() {
+//     return (
+//       <div>
+//         <div id="user-profile">
+//           <Avatar/>
+//         </div>
+//       </div>
+//     )
+//   }
+// }
 
 const mapStateToProps = state => state;
 export default connect(mapStateToProps, {setUser})(Avatar);
