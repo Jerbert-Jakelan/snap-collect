@@ -88,12 +88,7 @@ class CollectionDetail extends Component {
           resolveSearch={this.resolveSearch}
         />
         <div className="card-wrapper"> {cardSearch} </div>
-        <div>
-          <h3>Explore ~ Find ~ Trade ~ Communicate</h3>
-          <Link to="/PublicCollection">
-            <Button>Click Meeee</Button>
-          </Link>
-        </div>
+
       </div>
     );
   }

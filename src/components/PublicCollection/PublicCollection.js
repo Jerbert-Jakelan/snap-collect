@@ -31,7 +31,7 @@ class PublicCollection extends Component{
       }
     
       getCollections = () => {
-        axios.get('/api/collections').then(payload =>{
+        axios.get('/api/getAllCollections').then(payload =>{
           this.setState({
               collection: payload.data
           })

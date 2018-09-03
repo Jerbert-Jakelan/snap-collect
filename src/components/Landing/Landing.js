@@ -3,9 +3,10 @@ import './Landing.css';
 import AddNewCollection from './AddNewCollection/AddNewCollection';
 import axios from 'axios';
 import {connect} from 'react-redux';
+import {Button} from 'reactstrap';
 import {setUser} from '../../ducks/reducer';
 import ProfileLanding from './ProfileLanding/ProfileLanding';
-// import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Collections from './Collections/Collections'
 
 class Avatar extends Component {
@@ -51,23 +52,17 @@ class Avatar extends Component {
            <ProfileLanding />
            <AddNewCollection
             updateCollections={this.updateCollections}/>
+           <div>
+            <h3>Explore ~ Find ~ Trade ~ Communicate</h3>
+            <Link to="/PublicCollection">
+              <Button>Public Collections</Button>
+            </Link>
+          </div>
            {looper2}
       </div>
      )
   }
 }
-
-// class Landing extends Component {
-//   render() {
-//     return (
-//       <div>
-//         <div id="user-profile">
-//           <Avatar/>
-//         </div>
-//       </div>
-//     )
-//   }
-// }
 
 const mapStateToProps = state => state;
 export default connect(mapStateToProps, {setUser})(Avatar);
