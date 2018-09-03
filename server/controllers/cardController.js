@@ -78,7 +78,8 @@ const createCard = (req, res) => {
             team[0],
             year[0],
             data.Location,
-            parseInt(collection[0], 10)
+            parseInt(collection[0], 10),
+            data.Key
           ]);
         res.status(200).send(cards);
       }
@@ -178,7 +179,9 @@ const downloadImgs = colId => {
   });
 };
 /////////////////////////////
-const delCards = (req, res) => {
+const delCards = async (req, res) => {
+  let card = await req.app.get('db').cards.get_card_by_id(req.params.card_id);
+
   req.app
     .get("db")
     .cards.delete_card([req.params.card_id, req.params.collection_id])
@@ -186,6 +189,16 @@ const delCards = (req, res) => {
     .catch(err => {
       console.log(err);
       res.sendStatus(500);
+    });
+
+    var params = {
+      Bucket: process.env.S3_BUCKET, /* required */
+      Key: card[0].aws_key, /* required */
+    };
+
+    s3.deleteObject(params, function(err, data) {
+      if (err) console.log(err, err.stack); // an error occurred
+      else console.log(data); // successful response
     });
 };
 /////////////////////////////

@@ -37,3 +37,6 @@ CREATE TABLE IF NOT EXISTS trades (
     from_cards INTEGER ARRAY,
     status VARCHAR(50)
 );
+
+ALTER TABLE cards
+ADD COLUMN IF NOT EXISTS aws_key TEXT;
