@@ -40,9 +40,35 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  background-color: rgba(1, 1, 1, 0.317);
 }
 
 .back {
   transform: rotateY(180deg);
-  background-color: magenta;
+  background-color: rgb(242, 255, 0);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: stretch;
+}
+
+.card-header {
+  text-transform: capitalize;
+}
+
+.card-body {
+  text-transform: capitalize;
+}
+
+.backH2 {
+  font-size: 30px;
+}
+
+.backH3 {
+  font-size: 25px;
+}
+.backH3Team {
+  font-size: 25px;
 }
