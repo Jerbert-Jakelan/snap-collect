@@ -109,7 +109,7 @@ app.get("/api/getAllUsers", profileController.getAllUsers);
 app.post("/api/collections", colController.addCollection);
 app.get("/api/getAllCollections",colController.getAllCollections);
 app.get("/api/collections", colController.getCollections);
-app.put("/api/collections/:id", colController.editCollection);
+app.put("/api/collections/:collection_id", colController.editCollection);
 app.delete("/api/collections/:collection_id", colController.deleteCollection);
 app.get("/api/categories", colController.getCategories);
 
