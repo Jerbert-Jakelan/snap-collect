@@ -37,8 +37,11 @@ export default class Card extends Component {
             <img className="image-source" alt="?" src={this.props.card.image} />
           </div>
           <div className="card-face back">
-            <h2>Player: {this.props.card.name}</h2>
-            <h3>Year: {this.props.card.year}</h3>
+            <h2 className="backH2">Player: {this.props.card.name}</h2>
+            <br />
+            <h3 className="backH3Team">Team: {this.props.card.team}</h3>
+            <br />
+            <h3 className="backH3">Year: {this.props.card.year}</h3>
           </div>
         </div>
         <button
