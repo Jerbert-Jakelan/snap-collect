@@ -24,8 +24,8 @@
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('selectAndType', (selector, value) => {
+Cypress.Commands.add("selectAndType", (selector, value) => {
   cy.get(selector)
     .type(value)
-    .should('have.value', value);
+    .should("have.value", value);
 });

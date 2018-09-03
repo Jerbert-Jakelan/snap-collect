@@ -119,6 +119,7 @@ class AddNewCollection extends Component {
               <FormGroup>
                 <Label for="itemName">Collection Name</Label>
                 <Input
+                  cy-data-collection-name-input
                   type="text"
                   name="name"
                   id="itemName"
