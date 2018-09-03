@@ -78,10 +78,15 @@ const editCollection = (req, res) => {
     });
 }
 
+const getCategories = async (req, res) => {
+  let categories = await req.app.get('db').collections.get_categories();
+  res.status(200).send(categories);
+}
 
 module.exports = {
   addCollection,
   deleteCollection,
   getCollections,
-  editCollection
+  editCollection,
+  getCategories
 }

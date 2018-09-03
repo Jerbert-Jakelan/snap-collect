@@ -22,12 +22,18 @@ class AddNewCollection extends Component {
       description: "",
       categoryId: 2,
       collectionPic: "",
-      modal: false
+      modal: false,
+      categories: []
     };
     this.onChange1 = this.onChange1.bind(this);
     this.onchange2 = this.onchange2.bind(this);
     this.updateNewCollection = this.updateNewCollection.bind(this);
     this.toggle = this.toggle.bind(this);
+  }
+
+  async componentDidMount() {
+    let categories = await axios.get('/api/categories');
+    this.setState({categories: categories.data});
   }
 
   toggle() {
@@ -72,6 +78,14 @@ class AddNewCollection extends Component {
   };
 
   render() {
+    let categories = this.state.categories.map(category => {
+      return (
+        <option name="categoryId" value={category.category_id}>
+          {category.name}
+        </option>
+      );
+    });
+
     return (
       <div>
         <hr />
@@ -116,21 +130,7 @@ class AddNewCollection extends Component {
                 value={this.onchange2.val}
                 onChange={e => this.onchange2(e.target.value)}
               >
-                <option name="categoryId" value="2">
-                  Baseball
-                </option>
-                <option name="categoryId" value="3">
-                  Football
-                </option>
-                <option name="categoryId" value="6">
-                  Soccer
-                </option>
-                <option name="categoryId" value="5">
-                  Basketball
-                </option>
-                <option name="categoryId" value="4">
-                  Hockey
-                </option>
+                {categories}
               </select>
 
               <FormGroup>
