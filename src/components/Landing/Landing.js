@@ -16,6 +16,7 @@ class Avatar extends Component {
       collection:[]
     }
   }
+  
   componentDidMount = async() => {
     let user = await axios.get('/api/getProfile');
     this.props.setUser(user.data[0]);

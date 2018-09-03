@@ -79,6 +79,18 @@ const getCollections = (req, res) => {
     });
 };
 
+const getAllCollections = (req, res) => {
+
+  req.app
+    .get("db")
+    .collections.getAllcollections()
+    .then(collections => res.status(200).send(collections))
+    .catch(err => {
+      console.log(err);
+      res.sendStatus(500);
+    });
+};
+
 const editCollection = (req, res) => {
   let userId = req.user.user_id;
 
@@ -106,5 +118,6 @@ module.exports = {
   deleteCollection,
   getCollections,
   editCollection,
-  getCategories
+  getCategories,
+  getAllCollections
 };

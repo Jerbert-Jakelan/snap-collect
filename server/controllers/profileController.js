@@ -77,7 +77,19 @@ const getUser = (req, res) => {
     });
 };
 
+const getAllUsers = (req, res) => {
+  req.app
+    .get("db")
+    .userProfile.getAllUsers()
+    .then(payload => res.status(200).json(payload))
+    .catch(err => {
+      console.log(err);
+      res.status(500);
+    });
+};
+
 module.exports = {
   updateProfile,
-  getUser
+  getUser,
+  getAllUsers
 };
