@@ -5,6 +5,7 @@ import Card from "../Card/Card";
 import { Alert } from "reactstrap";
 import "./CollectionDetail.css";
 import DeleteCollectionBTN from "../Landing/DeleteCollectionBTN.js/DeleteCollectionBTN";
+import { Link } from "react-router-dom";
 
 class CollectionDetail extends Component {
   state = {
@@ -78,7 +79,8 @@ class CollectionDetail extends Component {
         />
         <hr />
 
-        <DeleteCollectionBTN />
+        <DeleteCollectionBTN id={this.props.match.params.collection_id} />
+
         <Alert
           color="warning"
           isOpen={this.state.visible}

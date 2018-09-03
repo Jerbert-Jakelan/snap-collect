@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Button } from "reactstrap";
+import { Link } from "react-router-dom";
 
 class DeleteCollectionsBTN extends Component {
   handleDeleteCollection = id => {
@@ -13,9 +14,11 @@ class DeleteCollectionsBTN extends Component {
     console.log(this.props.id);
     return (
       <div className="deleteCollectionButton">
-        <Button onClick={() => this.handleDeleteCollection(this.props.id)}>
-          Delete Entire Collection
-        </Button>
+        <Link to="/dashboard">
+          <Button onClick={() => this.handleDeleteCollection(this.props.id)}>
+            Delete Entire Collection
+          </Button>
+        </Link>
       </div>
     );
   }

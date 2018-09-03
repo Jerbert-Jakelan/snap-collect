@@ -87,7 +87,7 @@ class CardForm extends Component {
             accept=".png, .jpg, .jpeg"
             onChange={this.handleFileUpload}
           />
-          <Button outline color="danger" type="submit">
+          <Button className="createBtn" outline color="danger" type="submit">
             Create
           </Button>
         </form>
