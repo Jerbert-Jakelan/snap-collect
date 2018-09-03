@@ -6,6 +6,7 @@ import { Alert, Button } from "reactstrap";
 import { Link } from 'react-router-dom';
 import "./CollectionDetail.css";
 import DeleteCollectionBTN from "../Landing/DeleteCollectionBTN.js/DeleteCollectionBTN";
+import { Link } from "react-router-dom";
 
 class CollectionDetail extends Component {
   state = {
@@ -74,7 +75,11 @@ class CollectionDetail extends Component {
         />
         <hr />
 
+<<<<<<< HEAD
+        <DeleteCollectionBTN id={this.props.match.params.collection_id} />
+=======
         <DeleteCollectionBTN />
+>>>>>>> master
 
         <Alert
           color="warning"
