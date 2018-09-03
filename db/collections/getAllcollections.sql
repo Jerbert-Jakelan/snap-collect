@@ -1,1 +1,2 @@
-SELECT * FROM collections;
+SELECT * FROM collections
+WHERE private != TRUE;
