@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Card, CardHeader, CardFooter, CardBody, CardText } from "reactstrap";
+import { Card, CardHeader, CardBody, CardText } from "reactstrap";
 import { connect } from "react-redux";
 import { selectCollection } from "../../../ducks/reducer";
 import "./Collections.css";
