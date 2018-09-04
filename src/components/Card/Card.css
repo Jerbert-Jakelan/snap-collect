@@ -45,7 +45,7 @@
 
 .back {
   transform: rotateY(180deg);
-  background-color: rgb(242, 255, 0);
+  background-color: #4ca1af;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
