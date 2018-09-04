@@ -50,7 +50,7 @@ class CardEdit extends Component {
     // console.log(this.state);
     let { name, team, year } = this.state;
 
-    const formData = new FormData();
+    // const formData = new FormData();
 
     // formData.append("name", name);
     // formData.append("team", team);

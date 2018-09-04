@@ -15,10 +15,14 @@
   margin: 10px;
 }
 
-.createBtn {
+/* .createBtn {
   margin: 0px 0px 15px 0px;
-}
+} */
 
 .collect-input {
   border-radius: 5px;
+}
+
+.createCollectionBtn {
+  margin: 0px 0px 15px 0px;
 }

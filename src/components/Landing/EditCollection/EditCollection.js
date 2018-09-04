@@ -10,7 +10,7 @@ import {
   ModalBody,
   ModalFooter
 } from "reactstrap";
-import Dropzone from "react-dropzone";
+// import Dropzone from "react-dropzone";
 import axios from "axios";
 import { connect } from "react-redux";
 import { setUser } from "../../../ducks/reducer";
@@ -65,7 +65,12 @@ class EditCollection extends Component {
     let { name, categoryId, description, priv } = this.state;
 
     axios
-      .put(`/api/collections/${this.props.collId}`, { name, categoryId, description, priv })
+      .put(`/api/collections/${this.props.collId}`, {
+        name,
+        categoryId,
+        description,
+        priv
+      })
       .then(collections => {
         console.log(collections);
         this.props.updateCollections(collections.data);
