@@ -104,6 +104,7 @@ app.get("/me", (req, res, next) => {
 app.put("/api/profile/update", profileController.updateProfile);
 app.get("/api/getProfile", profileController.getUser);
 app.get("/api/getAllUsers", profileController.getAllUsers);
+app.get("/logout", profileController.logout);
 
 //collection endpoints
 app.post("/api/collections", colController.addCollection);
