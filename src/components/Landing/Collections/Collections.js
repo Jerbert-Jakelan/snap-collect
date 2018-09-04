@@ -45,6 +45,17 @@ class Collections extends Component {
         />
       ) : null;
 
+
+    let editButton = this.props.match.path !== '/PublicCollection' ?
+      <EditCollection 
+        key={this.props.collection_id}
+        collId={this.props.collId}
+        image={this.props.collection_pic}
+        name={this.props.name}
+        description={this.props.description}
+        updateCollections={this.props.updateCollections}/> :
+        null
+
     return (
       <div data-cy-collections className="cardDisplay">
         <Card>
@@ -86,6 +97,7 @@ class Collections extends Component {
             <CardText>{this.props.description}</CardText>
           </CardBody>
           <CardFooter>
+<<<<<<< HEAD
             <EditCollection
               key={this.props.collection_id}
               collId={this.props.collId}
@@ -94,6 +106,9 @@ class Collections extends Component {
               description={this.props.description}
               updateCollections={this.props.updateCollections}
             />
+=======
+            {editButton}
+>>>>>>> master
           </CardFooter>
         </Card>
       </div>
