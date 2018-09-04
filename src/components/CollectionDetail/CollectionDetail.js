@@ -82,7 +82,7 @@ class CollectionDetail extends Component {
         <hr />
         <input
           className="inputSearch"
-          placeholder="Search My collection"
+          placeholder="Search Collection"
           onChange={event => this.handleInput(event.target.value)}
         />
         <hr />
@@ -107,7 +107,7 @@ class CollectionDetail extends Component {
         <div className="toPubCollection">
           <h3>Explore ~ Find ~ Trade ~ Communicate</h3>
           <Link to="/PublicCollection">
-            <Button>Click Meeee</Button>
+            <Button>Explore Collections</Button>
           </Link>
         </div>
       </div>
