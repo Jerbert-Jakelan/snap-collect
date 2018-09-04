@@ -99,10 +99,18 @@ class CollectionDetail extends Component {
           <Collapse isOpen={this.state.collapse}>
             <Card>
               <CardBody>
-                <input
+                {/* <input
                   className="inputSearch"
                   placeholder="Search Collection"
                   onChange={event => this.handleInput(event.target.value)}
+                /> */}
+                <CardForm
+                  collectionId={this.props.match.params.collection_id}
+                  resolveSearch={this.resolveSearch}
+                />
+                <DeleteCollectionBTN
+                  className="deleteThisCard"
+                  id={this.props.match.params.collection_id}
                 />
               </CardBody>
             </Card>
@@ -116,10 +124,10 @@ class CollectionDetail extends Component {
         />
         <hr />
 
-        <DeleteCollectionBTN
+        {/* <DeleteCollectionBTN
           className="deleteThisCard"
           id={this.props.match.params.collection_id}
-        />
+        /> */}
 
         <Alert
           color="warning"
@@ -128,10 +136,10 @@ class CollectionDetail extends Component {
         >
           {this.state.dupMessage}
         </Alert>
-        <CardForm
+        {/* <CardForm
           collectionId={this.props.match.params.collection_id}
           resolveSearch={this.resolveSearch}
-        />
+        /> */}
         <div className="card-wrapper"> {cardSearch} </div>
         <div className="toPubCollection">
           <h3>Explore ~ Find ~ Trade ~ Communicate</h3>
