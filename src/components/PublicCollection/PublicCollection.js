@@ -9,7 +9,6 @@ class PublicCollection extends Component{
     constructor(props){
         super(props);
         this.state = {
-          users:[],
           collection:[],
           input:''
         }
@@ -18,17 +17,7 @@ class PublicCollection extends Component{
 
       componentDidMount = async() => {
         this.getCollections();
-        this.getUsers();
       };
-
-      getUsers = () => {
-        axios.get('/api/getAllUsers')
-        .then(res => {
-          this.setState({
-            users:res.data
-          })
-        })
-      }
     
       getCollections = () => {
         axios.get('/api/getAllCollections').then(payload =>{
