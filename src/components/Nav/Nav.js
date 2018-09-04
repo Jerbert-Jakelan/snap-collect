@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Nav.css";
 // import DeleteCollectionsBTN from "../Landing/DeleteCollectionBTN.js/DeleteCollectionBTN";
 import { connect } from "react-redux";
+import {setUser} from '../../ducks/reducer';
 
 class Nav extends Component {
   render() {
@@ -24,6 +25,7 @@ class Nav extends Component {
             <Link to="/PublicCollection" className="route">
               Public Collections
             </Link>
+            <a onClick={() => this.props.setUser(false)} href={process.env.REACT_APP_LOGOUT_URL}>Log Out</a>
           </div>
         </div>
         <h2 className="header">Snap Collect</h2>
@@ -34,5 +36,5 @@ class Nav extends Component {
 const mapStateToProps = state => state;
 export default connect(
   mapStateToProps,
-  null
+  {setUser}
 )(Nav);
