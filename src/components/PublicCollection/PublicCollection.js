@@ -2,34 +2,29 @@ import React, {Component} from 'react';
 import '../CollectionDetail/CollectionDetail.css';
 import axios from 'axios';
 import Collections from '../Landing/Collections/Collections'
-import PublicUsers from './PublicUsers'
 
 
 class PublicCollection extends Component{
     constructor(props){
         super(props);
         this.state = {
-          collection:[],
+          publicCollection:[],
           input:''
         }
-        this.updateCollections = this.updateCollections.bind(this)
+        
       }
 
       componentDidMount = async() => {
-        this.getCollections();
+        this.getAllPublicCollections();
       };
     
-      getCollections = () => {
-        axios.get('/api/getAllCollections').then(payload =>{
+      getAllPublicCollections = () => {
+        axios.get('/api/getAllPublicCollections').then(payload =>{
           this.setState({
-              collection: payload.data
+              publicCollection: payload.data
           })
         })
         }
-
-      updateCollections = collection => {
-        this.setState({collection});
-      }
 
     handleInput = (val) => {
         this.setState({
@@ -38,12 +33,16 @@ class PublicCollection extends Component{
       }
     
       render() {
-        const { input } = this.state;
-        let collectionSearch = this.state.collection
+        console.log(this.state)
+        const { input,publicCollection } = this.state;
+        let collectionSearch = publicCollection
           .filter(
             e =>
-              e.name.toLowerCase().includes(input) ||
-              e.description.toLowerCase().includes(input)
+            e.city.toLowerCase().includes(input) ||
+            e.state.toLowerCase().includes(input) ||
+            e.name.toLowerCase().includes(input) ||
+            e.user_name.toLowerCase().includes(input) ||
+            e.description.toLowerCase().includes(input) 
           )
           .map((e, i) => {
             return (
@@ -54,7 +53,10 @@ class PublicCollection extends Component{
               image={e.collection_pic}
               name={e.name}
               description={e.description}
-              updateCollections={this.updateCollections}
+              userName={e.user_name}
+              proPic={e.profile_pic}
+              city={e.city}
+              state={e.state}
               />
             )})
 
@@ -67,7 +69,8 @@ class PublicCollection extends Component{
                 onChange={event => this.handleInput(event.target.value)}
                 />
             <div className="card-wrapper"> {collectionSearch} </div>
-            <PublicUsers/>
+       
+          
         </div>
     )
 }
