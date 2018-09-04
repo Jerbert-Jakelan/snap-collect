@@ -11,10 +11,9 @@ class PublicUsers extends Component{
           users:[],
           input:''
         }
-        this.updateUsers = this.updateUsers.bind(this)
       }
 
-      componentDidMount = async() => {
+      componentDidMount = () => {
         this.getUsers();
       };
 
@@ -27,10 +26,6 @@ class PublicUsers extends Component{
         })
       }
 
-      updateUsers = users => {
-        this.setState({users});
-      }
-
     handleInput = (val) => {
         this.setState({
           input: val.toLowerCase()
@@ -39,12 +34,16 @@ class PublicUsers extends Component{
     
       render() {
         const { input } = this.state;
-        let UsersSearch = this.state.users
+        console.log(this.state)
+        let usersSearch = this.state.users
           .filter(
-            e =>
-              e.name.toLowerCase().includes(input) ||
-              e.city.toLowerCase().includes(input) ||
-              e.state.toLowerCase().includes(input)
+            e => {
+              return (
+                e.name.toLowerCase().includes(input) ||
+                e.city.toLowerCase().includes(input) ||
+                e.state.toLowerCase().includes(input) 
+              )
+            }
           )
           .map((e, i) => {
             return (
@@ -65,7 +64,7 @@ class PublicUsers extends Component{
                 placeholder=" public users search"
                 onChange={event => this.handleInput(event.target.value)}
                 />
-            <div className="card-wrapper"> {UsersSearch} </div>
+            <div className="card-wrapper"> {usersSearch} </div>
         </div>
     )
 }
