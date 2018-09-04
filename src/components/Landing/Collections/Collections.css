@@ -11,3 +11,22 @@
   /* display: grid;
   grid-template-columns: 65% 35%; */
 }
+
+.avatarPubPic {
+  width: 75px;
+  height: auto;
+  border-radius: 50%;
+  margin: 10px 0px 10px 0px;
+}
+
+.pubColUserDetails {
+  line-height: 6px;
+}
+
+.toggleSwitch {
+  position: relative;
+}
+.react-switch-bg,
+.react-switch-handle {
+  left: 20vw;
+}
