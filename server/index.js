@@ -115,6 +115,7 @@ app.put("/api/collections/:collection_id", colController.editCollection);
 app.delete("/api/collections/:collection_id", colController.deleteCollection);
 app.get("/api/categories", colController.getCategories);
 app.put("/api/collections/:collection_id/private", colController.togglePrivate);
+app.get("/api/collections/:collection_id", colController.getCollectionById);
 
 //public collection
 app.get("/api/getAllPublicCollections", pubController.getAllPublic);
