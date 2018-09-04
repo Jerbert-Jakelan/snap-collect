@@ -8,7 +8,7 @@ import EditCollection from "../EditCollection/EditCollection";
 
 class Collections extends Component {
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div data-cy-collections className="cardDisplay">
         <Card>

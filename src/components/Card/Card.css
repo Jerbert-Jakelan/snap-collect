@@ -72,3 +72,23 @@
 .backH3Team {
   font-size: 25px;
 }
+.cardEditButton {
+  position: absolute;
+  bottom: 20px;
+}
+
+.cardHr {
+  position: absolute;
+  bottom: 50px;
+  align-content: center;
+}
+
+.cardBackDiv {
+  margin: 10px 0px 0px 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: stretch;
+}

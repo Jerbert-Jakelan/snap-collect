@@ -116,6 +116,7 @@ app.get("/api/categories", colController.getCategories);
 //card endpoints
 app.post("/api/cards", cardController.createCard);
 app.get("/api/cards/:collection_id", cardController.getCards);
+app.put("/api/cards/update/:id", cardController.editCard);
 app.delete("/api/cards/:collection_id/:card_id", cardController.delCards);
 
 // this server port. must match what we put in auth0
