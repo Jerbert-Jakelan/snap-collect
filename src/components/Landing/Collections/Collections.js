@@ -30,6 +30,17 @@ class Collections extends Component {
       <Switch onChange={this.handleChange} checked={this.state.checked} id="normal-switch" /> :
       null
 
+
+    let editButton = this.props.match.path !== '/PublicCollection' ?
+      <EditCollection 
+        key={this.props.collection_id}
+        collId={this.props.collId}
+        image={this.props.collection_pic}
+        name={this.props.name}
+        description={this.props.description}
+        updateCollections={this.props.updateCollections}/> :
+        null
+
     return (
       <div data-cy-collections className="cardDisplay">
         <Card>
@@ -57,13 +68,7 @@ class Collections extends Component {
             <CardText>{this.props.description}</CardText>
           </CardBody>
           <CardFooter>
-            <EditCollection 
-              key={this.props.collection_id}
-              collId={this.props.collId}
-              image={this.props.collection_pic}
-              name={this.props.name}
-              description={this.props.description}
-              updateCollections={this.props.updateCollections}/>
+            {editButton}
           </CardFooter>
         </Card>
       </div>
