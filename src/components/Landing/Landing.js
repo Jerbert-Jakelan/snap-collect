@@ -45,6 +45,7 @@ class Avatar extends Component {
         image={e.collection_pic}
         name={e.name}
         description={e.description}
+        priv={e.private}
         updateCollections={this.updateCollections}
         />
       )})
