@@ -58,10 +58,10 @@
   text-transform: capitalize;
 }
 
-.card-body {
+/* .card-body {
   text-transform: capitalize;
   width: 260px;
-}
+} */
 
 .backH2 {
   font-size: 30px;
@@ -92,4 +92,39 @@
   justify-content: flex-start;
   align-items: center;
   align-content: stretch;
+}
+.card {
+  border-radius: 11px;
+  width: 75vw;
+}
+
+.card-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-transform: capitalize;
+}
+
+.card-text {
+  font-size: 4vw;
+  margin: 0 1px 0 15px;
+}
+
+.cardDisplay {
+  margin: 20px 20px 20px 20px;
+  position: relative;
+}
+@media (min-width: 500px) {
+  .card-text {
+    font-size: 25px;
+    /* height: auto; */
+  }
+  .cardDisplay {
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+  }
 }
