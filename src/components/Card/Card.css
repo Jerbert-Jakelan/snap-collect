@@ -60,6 +60,7 @@
 
 .card-body {
   text-transform: capitalize;
+  width: 260px;
 }
 
 .backH2 {
