@@ -20,13 +20,33 @@ export default class Card extends Component {
   };
 
   deleteCard = (collection_id, card_id) => {
-    console.log(this.props.card);
     axios.delete(`/api/cards/${collection_id}/${card_id}`).then(cards => {
       this.props.updateCards(cards.data);
     });
   };
 
   render() {
+    let deleteButton = this.props.collectionId === this.props.userId ?
+      <button
+        className="deleteThisCard"
+        onClick={() =>
+          this.deleteCard(
+            this.props.card.collection_id,
+            this.props.card.card_id
+          )
+        }
+      >
+        Delete this card
+      </button> :
+      null
+
+    let editButton = this.props.collectionId === this.props.userId ?
+      <CardEdit
+        className="cardEditButton"
+        id={this.props.card.card_id}
+        getCards={this.props.getCards} /> :
+        null
+
     return (
       <div>
         <div
@@ -47,27 +67,12 @@ export default class Card extends Component {
               <br />
               <hr className="cardHr" />
               <div className="cardEditButton">
-                <CardEdit
-                  className="cardEditButton"
-                  id={this.props.card.card_id}
-                  getCards={this.props.getCards}
-                />
+                {editButton}
               </div>
             </div>
           </div>
-          {/* <button>Edit Me</button> */}
         </div>
-        <button
-          className="deleteThisCard"
-          onClick={() =>
-            this.deleteCard(
-              this.props.card.collection_id,
-              this.props.card.card_id
-            )
-          }
-        >
-          Delete this card
-        </button>
+        {deleteButton}
       </div>
     );
   }
