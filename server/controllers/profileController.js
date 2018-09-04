@@ -88,8 +88,15 @@ const getAllUsers = (req, res) => {
     });
 };
 
+const logout = (req, res) => {
+  req.session.destroy(() => {
+    res.redirect(process.env.FAILURE_REDIRECT);
+  });
+}; 
+
 module.exports = {
   updateProfile,
   getUser,
-  getAllUsers
+  getAllUsers,
+  logout
 };

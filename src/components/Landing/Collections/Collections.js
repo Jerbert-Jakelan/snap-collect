@@ -1,13 +1,27 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { Card, CardHeader, CardBody, CardFooter, CardText, Button } from "reactstrap";
 import { connect } from "react-redux";
+import Switch from "react-switch";
+import axios from 'axios';
 import { selectCollection } from "../../../ducks/reducer";
 import "./Collections.css";
 import EditCollection from "../EditCollection/EditCollection";
 
 class Collections extends Component {
+
+  state = {
+    checked: !this.props.priv
+  }
+
+  handleChange = async checked => {
+    this.setState({ checked });
+    let collections = await axios.put(`/api/collections/${this.props.collId}/private`, {private: !this.state.checked});
+    this.props.updateCollections(collections.data);
+  }
+
   render() {
+<<<<<<< HEAD
     return (
       <div data-cy-collections className="cardDisplay">
         <Card>
@@ -17,6 +31,19 @@ class Collections extends Component {
           <p>{this.props.userName ? this.props.userName : null}</p>
           <p>{this.props.city ? this.props.city : null}</p>
           <p>{this.props.state ? this.props.state : null}</p>
+=======
+    let toggleSwitch = this.props.match.path !== '/PublicCollection' ? 
+      <Switch onChange={this.handleChange} checked={this.state.checked} id="normal-switch" /> :
+      null
+
+    return (
+      <div data-cy-collections className="cardDisplay">
+        <Card>
+          <CardHeader>
+            {this.props.name}
+            {toggleSwitch}
+          </CardHeader>
+>>>>>>> master
           <CardBody>
             <div className="collections">
               <Link to={`/collection/${this.props.collId}`}>
@@ -47,7 +74,7 @@ class Collections extends Component {
 }
 const mapStateToProps = state => state;
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   { selectCollection }
-)(Collections);
+)(Collections));

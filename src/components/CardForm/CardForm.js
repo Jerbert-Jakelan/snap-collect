@@ -58,7 +58,12 @@ class CardForm extends Component {
     let createBtn = this.state.loading ? (
       <Loader type="Oval" color="#00BFFF" height="50" width="50" />
     ) : (
-      <Button outline color="danger" type="submit">
+      <Button
+        className="createCollectionBtn"
+        outline
+        color="danger"
+        type="submit"
+      >
         Create
       </Button>
     );
