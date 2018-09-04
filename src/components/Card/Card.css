@@ -63,7 +63,8 @@
   position: relative;
 }
 
-.card-header < .card-footer {
+.card-header,
+.card-footer {
   background-color: #ddd !important;
 }
 
