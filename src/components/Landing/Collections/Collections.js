@@ -11,13 +11,18 @@ import EditCollection from "../EditCollection/EditCollection";
 class Collections extends Component {
 
   state = {
-    checked: !this.props.priv
+    checked: true
   }
 
-  handleChange = async checked => {
-    this.setState({ checked });
-    let collections = await axios.put(`/api/collections/${this.props.collId}/private`, {private: !this.state.checked});
-    this.props.updateCollections(collections.data);
+  componentDidMount() {
+    this.setState({checked: !this.props.priv});
+  }
+
+  handleChange = checked => {
+    this.setState({ checked }, async () => {
+      let collections = await axios.put(`/api/collections/${this.props.collId}/private`, {private: !this.state.checked});
+      this.props.updateCollections(collections.data);
+    });
   }
 
   render() {
