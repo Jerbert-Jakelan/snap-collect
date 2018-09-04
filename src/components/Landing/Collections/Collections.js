@@ -11,13 +11,18 @@ import EditCollection from "../EditCollection/EditCollection";
 class Collections extends Component {
 
   state = {
-    checked: !this.props.priv
+    checked: true
   }
 
-  handleChange = async checked => {
-    this.setState({ checked });
-    let collections = await axios.put(`/api/collections/${this.props.collId}/private`, {private: !this.state.checked});
-    this.props.updateCollections(collections.data);
+  componentDidMount() {
+    this.setState({checked: !this.props.priv});
+  }
+
+  handleChange = checked => {
+    this.setState({ checked }, async () => {
+      let collections = await axios.put(`/api/collections/${this.props.collId}/private`, {private: !this.state.checked});
+      this.props.updateCollections(collections.data);
+    });
   }
 
   render() {
@@ -32,6 +37,11 @@ class Collections extends Component {
             {this.props.name}
             {toggleSwitch}
           </CardHeader>
+          {this.props.proPic ? 
+          <img height={50} width={50} style={{borderRadius:"50%"}}src={this.props.proPic} alt="userpic"/> : null}
+          <p>{this.props.userName ? this.props.userName : null}</p>
+          <p>{this.props.city ? this.props.city : null}</p>
+          <p>{this.props.state ? this.props.state : null}</p>
           <CardBody>
             <div className="collections">
               <Link to={`/collection/${this.props.collId}`}>

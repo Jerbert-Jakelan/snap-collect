@@ -1,3 +1,11 @@
+/* .cardDisplay {
+  margin: 20px 20px 20px 20px;
+} */
+
+.card {
+  border-radius: 11px;
+}
+
 .collectionImage {
   height: 150px;
   width: auto;
@@ -5,4 +13,29 @@
   backface-visibility: hidden;
   border-radius: 4px;
   box-shadow: 7px 7px 5px #0000006b;
+}
+
+.collections {
+  /* display: grid;
+  grid-template-columns: 65% 35%; */
+}
+.card-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.card-text {
+  font-size: 4vw;
+  margin: 0 1px 0 15px;
+}
+
+@media (min-width: 500px) {
+  .card-text {
+    font-size: 20px;
+  }
+  .cardDisplay {
+    width: 500px;
+    height: 308px;
+    margin: 10px;
+  }
 }
