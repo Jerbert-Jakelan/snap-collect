@@ -1,23 +1,20 @@
 import React, {Component} from 'react';
 import '../CollectionDetail/CollectionDetail.css';
 import axios from 'axios';
-import Collections from '../Landing/Collections/Collections'
-import PublicUsers from './PublicUsers'
+import PublicUsersView from './PublicUsersView';
 
 
-class PublicCollection extends Component{
+class PublicUsers extends Component{
     constructor(props){
         super(props);
         this.state = {
           users:[],
-          collection:[],
           input:''
         }
-        this.updateCollections = this.updateCollections.bind(this)
+        this.updateUsers = this.updateUsers.bind(this)
       }
 
       componentDidMount = async() => {
-        this.getCollections();
         this.getUsers();
       };
 
@@ -29,17 +26,9 @@ class PublicCollection extends Component{
           })
         })
       }
-    
-      getCollections = () => {
-        axios.get('/api/getAllCollections').then(payload =>{
-          this.setState({
-              collection: payload.data
-          })
-        })
-        }
 
-      updateCollections = collection => {
-        this.setState({collection});
+      updateUsers = users => {
+        this.setState({users});
       }
 
     handleInput = (val) => {
@@ -50,37 +39,35 @@ class PublicCollection extends Component{
     
       render() {
         const { input } = this.state;
-        let collectionSearch = this.state.collection
+        let UsersSearch = this.state.users
           .filter(
             e =>
               e.name.toLowerCase().includes(input) ||
-              e.description.toLowerCase().includes(input)
+              e.city.toLowerCase().includes(input) ||
+              e.state.toLowerCase().includes(input)
           )
           .map((e, i) => {
             return (
-              <Collections
+              <PublicUsersView
               index={i}
-              key={e.collection_id}
-              collId={e.collection_id}
-              image={e.collection_pic}
+              key={e.user_id}
               name={e.name}
-              description={e.description}
-              updateCollections={this.updateCollections}
+              pic={e.profile_pic}
+              city={e.city}
+              state={e.state}
               />
             )})
-
 
         return (
           <div className="collection-home">
                 <input
                 className="inputSearch"
-                placeholder="Search"
+                placeholder=" public users search"
                 onChange={event => this.handleInput(event.target.value)}
                 />
-            <div className="card-wrapper"> {collectionSearch} </div>
-            <PublicUsers/>
+            <div className="card-wrapper"> {UsersSearch} </div>
         </div>
     )
 }
 }
-export default PublicCollection;
+export default PublicUsers;

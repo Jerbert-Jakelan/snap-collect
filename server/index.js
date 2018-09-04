@@ -103,11 +103,13 @@ app.get("/me", (req, res, next) => {
 //update profile
 app.put("/api/profile/update", profileController.updateProfile);
 app.get("/api/getProfile", profileController.getUser);
+app.get("/api/getAllUsers", profileController.getAllUsers);
 
 //collection endpoints
 app.post("/api/collections", colController.addCollection);
+app.get("/api/getAllCollections",colController.getAllCollections);
 app.get("/api/collections", colController.getCollections);
-app.put("/api/collections/:id", colController.editCollection);
+app.put("/api/collections/:collection_id", colController.editCollection);
 app.delete("/api/collections/:collection_id", colController.deleteCollection);
 app.get("/api/categories", colController.getCategories);
 

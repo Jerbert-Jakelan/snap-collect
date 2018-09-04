@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Card, CardHeader, CardBody, CardText } from "reactstrap";
+import { Card, CardHeader, CardBody, CardFooter, CardText, Button } from "reactstrap";
 import { connect } from "react-redux";
 import { selectCollection } from "../../../ducks/reducer";
 import "./Collections.css";
+import EditCollection from "../EditCollection/EditCollection";
 
 class Collections extends Component {
   render() {
@@ -26,7 +27,15 @@ class Collections extends Component {
             </div>
             <CardText>{this.props.description}</CardText>
           </CardBody>
-          {/* <CardFooter /> */}
+          <CardFooter>
+            <EditCollection 
+              key={this.props.collection_id}
+              collId={this.props.collId}
+              image={this.props.collection_pic}
+              name={this.props.name}
+              description={this.props.description}
+              updateCollections={this.props.updateCollections}/>
+          </CardFooter>
         </Card>
       </div>
     );

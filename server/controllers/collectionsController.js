@@ -79,14 +79,32 @@ const getCollections = (req, res) => {
     });
 };
 
+const getAllCollections = (req, res) => {
+
+  req.app
+    .get("db")
+    .collections.getAllcollections()
+    .then(collections => res.status(200).send(collections))
+    .catch(err => {
+      console.log(err);
+      res.sendStatus(500);
+    });
+};
+
 const editCollection = (req, res) => {
   let userId = req.user.user_id;
+  let { name, categoryId, description, priv } = req.body;
+  console.log({ name, categoryId, description, priv });
+  console.log(req.params);
 
   req.app
     .get("db")
     .collections.edit_collection([
       req.params.collection_id,
-      req.body.name,
+      name,
+      categoryId,
+      description,
+      priv,
       userId
     ])
     .then(collections => res.status(200).send(collections))
@@ -106,5 +124,6 @@ module.exports = {
   deleteCollection,
   getCollections,
   editCollection,
-  getCategories
+  getCategories,
+  getAllCollections
 };
