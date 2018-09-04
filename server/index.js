@@ -112,6 +112,7 @@ app.get("/api/collections", colController.getCollections);
 app.put("/api/collections/:collection_id", colController.editCollection);
 app.delete("/api/collections/:collection_id", colController.deleteCollection);
 app.get("/api/categories", colController.getCategories);
+app.put("/api/collections/:collection_id/private", colController.togglePrivate);
 
 //card endpoints
 app.post("/api/cards", cardController.createCard);

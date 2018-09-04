@@ -119,11 +119,17 @@ const getCategories = async (req, res) => {
   res.status(200).send(categories);
 };
 
+const togglePrivate = async (req, res) => {
+  let collections = await req.app.get('db').collections.toggle_private([req.params.collection_id, req.body.private, req.user.user_id]);
+  res.status(200).send(collections);
+}
+
 module.exports = {
   addCollection,
   deleteCollection,
   getCollections,
   editCollection,
   getCategories,
-  getAllCollections
+  getAllCollections,
+  togglePrivate
 };
