@@ -11,6 +11,7 @@ const Auth0Strategy = require("./strategy");
 const profileController = require("./controllers/profileController");
 const colController = require("./controllers/collectionsController");
 const cardController = require("./controllers/cardController");
+const pubController = require("./controllers/pubController");
 
 const app = express();
 
@@ -112,6 +113,9 @@ app.get("/api/collections", colController.getCollections);
 app.put("/api/collections/:collection_id", colController.editCollection);
 app.delete("/api/collections/:collection_id", colController.deleteCollection);
 app.get("/api/categories", colController.getCategories);
+
+//public collection
+app.get("/api/getAllPublicCollections", pubController.getAllPublic);
 
 //card endpoints
 app.post("/api/cards", cardController.createCard);
