@@ -1,23 +1,32 @@
 import React, { Component } from "react";
 import axios from "axios";
 import CardForm from "../CardForm/CardForm";
-import Card from "../Card/Card";
-import { Alert, Button } from "reactstrap";
+import Cards from "../Card/Card";
+import { Alert, Button, Collapse, CardBody, Card } from "reactstrap";
 import { Link } from "react-router-dom";
 import "./CollectionDetail.css";
 import DeleteCollectionBTN from "../Landing/DeleteCollectionBTN.js/DeleteCollectionBTN";
 
 class CollectionDetail extends Component {
-  state = {
-    cards: [],
-    dupMessage: "",
-    visible: false,
-    input: "",
-    selectedCard: {}
-  };
+  constructor() {
+    super();
+    this.state = {
+      cards: [],
+      dupMessage: "",
+      visible: false,
+      input: "",
+      selectedCard: {},
+      collapse: false
+    };
+    this.toggle = this.toggle.bind(this);
+  }
 
   componentDidMount() {
     this.getCards();
+  }
+
+  toggle() {
+    this.setState({ collapse: !this.state.collapse });
   }
 
   getCards = () => {
@@ -64,7 +73,7 @@ class CollectionDetail extends Component {
       )
       .map((e, i) => {
         return (
-          <Card
+          <Cards
             updateCards={this.updateCards}
             key={e.card_id}
             card={e}
@@ -79,6 +88,26 @@ class CollectionDetail extends Component {
 
     return (
       <div className="collection-home">
+        <div>
+          <Button
+            color="primary"
+            onClick={this.toggle}
+            style={{ marginBottom: "1rem" }}
+          >
+            Toggle
+          </Button>
+          <Collapse isOpen={this.state.collapse}>
+            <Card>
+              <CardBody>
+                <input
+                  className="inputSearch"
+                  placeholder="Search Collection"
+                  onChange={event => this.handleInput(event.target.value)}
+                />
+              </CardBody>
+            </Card>
+          </Collapse>
+        </div>
         <hr />
         <input
           className="inputSearch"

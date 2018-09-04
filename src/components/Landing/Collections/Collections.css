@@ -1,6 +1,6 @@
-.cardDisplay {
+/* .cardDisplay {
   margin: 20px 20px 20px 20px;
-}
+} */
 
 .card {
   border-radius: 11px;
@@ -31,16 +31,11 @@
 
 @media (min-width: 500px) {
   .card-text {
-    font-size: 25px;
-    /* height: auto; */
+    font-size: 20px;
   }
   .cardDisplay {
     width: 500px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    align-content: center;
+    height: 308px;
+    margin: 10px;
   }
 }
