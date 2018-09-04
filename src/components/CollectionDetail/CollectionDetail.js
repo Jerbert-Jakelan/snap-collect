@@ -12,7 +12,8 @@ class CollectionDetail extends Component {
     cards: [],
     dupMessage: "",
     visible: false,
-    input: ""
+    input: "",
+    selectedCard: {}
   };
 
   componentDidMount() {
@@ -28,6 +29,10 @@ class CollectionDetail extends Component {
 
   updateCards = cards => {
     this.setState({ cards: cards });
+  };
+
+  setSelectedCard = card => {
+    this.setState({ selectedCard: card });
   };
 
   resolveSearch = result => {
@@ -58,7 +63,15 @@ class CollectionDetail extends Component {
           e.year.toLowerCase().includes(input)
       )
       .map((e, i) => {
-        return <Card updateCards={this.updateCards} key={e.card_id} card={e} />;
+        return (
+          <Card
+            updateCards={this.updateCards}
+            key={e.card_id}
+            card={e}
+            setSelectedCard={this.setSelectedCard}
+            getCards={this.getCards}
+          />
+        );
         // <div key={i}>
         //   <div>{e.name}</div>
         // </div>;
@@ -74,7 +87,10 @@ class CollectionDetail extends Component {
         />
         <hr />
 
-        <DeleteCollectionBTN id={this.props.match.params.collection_id} />
+        <DeleteCollectionBTN
+          className="deleteThisCard"
+          id={this.props.match.params.collection_id}
+        />
 
         <Alert
           color="warning"
@@ -88,7 +104,12 @@ class CollectionDetail extends Component {
           resolveSearch={this.resolveSearch}
         />
         <div className="card-wrapper"> {cardSearch} </div>
-
+        <div className="toPubCollection">
+          <h3>Explore ~ Find ~ Trade ~ Communicate</h3>
+          <Link to="/PublicCollection">
+            <Button>Click Meeee</Button>
+          </Link>
+        </div>
       </div>
     );
   }
