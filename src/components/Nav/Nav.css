@@ -23,7 +23,7 @@
   background-color: #607d8b;
   color: rgba(255, 255, 255, 0.838);
   text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.434);
-  padding: 15px;
+  padding: 7px 17px 2px 17px;
   font-size: 16px;
   border: none;
 }
@@ -36,7 +36,7 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #44878695;
+  background-color: #608a8a;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.208);
   z-index: 1;
@@ -74,3 +74,8 @@
   left: -30px;
 }
 /* Header -end- */
+
+.hamburger {
+  /* font-stretch: ultra-expanded; */
+  font-size: 25px;
+}

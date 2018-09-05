@@ -14,7 +14,7 @@ export default class Login extends Component {
       <div className="landingMainDiv">
         <div className="landingDiv2">
           <h4>Welcome to</h4>
-          <h1 className="appName">Snap Collect</h1>
+          <h1 className="appName">Snap Collector</h1>
           <div className="imgDiv">
             <div className="loader">
               <CameraSvg />

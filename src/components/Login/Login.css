@@ -97,6 +97,10 @@ button {
   display: none;
   font-size: 2em;
 }
+#react-walkway-selector_m3p2y {
+  opacity: 0.8;
+}
+
 /* .loader {
   position: relative;
   left: 41%;

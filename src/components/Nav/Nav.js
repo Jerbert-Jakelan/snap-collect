@@ -6,20 +6,24 @@ import { connect } from "react-redux";
 import { setUser } from "../../ducks/reducer";
 
 class Nav extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isOpened: false
+    };
+  }
+
   render() {
     if (this.props.pathname === "/") {
       return null;
     }
-    // if (
-    //   this.props.pathname === `/collection/${this.props.selectedCollection}`
-    // ) {
-    //   return <DeleteCollectionsBTN id={this.props.selectedCollection} />;
-    // }
-    console.log(this.props);
+
     return (
       <div className="main-bar">
         <div className="dropdown">
-          <button className="drop-btn">Menu</button>
+          <button className="drop-btn hamburger">
+            <label>&#9776;</label>
+          </button>
           <div className="dropdown-content">
             <Link to="/dashboard" className="route">
               Dashboard
