@@ -6,103 +6,68 @@
   border-radius: 4px;
 }
 .card-info {
-  height: 300px;
-  width: 200px;
   margin: 15px;
   border-radius: 4px;
   display: flex;
-  flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
   align-content: stretch;
   font-size: 5px;
-  transform-style: preserve-3d;
-  transition: all 0.5s ease;
   position: relative;
-  perspective: 600px;
+  background-color: white;
 }
 
-.card-face {
+.card-overlay {
   position: absolute;
-  width: 100%;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0);
   height: 100%;
-  backface-visibility: hidden;
-  border-radius: 4px;
-  box-shadow: 7px 7px 5px #0000006b;
-  text-transform: capitalize;
-}
-
-.rotate {
-  transform: rotateY(180deg);
-}
-
-.front {
-  position: absolute;
   width: 100%;
-  height: 100%;
-  background-color: rgba(1, 1, 1, 0.317);
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
-.back {
-  transform: rotateY(180deg);
-  background-color: #4ca1af;
+.player-info {
+  /* padding: 15px; */
+  display: none;
+  background-color: transparent;
+  color: white;
+}
+.card-overlay:hover .player-info {
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  align-content: stretch;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.card-overlay:hover {
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .cardHeadPubCol {
   text-transform: capitalize;
 }
-
 .card-header {
   margin-top: -1px;
   position: relative;
 }
 
-.card-header,
-.card-footer {
-  background-color: #ddd !important;
-}
-
-/* .card-body {
-  text-transform: capitalize;
-  width: 260px;
-} */
-
-.backH2 {
-  font-size: 30px;
-}
-
-.backH3 {
-  font-size: 25px;
-}
-.backH3Team {
-  font-size: 25px;
-}
 .cardEditButton {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
   position: absolute;
   bottom: 20px;
 }
-
 .cardHr {
   position: absolute;
   bottom: 50px;
   align-content: center;
 }
 
-.cardBackDiv {
-  margin: 10px 0px 0px 0px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  align-content: stretch;
-}
 .card {
   border-radius: 11px;
   width: 75vw;
@@ -110,29 +75,24 @@
   flex-direction: column;
   justify-content: space-around;
 }
-
 .card-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   text-transform: capitalize;
 }
-
 .card-text {
   font-size: 4vw;
   margin: 0 1px 0 15px;
   border: 1px solid rgba(0, 0, 0, 0.187);
 }
-
 .cardDisplay {
   margin: 20px 20px 20px 20px;
   position: relative;
 }
-
 @media (min-width: 500px) {
   .card-text {
     font-size: 20px;
-  }
-  /* .cardDisplay {
+  } /* .cardDisplay {
     width: 500px;
     height: 308px;
     margin: 10px;

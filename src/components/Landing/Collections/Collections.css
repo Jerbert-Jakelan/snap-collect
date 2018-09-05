@@ -7,11 +7,6 @@
   box-shadow: 7px 7px 5px #0000006b;
 }
 
-.collections {
-  /* display: grid;
-  grid-template-columns: 65% 35%; */
-}
-
 .avatarPubPic {
   width: 75px;
   height: auto;
@@ -39,4 +34,18 @@
   font-size: 7px;
   color: white;
   /* padding-right: 2px; */
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.collection-header {
+  padding: 10px;
+}
+
+.react-switch-bg,
+.react-switch-handle {
+  left: 0;
 }

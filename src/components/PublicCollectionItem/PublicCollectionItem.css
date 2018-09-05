@@ -1,36 +1,10 @@
-/* .public-profile-card {
-}
-
-.user-info {
-}
-
-.avatar-img {
-  margin: 10px;
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-}
-
-.user-info p {
-  margin: 0px;
-}
-
-.user-info .card-header {
-  font-size: 20px;
-}
-
-.user-info p:first-of-type {
-  font-size: 20px;
-} */
-/* /////////////////////////TEST CARD OF JUSTICE AND TRUTH//////////////////// */
 .public-collection-wrap {
   background-color: white;
-  margin: 20px 0;
+  margin: 20px;
   display: flex;
   flex-direction: column;
   border-radius: 5px;
-  width: 80vw;
-  min-width: 100%;
+  width: 300px;
 }
 
 .public-collection-header {

@@ -1,47 +1,5 @@
-// import React, { Component } from "react";
-// import {
-//   Card,
-//   CardHeader,
-//   CardBody,
-//   CardFooter,
-//   CardText,
-//   Button
-// } from "reactstrap";
 import { Link } from "react-router-dom";
 import "./PublicCollectionItem.css";
-
-// export default class PublicCollectionItem extends Component {
-//   render() {
-//     return (
-//       <div data-cy-PublicProfile className="public-profile-wrapper">
-//         <Card>
-//           <div className="user-info">
-//             <CardHeader>{this.props.name}</CardHeader>
-//             <img className="avatar-img" src={this.props.proPic} alt="userpic" />
-//             <p>{this.props.userName}</p>
-//             <p>{this.props.city} </p>
-//             <p>{this.props.state}</p>
-//           </div>
-//           <CardBody>
-//             <div className="collections">
-//               <Link to={`/collection/${this.props.collId}`}>
-//                 <img
-//                   className="collectionImage"
-//                   onClick={() => this.props.selectCollection(this.props.collId)}
-//                   alt="alt"
-//                   src={this.props.image}
-//                 />
-//               </Link>
-//             </div>
-//             <CardText>{this.props.description}</CardText>
-//           </CardBody>
-//           <CardFooter />
-//         </Card>
-//       </div>
-//     );
-//   }
-// }
-/////////////////////////TEST CARD OF JUSTICE AND TRUTH////////////////////
 import React, { Component } from "react";
 
 export default class PublicCollectionItem extends Component {

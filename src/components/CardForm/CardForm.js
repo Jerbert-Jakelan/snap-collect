@@ -61,7 +61,7 @@ class CardForm extends Component {
       <Button
         className="createCollectionBtn"
         outline
-        color="danger"
+        color="info"
         type="submit"
       >
         Create

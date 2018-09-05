@@ -68,13 +68,10 @@ class Avatar extends Component {
             </Button>
           </Link>{" "}
         </Card>
-        {/* </Col> */}
-        {/* </Row> */}
-        {/* </div> */}
         <hr className="hrLanding" />
         <h3 className="myCollections">My Collections</h3>
         <AddNewCollection updateCollections={this.updateCollections} />
-        <div className="harlan-test">{looper2}</div>
+        <div className="collection-wrapper">{looper2}</div>
       </div>
     );
   }

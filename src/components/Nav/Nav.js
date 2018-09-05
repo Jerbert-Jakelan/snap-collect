@@ -7,13 +7,10 @@ import { setUser } from "../../ducks/reducer";
 
 class Nav extends Component {
   render() {
-    // if (this.props.pathname === "/") {
-    //   return null;
-    // }
-    // if (this.props.pathname === `/collection/${this.props.selectedCollection}`) {
-    //   return <DeleteCollectionsBTN id={this.props.selectedCollection}/>;
-    // }
-    console.log(this.props);
+    if (this.props.pathname === "/") {
+      return null;
+    }
+
     return (
       <div className="main-bar">
         <div className="dropdown">
