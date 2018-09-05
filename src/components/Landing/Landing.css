@@ -18,28 +18,6 @@ hr {
   border: 1px solid red;
 }
 
-/* h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-} */
-
-/* h2 {
-  font-size: 30px;
-}
-
-h3 {
-  font-size: 18px;
-}
-
-h4 {
-  font-size: 16px;
-} */
-
 p {
   font-size: 14px;
 }
@@ -74,7 +52,7 @@ img {
   margin: auto;
 }
 
-.harlan-test {
+.collection-wrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

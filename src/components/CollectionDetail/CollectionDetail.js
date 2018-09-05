@@ -4,9 +4,9 @@ import CardForm from "../CardForm/CardForm";
 import Cards from "../Card/Card";
 import { Alert, Button, Collapse, CardBody, Card } from "reactstrap";
 import { Link } from "react-router-dom";
-import {connect} from 'react-redux';
+import { connect } from "react-redux";
 import "./CollectionDetail.css";
-import DeleteCollectionBTN from "../Landing/DeleteCollectionBTN.js/DeleteCollectionBTN";
+import DeleteCollectionBTN from "../Landing/DeleteCollectionBTN/DeleteCollectionBTN";
 
 class CollectionDetail extends Component {
   constructor() {
@@ -40,9 +40,11 @@ class CollectionDetail extends Component {
   };
 
   getCollection = async () => {
-    let collection = await axios.get(`/api/collections/${this.props.match.params.collection_id}`);
-    this.setState({collection: collection.data[0]});
-  }
+    let collection = await axios.get(
+      `/api/collections/${this.props.match.params.collection_id}`
+    );
+    this.setState({ collection: collection.data[0] });
+  };
 
   updateCards = cards => {
     this.setState({ cards: cards });
@@ -93,15 +95,16 @@ class CollectionDetail extends Component {
         );
       });
 
-    let cardForm = this.props.user.user_id === this.state.collection.user_id ?
-      <Button
-        color="primary"
-        onClick={this.toggle}
-        style={{ marginBottom: "1rem" }}
-      >
-        Toggle
-      </Button> :
-      null
+    let cardForm =
+      this.props.user.user_id === this.state.collection.user_id ? (
+        <Button
+          color="primary"
+          onClick={this.toggle}
+          style={{ marginBottom: "1rem" }}
+        >
+          Toggle
+        </Button>
+      ) : null;
 
     return (
       <div className="collection-home">
@@ -110,18 +113,9 @@ class CollectionDetail extends Component {
           <Collapse isOpen={this.state.collapse}>
             <Card>
               <CardBody>
-                {/* <input
-                  className="inputSearch"
-                  placeholder="Search Collection"
-                  onChange={event => this.handleInput(event.target.value)}
-                /> */}
                 <CardForm
                   collectionId={this.props.match.params.collection_id}
                   resolveSearch={this.resolveSearch}
-                />
-                <DeleteCollectionBTN
-                  className="deleteThisCard"
-                  id={this.props.match.params.collection_id}
                 />
               </CardBody>
             </Card>
@@ -135,11 +129,6 @@ class CollectionDetail extends Component {
         />
         <hr />
 
-        {/* <DeleteCollectionBTN
-          className="deleteThisCard"
-          id={this.props.match.params.collection_id}
-        /> */}
-
         <Alert
           color="warning"
           isOpen={this.state.visible}
@@ -147,17 +136,8 @@ class CollectionDetail extends Component {
         >
           {this.state.dupMessage}
         </Alert>
-        {/* <CardForm
-          collectionId={this.props.match.params.collection_id}
-          resolveSearch={this.resolveSearch}
-        /> */}
+
         <div className="card-wrapper"> {cardSearch} </div>
-        <div className="toPubCollection">
-          <h3>Explore ~ Find ~ Trade ~ Communicate</h3>
-          <Link to="/PublicCollection">
-            <Button>Explore Collections</Button>
-          </Link>
-        </div>
       </div>
     );
   }
@@ -165,4 +145,7 @@ class CollectionDetail extends Component {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, null)(CollectionDetail);
+export default connect(
+  mapStateToProps,
+  null
+)(CollectionDetail);

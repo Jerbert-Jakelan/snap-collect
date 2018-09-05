@@ -97,7 +97,7 @@ class EditCollection extends Component {
     return (
       <div>
         <Button outline size="sm" color="info" onClick={this.toggle}>
-          Edit Collection
+          Edit
         </Button>
         <Modal
           isOpen={this.state.modal}
