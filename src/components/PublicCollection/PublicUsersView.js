@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./PublicUsersView.css";
 import "../CollectionDetail/CollectionDetail.css";
 
 class PublicUsersView extends Component {

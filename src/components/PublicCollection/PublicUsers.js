@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import "../CollectionDetail/CollectionDetail.css";
 import axios from "axios";
+import "./PublicUsers.css";
 import PublicUsersView from "./PublicUsersView";
+// import "../CollectionDetail/CollectionDetail.css";
 
 class PublicUsers extends Component {
   constructor(props) {
