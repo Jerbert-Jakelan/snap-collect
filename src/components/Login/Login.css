@@ -21,7 +21,7 @@
 
 .appDescDiv {
   /* border: 1px solid black; */
-  height: 15vh;
+  height: 12vh;
 }
 
 .appDescription {
@@ -73,6 +73,12 @@
 }
 .clickHereText {
   font-size: 4vw;
+  color: rgba(255, 255, 255, 0.838);
+}
+
+.buttonLanding {
+  color: rgba(255, 255, 255, 0.838) !important;
+  text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.434);
 }
 
 .loginText {
@@ -81,6 +87,10 @@
 
 button {
   border-radius: 10%;
+}
+
+.loader {
+  margin: 30px 0 30px 15px;
 }
 
 .pHidden {
