@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import "../CollectionDetail/CollectionDetail.css";
 import axios from "axios";
-import Collections from "../Landing/Collections/Collections";
+import "./PublicCollection.css";
+// import Collections from "../Landing/Collections/Collections";
+import PublicCollectionItem from "../PublicCollectionItem/PublicCollectionItem";
 
 class PublicCollection extends Component {
   constructor(props) {
@@ -44,7 +46,7 @@ class PublicCollection extends Component {
       )
       .map((e, i) => {
         return (
-          <Collections
+          <PublicCollectionItem
             index={i}
             key={e.collection_id}
             collId={e.collection_id}
