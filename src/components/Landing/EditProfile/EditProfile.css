@@ -1,5 +1,6 @@
 .pencil {
-  display: inline-block;
+  /* display: inline-block; */
+  margin: -22px 0px 0px 65px;
 }
 
 /* .editProfileMainDiv {
