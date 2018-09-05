@@ -1,15 +1,12 @@
 import React, { Component } from "react";
 import "./Login.css";
+import {Button} from 'reactstrap';
 
 export default class Login extends Component {
   constructor() {
     super();
     this.state = {};
   }
-
-  //   userLogin = () => {
-  //     axios.get("/login").then(res => {});
-  //   };
 
   render() {
     return (
@@ -31,17 +28,12 @@ export default class Login extends Component {
             </p>
           </div>
 
-          {/* <li className="list">Use this field for point 1</li>
-          <li className="list">Obviously this is where point 2 sits</li>
-          <li className="list">Bob Ross is a God</li> */}
-
-          <hr className="hr" />
           <div className="loginSeg">
             <div className="loginSegText">
               <h4 className="clickHereText">Click here to sign up</h4>
               <h4 className="loginText">or log in</h4>
               <a href={process.env.REACT_APP_LOGIN}>
-                <button className="buttonLanding">Get Started</button>
+                <Button style={{color:"white", borderColor:"white"}} outline className="buttonLanding">Get Started</Button>
               </a>
             </div>
           </div>

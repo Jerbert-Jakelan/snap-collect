@@ -21,7 +21,7 @@
 
 .appDescDiv {
   /* border: 1px solid black; */
-  height: 20vh;
+  height: 15vh;
 }
 
 .appDescription {
@@ -78,6 +78,8 @@
 button {
   border-radius: 10%;
 }
+
+
 
 .pHidden {
   display: none;
