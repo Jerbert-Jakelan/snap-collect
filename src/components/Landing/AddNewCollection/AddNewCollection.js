@@ -92,7 +92,6 @@ class AddNewCollection extends Component {
 
     return (
       <div>
-        <hr />
         <Button
           className="collectionButton"
           size="sm"
@@ -100,7 +99,7 @@ class AddNewCollection extends Component {
           color="secondary"
           onClick={this.toggle}
         >
-          Add New Collection
+          Start New Collection
         </Button>
 
         <Modal

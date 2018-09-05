@@ -3,7 +3,7 @@ import "./Landing.css";
 import AddNewCollection from "./AddNewCollection/AddNewCollection";
 import axios from "axios";
 import { connect } from "react-redux";
-import { Button } from "reactstrap";
+import { Button, Card, CardTitle, CardText, Row, Col } from "reactstrap";
 import { setUser } from "../../ducks/reducer";
 import ProfileLanding from "./ProfileLanding/ProfileLanding";
 import { Link } from "react-router-dom";
@@ -53,14 +53,28 @@ class Avatar extends Component {
     return (
       <div>
         <ProfileLanding />
-        <AddNewCollection updateCollections={this.updateCollections} />
-        <div>
+        {/* <div className="container"> */}
+        {/* <Row> */}
+        {/* <Col> */}
+        <hr className="hrLanding" />
+        <Card className="cardLanding">
+          <CardTitle>Search | Explore | Find</CardTitle>
+          {/* <CardText>
+            Search cards by city, state, user name or description.
+          </CardText> */}
           <Link to="/PublicCollection">
-            <Button>Public Collections</Button>
-          </Link>
-        </div>
+            <Button className="pubColBtn" outline>
+              Public Collections
+            </Button>
+          </Link>{" "}
+        </Card>
+        {/* </Col> */}
+        {/* </Row> */}
+        {/* </div> */}
+        <hr className="hrLanding" />
+        <h3 className="myCollections">My Collections</h3>
+        <AddNewCollection updateCollections={this.updateCollections} />
         <div className="harlan-test">{looper2}</div>
-        <h3>Explore | Find | Trade</h3>
       </div>
     );
   }

@@ -1,13 +1,6 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardText,
-  Button
-} from "reactstrap";
+import { Card, CardHeader, CardBody, CardFooter, CardText } from "reactstrap";
 import { connect } from "react-redux";
 import Switch from "react-switch";
 import axios from "axios";
@@ -37,11 +30,36 @@ class Collections extends Component {
   render() {
     let toggleSwitch =
       this.props.match.path !== "/PublicCollection" ? (
+        // <p>
+        //   Public
+        //   <Switch
+        //     // className="toggleSwitch"
+        //     onChange={this.handleChange}
+        //     checked={this.state.checked}
+        //     id="normal-switch"
+        //   />
+        // </p>
         <Switch
-          // className="toggleSwitch"
-          onChange={this.handleChange}
           checked={this.state.checked}
-          id="normal-switch"
+          onChange={this.handleChange}
+          uncheckedIcon={
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "100%",
+                fontSize: 7,
+                color: "white",
+                paddingRight: 2
+              }}
+            >
+              Private
+            </div>
+          }
+          checkedIcon={<p className="togglePublic">Public</p>}
+          className="react-switch"
+          id="icon-switch"
         />
       ) : null;
 

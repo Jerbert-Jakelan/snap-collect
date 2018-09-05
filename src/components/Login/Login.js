@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Login.css";
-import {Button} from 'reactstrap';
+import { Button } from "reactstrap";
 
 export default class Login extends Component {
   constructor() {
@@ -27,13 +27,20 @@ export default class Login extends Component {
               The app that lets you scan your collections
             </p>
           </div>
+          <hr className="hrLogin" />
 
           <div className="loginSeg">
             <div className="loginSegText">
               <h4 className="clickHereText">Click here to sign up</h4>
               <h4 className="loginText">or log in</h4>
               <a href={process.env.REACT_APP_LOGIN}>
-                <Button style={{color:"white", borderColor:"white"}} outline className="buttonLanding">Get Started</Button>
+                <Button
+                  style={{ color: "white", borderColor: "white" }}
+                  outline
+                  className="buttonLanding"
+                >
+                  Get Started
+                </Button>
               </a>
             </div>
           </div>

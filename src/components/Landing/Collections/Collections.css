@@ -30,3 +30,13 @@
 .react-switch-handle {
   left: 20vw;
 }
+
+.togglePublic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 7px;
+  color: white;
+  /* padding-right: 2px; */
+}
