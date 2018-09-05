@@ -7,7 +7,11 @@ const ProfileLanding = props => {
   return (
     <div className="profileText">
       <div className="avatar" style={{ height: 75, width: 75 }}>
-        <img src={props.user.profile_pic} alt="user pic" />
+        <img
+          className="avatarImg"
+          src={props.user.profile_pic}
+          alt="user pic"
+        />
       </div>
       <EditProfile />
       <div className="profileText2">

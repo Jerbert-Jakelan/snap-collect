@@ -16,7 +16,8 @@ CREATE TABLE IF NOT EXISTS collections (
     user_id INTEGER REFERENCES users(user_id),
     name VARCHAR(50),
     description VARCHAR(300),
-    collection_pic TEXT 
+    collection_pic TEXT,
+    private BOOLEAN DEFAULT TRUE
 );
 
 CREATE TABLE IF NOT EXISTS cards (

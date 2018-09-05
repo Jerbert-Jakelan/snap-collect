@@ -14,6 +14,7 @@ import Dropzone from "react-dropzone";
 import axios from "axios";
 import { connect } from "react-redux";
 import { setUser } from "../../../ducks/reducer";
+import "./EditProfile.css";
 
 class EditProfile extends Component {
   constructor(props) {
@@ -78,10 +79,10 @@ class EditProfile extends Component {
   render() {
     let { name, city, state } = this.state;
     return (
-      <div>
-        <Button outline size="sm" color="info" onClick={this.toggle2}>
-          Update
-        </Button>
+      <div className="editProfileMainDiv">
+        <p className="pencil" onClick={this.toggle2}>
+          <i class="fas fa-pencil-alt" />
+        </p>
         <Modal
           isOpen={this.state.modal}
           toggle={this.toggle2}

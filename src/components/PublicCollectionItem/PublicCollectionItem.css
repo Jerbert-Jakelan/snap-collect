@@ -1,0 +1,108 @@
+/* .public-profile-card {
+}
+
+.user-info {
+}
+
+.avatar-img {
+  margin: 10px;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.user-info p {
+  margin: 0px;
+}
+
+.user-info .card-header {
+  font-size: 20px;
+}
+
+.user-info p:first-of-type {
+  font-size: 20px;
+} */
+/* /////////////////////////TEST CARD OF JUSTICE AND TRUTH//////////////////// */
+.public-collection-wrap {
+  background-color: white;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  width: 80vw;
+  min-width: 100%;
+}
+
+.public-collection-header {
+  padding: 10px;
+}
+
+.public-collection-image-wrap {
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0);
+  height: 100%;
+  width: 100%;
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.description-wrapper {
+  display: none;
+  background-color: transparent;
+  height: 100%;
+}
+
+.view-collection {
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  width: 150px;
+  align-self: center;
+  background-color: #607d8b;
+  color: white;
+}
+
+.overlay:hover .description-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.overlay:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.description-wrapper p {
+  color: white;
+  font-size: 25px;
+}
+
+.public-collection-user {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0;
+}
+
+.public-collection-user p {
+  text-align: left;
+}
+
+.avatar-img {
+  margin: 10px;
+  height: 100px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.collection-image {
+  height: 150px;
+  width: 100%;
+  justify-content: center;
+}
