@@ -28,6 +28,7 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
     "react-switch": "^3.0.4",
+    "react-walkway": "^1.0.2",
     "reactstrap": "^6.4.0",
     "redux": "^4.0.0",
     "s3": "^4.4.0",

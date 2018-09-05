@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Login.css";
 import { Button } from "reactstrap";
+import CameraSvg from '../SVG/CameraSvg';
 
 export default class Login extends Component {
   constructor() {
@@ -16,11 +17,8 @@ export default class Login extends Component {
           <h1 className="appName">Snap Collect</h1>
           <div className="imgDiv">
             <div className="loader" />
-            <img
-              className="loginImg"
-              src={require("./cam256x256.png")}
-              alt=""
-            />
+            <CameraSvg/>
+          
           </div>
           <div className="appDescDiv">
             <p className="appDescription">
