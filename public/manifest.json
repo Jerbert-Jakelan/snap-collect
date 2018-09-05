@@ -3,30 +3,24 @@
   "name": "Snap Collect",
   "icons": [
     {
-      "src": "./Icons/64x64.png",
-      "sizes": "64x64",
+      "src": "./Icons/60x60.png",
+      "sizes": "60x60",
       "type": "image/png"
     },
 
     {
-      "src": "./Icons/128x128.png",
-      "sizes": "144x144",
-      "type": "image/png"
-    },
-
-    {
-      "src": "./Icons/cam256x256.png",
-      "sizes": "256x256",
+      "src": "./Icons/240x240.png",
+      "sizes": "240x240",
       "type": "image/png"
     },
     {
-      "src": "./Icons/cam256x256.png",
+      "src": "./Icons/480x480.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#018786",
+  "theme_color": "#50A0AD",
   "background_color": "#ffffff"
 }

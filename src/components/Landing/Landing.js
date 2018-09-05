@@ -3,7 +3,7 @@ import "./Landing.css";
 import AddNewCollection from "./AddNewCollection/AddNewCollection";
 import axios from "axios";
 import { connect } from "react-redux";
-import { Button, Card, CardTitle, CardText, Row, Col } from "reactstrap";
+import { Button, Card, CardTitle } from "reactstrap";
 import { setUser } from "../../ducks/reducer";
 import ProfileLanding from "./ProfileLanding/ProfileLanding";
 import { Link } from "react-router-dom";
