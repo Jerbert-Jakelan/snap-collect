@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Login.css";
 import { Button } from "reactstrap";
-import CameraSvg from '../SVG/CameraSvg';
+import CameraSvg from "../SVG/CameraSvg";
 
 export default class Login extends Component {
   constructor() {
@@ -14,11 +14,11 @@ export default class Login extends Component {
       <div className="landingMainDiv">
         <div className="landingDiv2">
           <h4>Welcome to</h4>
-          <h1 className="appName">Snap Collect</h1>
+          <h1 className="appName">Snap Collector</h1>
           <div className="imgDiv">
-            <div className="loader" />
-            <CameraSvg/>
-          
+            <div className="loader">
+              <CameraSvg />
+            </div>
           </div>
           <div className="appDescDiv">
             <p className="appDescription">
