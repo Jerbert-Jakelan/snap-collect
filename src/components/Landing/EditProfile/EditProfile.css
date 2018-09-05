@@ -1,9 +1,7 @@
-/* .pencil {
-  position: absolute;
-  top: 100px;
-  right: 127px;
+ .pencil {
+display: inline-block;
 }
 
-.editProfileMainDiv {
+/* .editProfileMainDiv {
   position: relative;
-} */
+}  */

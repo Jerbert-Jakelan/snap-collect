@@ -27,30 +27,25 @@ class EditProfile extends Component {
       modal: false,
       user_id: ""
     };
-    this.onChange = this.onChange.bind(this);
-    this.updateProfile = this.updateProfile.bind(this);
-    this.toggle2 = this.toggle2.bind(this);
-    this.onFileDrop2 = this.onFileDrop2.bind(this);
   }
 
-  toggle2() {
-    // console.log("TOGGLE 2 FIRED")
+  toggle2 = () => {
+    
     this.setState({
       modal: !this.state.modal
     });
   }
 
-  onChange(e) {
-    // console.log('this is state ', e)
-    // console.log(e.target.value)
+  onChange = (e) => {
+ 
     this.setState({ [e.target.name]: e.target.value });
-    // console.log(this.state)
+
   }
 
   updateProfile = e => {
-    // console.log('HIT')
+  
     e.preventDefault();
-    // console.log(this.state)
+  
     let { name, city, state, photo } = this.state;
 
     const formData = new FormData();
@@ -60,7 +55,6 @@ class EditProfile extends Component {
     formData.append("city", city);
     formData.append("state", state);
 
-    console.log(name, city, state, photo);
     axios
       .put(`/api/profile/update`, formData, {
         headers: {
@@ -137,7 +131,7 @@ class EditProfile extends Component {
                     src={this.state.photo.preview && this.state.photo.preview}
                   />
                 </Dropzone>
-                {/* <Button type="button">Add Files</Button> */}
+            
               </FormGroup>
 
               <Button type="submit" onClick={this.toggle2}>
