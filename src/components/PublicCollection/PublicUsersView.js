@@ -7,8 +7,8 @@ class PublicUsersView extends Component {
     let { name, city, state, pic } = this.props;
     return (
       <div className="profileText">
-        <div className="avatar" style={{ height: 75, width: 75 }}>
-          <img src={pic} alt="user pic" />
+        <div className="avatarPubDiv" style={{ height: 75, width: 75 }}>
+          <img className="avatarPubPic" src={pic} alt="user pic" />
         </div>
 
         <div className="profileText2">

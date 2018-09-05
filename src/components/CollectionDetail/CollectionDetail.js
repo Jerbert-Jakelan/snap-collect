@@ -4,6 +4,7 @@ import CardForm from "../CardForm/CardForm";
 import Cards from "../Card/Card";
 import { Alert, Button, Collapse, CardBody, Card } from "reactstrap";
 import { Link } from "react-router-dom";
+import {connect} from 'react-redux';
 import "./CollectionDetail.css";
 import DeleteCollectionBTN from "../Landing/DeleteCollectionBTN.js/DeleteCollectionBTN";
 
@@ -16,12 +17,14 @@ class CollectionDetail extends Component {
       visible: false,
       input: "",
       selectedCard: {},
-      collapse: false
+      collapse: false,
+      collection: []
     };
     this.toggle = this.toggle.bind(this);
   }
 
   componentDidMount() {
+    this.getCollection();
     this.getCards();
   }
 
@@ -35,6 +38,11 @@ class CollectionDetail extends Component {
       .then(cards => this.setState({ cards: cards.data }))
       .catch(err => console.log(err));
   };
+
+  getCollection = async () => {
+    let collection = await axios.get(`/api/collections/${this.props.match.params.collection_id}`);
+    this.setState({collection: collection.data[0]});
+  }
 
   updateCards = cards => {
     this.setState({ cards: cards });
@@ -79,23 +87,26 @@ class CollectionDetail extends Component {
             card={e}
             setSelectedCard={this.setSelectedCard}
             getCards={this.getCards}
+            collectionId={this.state.collection.user_id}
+            userId={this.props.user.user_id}
           />
         );
-        // <div key={i}>
-        //   <div>{e.name}</div>
-        // </div>;
       });
+
+    let cardForm = this.props.user.user_id === this.state.collection.user_id ?
+      <Button
+        color="primary"
+        onClick={this.toggle}
+        style={{ marginBottom: "1rem" }}
+      >
+        Toggle
+      </Button> :
+      null
 
     return (
       <div className="collection-home">
         <div>
-          <Button
-            color="primary"
-            onClick={this.toggle}
-            style={{ marginBottom: "1rem" }}
-          >
-            Toggle
-          </Button>
+          {cardForm}
           <Collapse isOpen={this.state.collapse}>
             <Card>
               <CardBody>
@@ -152,4 +163,6 @@ class CollectionDetail extends Component {
   }
 }
 
-export default CollectionDetail;
+const mapStateToProps = state => state;
+
+export default connect(mapStateToProps, null)(CollectionDetail);

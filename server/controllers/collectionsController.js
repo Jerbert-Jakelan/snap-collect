@@ -124,6 +124,11 @@ const togglePrivate = async (req, res) => {
   res.status(200).send(collections);
 }
 
+const getCollectionById = async (req, res) => {
+  let collection = await req.app.get('db').collections.get_collection_by_id(req.params.collection_id);
+  res.status(200).send(collection);  
+}
+
 module.exports = {
   addCollection,
   deleteCollection,
@@ -131,5 +136,6 @@ module.exports = {
   editCollection,
   getCategories,
   getAllCollections,
-  togglePrivate
+  togglePrivate,
+  getCollectionById
 };
