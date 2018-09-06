@@ -6,7 +6,7 @@ import { Alert, Button, Collapse, CardBody, Card } from "reactstrap";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "./CollectionDetail.css";
-import DeleteCollectionBTN from "../Landing/DeleteCollectionBTN/DeleteCollectionBTN";
+import SVG from '../SVG/camera.svg';
 
 class CollectionDetail extends Component {
   constructor() {
@@ -18,7 +18,8 @@ class CollectionDetail extends Component {
       input: "",
       selectedCard: {},
       collapse: false,
-      collection: []
+      collection: [],
+      empty: false
     };
     this.toggle = this.toggle.bind(this);
   }
@@ -35,7 +36,13 @@ class CollectionDetail extends Component {
   getCards = () => {
     axios
       .get(`/api/cards/${this.props.match.params.collection_id}`)
-      .then(cards => this.setState({ cards: cards.data }))
+      .then(cards => {
+        if(cards.data.length === 0) {
+          this.setState({empty: true});
+        } else {
+          this.setState({ cards: cards.data })
+        }
+      })
       .catch(err => console.log(err));
   };
 
@@ -105,6 +112,48 @@ class CollectionDetail extends Component {
           Toggle
         </Button>
       ) : null;
+
+      if(this.state.empty) {
+        return(
+          <div className="collection-home">
+            <div>
+              {cardForm}
+              <Collapse isOpen={this.state.collapse}>
+                <Card>
+                  <CardBody>
+                    <CardForm
+                      collectionId={this.props.match.params.collection_id}
+                      resolveSearch={this.resolveSearch}
+                    />
+                  </CardBody>
+                </Card>
+              </Collapse>
+            </div>
+            <hr />
+            <input
+              className="inputSearch"
+              placeholder="Search Collection"
+              onChange={event => this.handleInput(event.target.value)}
+            />
+            <hr />
+  
+            <Alert
+              color="warning"
+              isOpen={this.state.visible}
+              toggle={this.onDismiss}
+            >
+              {this.state.dupMessage}
+            </Alert>
+  
+            <div className="card-wrapper"> {cardSearch} </div>
+            <div>
+              <img src={SVG} alt="" style={{height: '100px'}}/>
+              <p style={{color: 'white', marginTop: '10px'}}>There's nothing here!</p>
+            </div>
+  
+          </div>
+        );
+      }
 
     return (
       <div className="collection-home">
