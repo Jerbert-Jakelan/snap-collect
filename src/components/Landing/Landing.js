@@ -54,31 +54,37 @@ class Avatar extends Component {
       <div>
         <div className="desk-top-wrapper-view">
           <div className="pro-div">
-             <ProfileLanding />
+            <ProfileLanding />
           </div>
           <hr className="hrLanding" />
           <div className="card-div">
             <Card className="cardLanding">
-            <CardTitle className="no-show-on-mobile">Explore Public Collections</CardTitle>
-              <CardTitle className="no-show-on-desktop">Search | Explore | Find</CardTitle>
+              <CardTitle className="no-show-on-mobile">
+                Explore Public Collections
+              </CardTitle>
+              <CardTitle className="no-show-on-desktop">
+                Search | Explore | Find
+              </CardTitle>
               <CardText className="only-viewable-desktop">
-              Search cards by city, state, user name or description.
+                Search cards by city, state, user name or description.
               </CardText>
-              <Link to="/PublicCollection">
-                <Button className="pubColBtn" outline>
-                Public Collections
-                </Button>
-              </Link>{" "}
+              <div className="pubColBtnDiv">
+                <Link to="/PublicCollection">
+                  <Button className="pubColBtn" outline>
+                    Public Collections
+                  </Button>
+                </Link>{" "}
+              </div>
             </Card>
           </div>
         </div>
-          <hr className="hrLanding" />
-          <hr className="hrLanding2" />
-          <div className="col-div">
-            <h3 className="myCollections">My Collections</h3>
-            <AddNewCollection updateCollections={this.updateCollections} />       
-            <div className="collection-wrapper">{looper2}</div>
-          </div>
+        <hr className="hrLanding" />
+        <hr className="hrLanding2" />
+        <div className="col-div">
+          <h3 className="myCollections">My Collections</h3>
+          <AddNewCollection updateCollections={this.updateCollections} />
+          <div className="collection-wrapper">{looper2}</div>
+        </div>
       </div>
     );
   }

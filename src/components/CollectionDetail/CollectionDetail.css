@@ -9,6 +9,7 @@
   justify-content: space-between;
   align-items: center;
   align-content: stretch;
+  color: darkslategrey;
 }
 
 .card-wrapper {
