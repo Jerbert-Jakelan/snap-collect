@@ -1,10 +1,11 @@
+/* web full screen */
 @media screen and (min-width: 941px) {
   body {
     color: black;
     padding: 20px 30px;
     font-family: sans-serif;
   }
-  
+
   #user-profile {
     width: 100%;
     max-width: 450px;
@@ -13,34 +14,36 @@
     text-align: center;
     overflow: hidden;
   }
- 
-  .desk-top-wrapper-view{
-      display: flex;
-      margin:5%;
-      width: 90%;
-      padding: 5%;
-      background-color: aliceblue;
+
+  .desk-top-wrapper-view {
+    display: flex;
+    margin: 5%;
+    width: 90%;
+    padding: 5%;
+    background-color: aliceblue;
+    box-shadow: 9px 9px 10px darkslategrey;
+    border-radius: 5px;
   }
-  .no-show-on-mobile{
-    font-size: 4.7vh; 
+  .no-show-on-mobile {
+    font-size: 4.7vh;
   }
-  
+
   p {
     font-size: 14px;
   }
-  .pro-div{
-    margin:auto;
+  .pro-div {
+    margin: auto;
   }
-  
+
   .top,
   .subscriptions {
     padding-top: 20px;
   }
-  
+
   .subscriptions {
     text-align: center;
   }
-  
+
   .avatar {
     border-radius: 50%;
     overflow: hidden;
@@ -48,21 +51,152 @@
     margin-bottom: 15px;
     border: 1px solid #fff;
   }
-  
+
   img {
-    
     width: 100%;
   }
-  
+
   .collections {
     width: 100%;
     display: flex;
   }
-  
+
   .collections > img {
     margin: auto;
   }
-  
+
+  .collection-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+    color: darkslategrey;
+  }
+
+  .cardLanding {
+    padding: 10px 0 10px 0;
+    color: rgba(255, 255, 255, 0.838);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.434);
+    border: none !important;
+    background-color: rgba(255, 255, 255, 0) !important;
+  }
+  .no-show-on-desktop {
+    display: none;
+  }
+
+  .card {
+    margin: 0 0 0 10px;
+    width: 95%;
+    color: darkslategrey;
+  }
+  .card-div {
+    margin: 35px 0px 0px 0px;
+  }
+
+  .card-text {
+    border: none;
+    margin: 20px 0 15px 0;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.434);
+  }
+
+  .pubColBtnDiv {
+    display: block;
+    margin: 25px 0 0px 0;
+  }
+
+  .myCollections {
+    color: rgba(255, 255, 255, 0.838);
+    margin: 0 0 15px 0;
+  }
+
+  .hrLanding {
+    border-top: 1px solid rgba(0, 0, 0, 0.16);
+    width: 75%;
+    box-shadow: 0px 0px 12px 0.01px white;
+    display: none;
+  }
+  .hrLanding2 {
+    border-top: 1px solid rgba(0, 0, 0, 0.16);
+    width: 75%;
+    box-shadow: 0px 0px 12px 0.01px white;
+  }
+
+  .profileText {
+    color: darkslategrey;
+  }
+
+  .pubColBtn {
+    box-shadow: 2px 2px 10px black;
+    border: 2px solid white;
+    font-size: 15px !important;
+  }
+}
+
+/*MOBILE AND TABLE-PORTRAIT VIEWS*/
+@media screen and (max-width: 940px) {
+  body {
+    color: black;
+    padding: 20px 30px;
+    font-family: sans-serif;
+  }
+  .no-show-on-mobile {
+    display: none;
+    font-size: 8vh;
+  }
+
+  #user-profile {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+    border-radius: 5px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .only-viewable-desktop {
+    display: none;
+  }
+  hr {
+    margin: 20px auto;
+    width: 50%;
+    border: 1px solid red;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .top,
+  .subscriptions {
+    padding-top: 20px;
+  }
+
+  .subscriptions {
+    text-align: center;
+  }
+
+  .avatar {
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-flex;
+    margin-bottom: 15px;
+    border: 1px solid #fff;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .collections {
+    width: 100%;
+    display: flex;
+  }
+
+  .collections > img {
+    margin: auto;
+  }
+
   .collection-wrapper {
     display: flex;
     flex-direction: row;
@@ -71,165 +205,44 @@
     align-items: center;
     align-content: stretch;
   }
-  
+
   .cardLanding {
     padding: 10px 0 10px 0;
     color: rgba(255, 255, 255, 0.838);
     text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.434);
     border: none !important;
     background-color: rgba(255, 255, 255, 0) !important;
-    
   }
-  .no-show-on-desktop{
-    display: none;
-  }
-  
+
   .card {
     margin: 0 0 0 10px;
     width: 95%;
   }
-  
+
   .card-text {
     border: none;
     margin: 0 0 15px 0;
   }
-  
+  .hrLanding2 {
+    display: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.16);
+    width: 75%;
+    box-shadow: 0px 0px 12px 0.01px white;
+  }
+
   .myCollections {
     color: rgba(255, 255, 255, 0.838);
   }
-  
+
   .hrLanding {
     border-top: 1px solid rgba(0, 0, 0, 0.16);
     width: 75%;
     box-shadow: 0px 0px 12px 0.01px white;
-    display: none;
   }
-  .hrLanding2{
-    border-top: 1px solid rgba(0, 0, 0, 0.16);
-    width: 75%;
-    box-shadow: 0px 0px 12px 0.01px white;
-  }
-  
+
   .pubColBtn {
     box-shadow: 2px 2px 10px black;
     border: 2px solid white;
     font-size: 15px !important;
   }
-  }
-
-
-
-/*MOBILE AND TABLE-PORTRAIT VIEWS*/
-@media screen and (max-width: 940px) {
-body {
-  color: black;
-  padding: 20px 30px;
-  font-family: sans-serif;
-  
-}
-.no-show-on-mobile{
-  display: none;
-  font-size: 8vh;
-
-}
-
-#user-profile {
-  width: 100%;
-  max-width: 450px;
-  margin: 0 auto;
-  border-radius: 5px;
-  text-align: center;
-  overflow: hidden;
-}
-.only-viewable-desktop{
-  display: none;
-}
-hr {
-  margin: 20px auto;
-  width: 50%;
-  border: 1px solid red;
-}
-
-p {
-  font-size: 14px;
-}
-
-.top,
-.subscriptions {
-  padding-top: 20px;
-}
-
-.subscriptions {
-  text-align: center;
-}
-
-.avatar {
-  border-radius: 50%;
-  overflow: hidden;
-  display: inline-flex;
-  margin-bottom: 15px;
-  border: 1px solid #fff;
-}
-
-img {
-  width: 100%;
-}
-
-.collections {
-  width: 100%;
-  display: flex;
-}
-
-.collections > img {
-  margin: auto;
-}
-
-.collection-wrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: stretch;
-}
-
-.cardLanding {
-  padding: 10px 0 10px 0;
-  color: rgba(255, 255, 255, 0.838);
-  text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.434);
-  border: none !important;
-  background-color: rgba(255, 255, 255, 0) !important;
-}
-
-.card {
-  margin: 0 0 0 10px;
-  width: 95%;
-}
-
-.card-text {
-  border: none;
-  margin: 0 0 15px 0;
-}
-.hrLanding2{
-  display: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.16);
-  width: 75%;
-  box-shadow: 0px 0px 12px 0.01px white;
-}
-
-.myCollections {
-  color: rgba(255, 255, 255, 0.838);
-}
-
-.hrLanding {
-  border-top: 1px solid rgba(0, 0, 0, 0.16);
-  width: 75%;
-  box-shadow: 0px 0px 12px 0.01px white;
-}
-
-.pubColBtn {
-  box-shadow: 2px 2px 10px black;
-  border: 2px solid white;
-  font-size: 15px !important;
-}
 }
