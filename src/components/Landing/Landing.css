@@ -16,12 +16,20 @@
  
   .desk-top-wrapper-view{
       display: flex;
-      margin:5% 35%;
+      margin:5%;
       width: 90%;
+      padding: 5%;
+      background-color: aliceblue;
+  }
+  .no-show-on-mobile{
+    font-size: 4.7vh; 
   }
   
   p {
     font-size: 14px;
+  }
+  .pro-div{
+    margin:auto;
   }
   
   .top,
