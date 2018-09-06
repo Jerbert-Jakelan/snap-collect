@@ -6,7 +6,7 @@ import "./ProfileLanding.css";
 const ProfileLanding = props => {
   return (
     <div className="profileText">
-      <div className="avatar" style={{ height: 75, width: 75 }}>
+      <div className="avatar">
         <img
           className="avatarImg"
           src={props.user.profile_pic}

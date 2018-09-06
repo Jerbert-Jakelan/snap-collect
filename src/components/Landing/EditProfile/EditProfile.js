@@ -93,6 +93,7 @@ class EditProfile extends Component {
               <FormGroup>
                 <Label for="profileName">Name</Label>
                 <Input
+                  cy-data-edit-name-input
                   type="text"
                   name="name"
                   id="profileName"
@@ -104,6 +105,7 @@ class EditProfile extends Component {
 
               <Label for="cityName">City</Label>
               <Input
+                cy-data-edit-city-input
                 type="text"
                 name="city"
                 id="cityName"
@@ -114,6 +116,7 @@ class EditProfile extends Component {
 
               <Label for="stateName">State</Label>
               <Input
+                cy-data-edit-state-input
                 type="text"
                 name="state"
                 id="stateName"

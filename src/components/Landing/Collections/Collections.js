@@ -118,7 +118,7 @@ class Collections extends Component {
       //     </CardFooter>
       //   </Card>
       // </div>
-      <div>
+      <div data-cy-collections>
         <div className="public-collection-wrap">
           <div className="collection-header">
             <div>
