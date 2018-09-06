@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import axios from "axios";
 import CardForm from "../CardForm/CardForm";
 import Cards from "../Card/Card";
-import { Alert, Button, Collapse, CardBody, Card } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Alert } from "reactstrap";
 import { connect } from "react-redux";
 import "./CollectionDetail.css";
-import SVG from '../SVG/camera.svg';
+import SVG from "../SVG/camera.svg";
 import Loader from "react-loader-spinner";
+import CardPlaceHolder from "../CardPlaceHolder/CardPlaceHolder";
 
 class CollectionDetail extends Component {
   constructor() {
@@ -21,7 +21,8 @@ class CollectionDetail extends Component {
       collapse: false,
       collection: [],
       empty: false,
-      loading: false
+      loading: false,
+      placeholderoffset: 0
     };
     this.toggle = this.toggle.bind(this);
   }
@@ -39,14 +40,29 @@ class CollectionDetail extends Component {
     axios
       .get(`/api/cards/${this.props.match.params.collection_id}`)
       .then(cards => {
-        if(cards.data.length === 0) {
-          this.setState({empty: true});
+        if (cards.data.length === 0) {
+          this.setState({ empty: true });
         } else {
-          this.setState({ cards: cards.data })
+          let placeholders = [];
+          if (cards.data.length < 5) {
+            this.setState({ placeholderoffset: 5 - cards.data.length });
+            // placeholders = this.createPlaceHolders(5 - cards.data.length);
+            // console.log(placeholders);
+          }
+          this.setState({ cards: cards.data });
         }
       })
       .catch(err => console.log(err));
   };
+
+  // createPlaceHolders = num => {
+  //   console.log(num);
+  //   let placeholders = [];
+  //   for (let i = 0; i < num; i++) {
+  //     placeholders.push(<div>I'M A PLACE HOLDER CARD</div>);
+  //   }
+  //   return placeholders;
+  // };
 
   getCollection = async () => {
     let collection = await axios.get(
@@ -56,7 +72,7 @@ class CollectionDetail extends Component {
   };
 
   updateCards = cards => {
-    this.setState({ cards: cards });
+    this.setState({ cards: cards, placeholderoffset: 5 - cards.length });
   };
 
   setSelectedCard = card => {
@@ -68,7 +84,11 @@ class CollectionDetail extends Component {
     if (result.message) {
       this.setState({ dupMessage: result.message, visible: true });
     } else {
-      this.setState({ cards: result, empty: false });
+      this.setState({
+        cards: result,
+        empty: false,
+        placeholderoffset: 5 - result.length
+      });
     }
   };
 
@@ -83,8 +103,8 @@ class CollectionDetail extends Component {
   }
 
   updateLoading = bool => {
-    this.setState({loading: bool});
-  }
+    this.setState({ loading: bool });
+  };
 
   render() {
     const { input } = this.state;
@@ -109,48 +129,57 @@ class CollectionDetail extends Component {
         );
       });
 
+    let placeholders = [];
+    for (let i = 0; i < this.state.placeholderoffset; i++) {
+      placeholders.push(<CardPlaceHolder />);
+    }
+
     let cardForm =
       this.props.user.user_id === this.state.collection.user_id ? (
-        this.state.loading ? <Loader type="Oval" color="#00BFFF" height="50" width="50" /> :
-        <CardForm
-          collectionId={this.props.match.params.collection_id}
-          resolveSearch={this.resolveSearch}
-          updateLoading={this.updateLoading}
-        />
+        this.state.loading ? (
+          <Loader type="Oval" color="#00BFFF" height="50" width="50" />
+        ) : (
+          <CardForm
+            collectionId={this.props.match.params.collection_id}
+            resolveSearch={this.resolveSearch}
+            updateLoading={this.updateLoading}
+          />
+        )
       ) : null;
 
-      if(this.state.empty) {
-        return(
-          <div className="collection-home">
-            <Alert
-              color="warning"
-              isOpen={this.state.visible}
-              toggle={this.onDismiss}
-            >
-              {this.state.dupMessage}
-            </Alert>
+    if (this.state.empty) {
+      return (
+        <div className="collection-home">
+          <Alert
+            color="warning"
+            isOpen={this.state.visible}
+            toggle={this.onDismiss}
+          >
+            {this.state.dupMessage}
+          </Alert>
 
-            <hr />
+          <hr />
 
-            <input
-              className="inputSearch"
-              placeholder="Search Collection"
-              onChange={event => this.handleInput(event.target.value)}
-            />
+          <input
+            className="inputSearch"
+            placeholder="Search Collection"
+            onChange={event => this.handleInput(event.target.value)}
+          />
 
-            <hr />
+          <hr />
 
-            {cardForm}
-  
-            <div className="card-wrapper"> {cardSearch} </div>
-            <div>
-              <img src={SVG} alt="" style={{height: '100px'}}/>
-              <p style={{color: 'white', marginTop: '10px'}}>There's nothing here!</p>
-            </div>
-  
+          {cardForm}
+
+          <div className="card-wrapper"> {cardSearch} </div>
+          <div>
+            <img src={SVG} alt="" style={{ height: "100px" }} />
+            <p style={{ color: "white", marginTop: "10px" }}>
+              There's nothing here!
+            </p>
           </div>
-        );
-      }
+        </div>
+      );
+    }
 
     return (
       <div className="collection-home">
@@ -171,10 +200,13 @@ class CollectionDetail extends Component {
         />
 
         <hr />
-        
+
         {cardForm}
 
-        <div className="card-wrapper"> {cardSearch} </div>
+        <div className="card-wrapper">
+          {" "}
+          {cardSearch} {placeholders}{" "}
+        </div>
       </div>
     );
   }

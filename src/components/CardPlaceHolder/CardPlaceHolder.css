@@ -1,0 +1,17 @@
+.place-holder-card {
+  height: 300px;
+  width: 200px;
+  max-height: 300px;
+  max-width: 200px;
+  border-radius: 4px;
+  background-color: black;
+  opacity: 0.5;
+  margin: 15px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  align-content: stretch;
+  font-size: 5px;
+  position: relative;
+  color: white;
+}
