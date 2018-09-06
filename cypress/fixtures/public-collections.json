@@ -1,0 +1,38 @@
+[
+    {
+        "collection_id": 74,
+        "category_id": 2,
+        "user_id": 12,
+        "name": "jeremy blakley",
+        "description": "dallas",
+        "collection_pic": "https://jerbertjakelan.s3.amazonaws.com/collections/1536002124322.jpg",
+        "private": false,
+        "user_name": "blah",
+        "city": "Dallas",
+        "state": "Texas"
+    },
+    {
+        "collection_id": 75,
+        "category_id": 2,
+        "user_id": 12,
+        "name": "Jakey's Cards",
+        "description": "dallas",
+        "collection_pic": "https://jerbertjakelan.s3.us-west-1.amazonaws.com/collections/1536002322617.jpg",
+        "private": false,
+        "user_name": "blah",
+        "city": "Dallas",
+        "state": "Texas"
+    },
+    {
+        "collection_id": 76,
+        "category_id": 2,
+        "user_id": 12,
+        "name": "Rob's Cards",
+        "description": "dallas",
+        "collection_pic": "https://jerbertjakelan.s3.us-west-1.amazonaws.com/collections/1536002325580.jpg",
+        "private": false,
+        "user_name": "blah",
+        "city": "Dallas",
+        "state": "Texas"
+    }
+]
