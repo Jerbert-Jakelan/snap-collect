@@ -95,6 +95,7 @@ const createCard = (req, res) => {
 };
 
 const getCards = (req, res) => {
+  console.log(req.params);
   req.app
     .get("db")
     .cards.get_cards(req.params.collection_id)

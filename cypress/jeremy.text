@@ -1,0 +1,78 @@
+http://localhost:3001/api/getAllUsers
+
+const response = pm.response.json();
+
+pm.test("Status code is 200", function() {
+  pm.response.to.have.status(200);
+});
+
+pm.test(err => {
+      console.log(err);
+      res.status(500);
+    });
+
+-----------------------------------
+
+    http://localhost:3001/api/getAllCollections
+
+    let resData = pm.response.json();
+let code = pm.response.code;
+
+pm.test('Should have 200 status', ()=>{
+    pm.expect(code).to.eql(200);
+})
+
+tests['Response Should be an array'] = Array.isArray(resData);
+
+
+------------------------------------
+
+http://localhost:3001/api/cards/96
+
+const response = pm.response.json();
+const card101 = [{ card_id: 101,
+    image: 'https://jerbertjakelan.s3.us-west-1.amazonaws.com/collection-96/1536251498429.jpg',
+     name: 'TestMan',
+    team: 'Testers',
+     tradable: null,
+     year: '2000',
+    collection_id: 96,    aws_key: 'collection-96/1536251498429.jpg' } ];
+
+pm.test("Status code is 200", function() {
+  pm.response.to.have.status(200);
+});
+
+pm.test("Correct object in response for card_id 101", function() {
+    console.log(response)
+  pm.expect(response).to.eql(card101);
+});
+
+------------------------------------
+
+http://localhost:3001/api/getAllCollections
+
+ const collectionReturned = {
+     user_id: 2,
+     collection_id: 86,
+     category_id: 2,
+     name: "Jakey op",
+     description: "My Explain",
+     collection_pic: "https://jerbertjakelan.s3.us-west-1.amazonaws.com/collections/1536094186384.jpg"
+ };
+
+ const responseJSON = pm.response.json();
+
+ pm.test("Status code is 200", function() {
+ pm.response.to.have.status(200);
+ });
+
+ pm.test("Returned data is expected", function() {
+ pm.expect(responseJSON[0].name).to.eql(collectionReturned.name);
+ });
+
+------------------------------------
+http://localhost:3001/api/cards/86
+
+const resData = pm.response.json();
+
+tests['Data returns Teams'] = resData.every(c => c.team)
