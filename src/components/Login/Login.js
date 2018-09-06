@@ -13,11 +13,10 @@ export default class Login extends Component {
     return (
       <div className="landingMainDiv">
         <div className="landingDiv2">
-          <h4>Welcome to</h4>
           <h1 className="appName">Snap Collector</h1>
           <div className="imgDiv">
             <div className="loader">
-              <CameraSvg />
+              <CameraSvg/>
             </div>
           </div>
           <div className="appDescDiv">
@@ -29,8 +28,7 @@ export default class Login extends Component {
 
           <div className="loginSeg">
             <div className="loginSegText">
-              <h4 className="clickHereText">Click here to sign up</h4>
-              <h4 className="loginText">or log in</h4>
+              <h4 className="clickHereText">Register / Login</h4>
               <a href={process.env.REACT_APP_LOGIN}>
                 <Button
                   style={{ color: "white", borderColor: "white" }}
