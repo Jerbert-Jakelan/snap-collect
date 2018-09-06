@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-import { Card, CardHeader, CardBody, CardFooter, CardText } from "reactstrap";
+// import { Card, CardHeader, CardBody, CardFooter, CardText } from "reactstrap";
 import { connect } from "react-redux";
 import Switch from "react-switch";
 import axios from "axios";
