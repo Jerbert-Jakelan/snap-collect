@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "./CollectionDetail.css";
 import SVG from '../SVG/camera.svg';
+import Loader from "react-loader-spinner";
 
 class CollectionDetail extends Component {
   constructor() {
@@ -19,7 +20,8 @@ class CollectionDetail extends Component {
       selectedCard: {},
       collapse: false,
       collection: [],
-      empty: false
+      empty: false,
+      loading: false
     };
     this.toggle = this.toggle.bind(this);
   }
@@ -62,10 +64,11 @@ class CollectionDetail extends Component {
   };
 
   resolveSearch = result => {
+    this.updateLoading(false);
     if (result.message) {
       this.setState({ dupMessage: result.message, visible: true });
     } else {
-      this.setState({ cards: result });
+      this.setState({ cards: result, empty: false });
     }
   };
 
@@ -77,6 +80,10 @@ class CollectionDetail extends Component {
     this.setState({
       input: val.toLowerCase()
     });
+  }
+
+  updateLoading = bool => {
+    this.setState({loading: bool});
   }
 
   render() {
@@ -104,39 +111,17 @@ class CollectionDetail extends Component {
 
     let cardForm =
       this.props.user.user_id === this.state.collection.user_id ? (
-        <Button
-          color="primary"
-          onClick={this.toggle}
-          style={{ marginBottom: "1rem" }}
-        >
-          Toggle
-        </Button>
+        this.state.loading ? <Loader type="Oval" color="#00BFFF" height="50" width="50" /> :
+        <CardForm
+          collectionId={this.props.match.params.collection_id}
+          resolveSearch={this.resolveSearch}
+          updateLoading={this.updateLoading}
+        />
       ) : null;
 
       if(this.state.empty) {
         return(
           <div className="collection-home">
-            <div>
-              {cardForm}
-              <Collapse isOpen={this.state.collapse}>
-                <Card>
-                  <CardBody>
-                    <CardForm
-                      collectionId={this.props.match.params.collection_id}
-                      resolveSearch={this.resolveSearch}
-                    />
-                  </CardBody>
-                </Card>
-              </Collapse>
-            </div>
-            <hr />
-            <input
-              className="inputSearch"
-              placeholder="Search Collection"
-              onChange={event => this.handleInput(event.target.value)}
-            />
-            <hr />
-  
             <Alert
               color="warning"
               isOpen={this.state.visible}
@@ -144,6 +129,18 @@ class CollectionDetail extends Component {
             >
               {this.state.dupMessage}
             </Alert>
+
+            <hr />
+
+            <input
+              className="inputSearch"
+              placeholder="Search Collection"
+              onChange={event => this.handleInput(event.target.value)}
+            />
+
+            <hr />
+
+            {cardForm}
   
             <div className="card-wrapper"> {cardSearch} </div>
             <div>
@@ -157,27 +154,6 @@ class CollectionDetail extends Component {
 
     return (
       <div className="collection-home">
-        <div>
-          {cardForm}
-          <Collapse isOpen={this.state.collapse}>
-            <Card>
-              <CardBody>
-                <CardForm
-                  collectionId={this.props.match.params.collection_id}
-                  resolveSearch={this.resolveSearch}
-                />
-              </CardBody>
-            </Card>
-          </Collapse>
-        </div>
-        <hr />
-        <input
-          className="inputSearch"
-          placeholder="Search Collection"
-          onChange={event => this.handleInput(event.target.value)}
-        />
-        <hr />
-
         <Alert
           color="warning"
           isOpen={this.state.visible}
@@ -185,6 +161,18 @@ class CollectionDetail extends Component {
         >
           {this.state.dupMessage}
         </Alert>
+
+        <hr />
+
+        <input
+          className="inputSearch"
+          placeholder="Search Collection"
+          onChange={event => this.handleInput(event.target.value)}
+        />
+
+        <hr />
+        
+        {cardForm}
 
         <div className="card-wrapper"> {cardSearch} </div>
       </div>
