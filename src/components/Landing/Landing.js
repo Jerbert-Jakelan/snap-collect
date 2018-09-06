@@ -3,7 +3,7 @@ import "./Landing.css";
 import AddNewCollection from "./AddNewCollection/AddNewCollection";
 import axios from "axios";
 import { connect } from "react-redux";
-import { Button, Card, CardTitle } from "reactstrap";
+import { Button, Card, CardText, CardTitle } from "reactstrap";
 import { setUser } from "../../ducks/reducer";
 import ProfileLanding from "./ProfileLanding/ProfileLanding";
 import { Link } from "react-router-dom";
@@ -52,26 +52,33 @@ class Avatar extends Component {
     });
     return (
       <div>
-        <ProfileLanding />
-        {/* <div className="container"> */}
-        {/* <Row> */}
-        {/* <Col> */}
-        <hr className="hrLanding" />
-        <Card className="cardLanding">
-          <CardTitle>Search | Explore | Find</CardTitle>
-          {/* <CardText>
-            Search cards by city, state, user name or description.
-          </CardText> */}
-          <Link to="/PublicCollection">
-            <Button className="pubColBtn" outline>
-              Public Collections
-            </Button>
-          </Link>{" "}
-        </Card>
-        <hr className="hrLanding" />
-        <h3 className="myCollections">My Collections</h3>
-        <AddNewCollection updateCollections={this.updateCollections} />
-        <div className="collection-wrapper">{looper2}</div>
+        <div className="desk-top-wrapper-view">
+          <div className="pro-div">
+             <ProfileLanding />
+          </div>
+          <hr className="hrLanding" />
+          <div className="card-div">
+            <Card className="cardLanding">
+            <CardTitle className="no-show-on-mobile">Explore Public Collections</CardTitle>
+              <CardTitle className="no-show-on-desktop">Search | Explore | Find</CardTitle>
+              <CardText className="only-viewable-desktop">
+              Search cards by city, state, user name or description.
+              </CardText>
+              <Link to="/PublicCollection">
+                <Button className="pubColBtn" outline>
+                Public Collections
+                </Button>
+              </Link>{" "}
+            </Card>
+          </div>
+        </div>
+          <hr className="hrLanding" />
+          <hr className="hrLanding2" />
+          <div className="col-div">
+            <h3 className="myCollections">My Collections</h3>
+            <AddNewCollection updateCollections={this.updateCollections} />       
+            <div className="collection-wrapper">{looper2}</div>
+          </div>
       </div>
     );
   }
