@@ -1,26 +1,32 @@
+/* DESK-TOP VIEW */
+@media screen and (min-width: 941px) {
+
 #mainBody {
-  /* background-color: rgb(211, 208, 208); */
   font-family: "Pridi", serif;
   padding: 0;
 }
 
 .landingMainDiv {
-  /* background-image: url("./blur.jpg"); */
   font-family: "Pridi", serif;
   color: rgba(255, 255, 255, 0.838);
   text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.434);
-  /* background-color: rgba(211, 208, 208, 0.242); */
 }
+
 .landingDiv2 {
-  padding: 17% 5% 20% 5%;
+  padding: 1% 5% 5% 5%;
 }
 
 .appName {
-  font-size: 8vw;
+  font-size: 6vw;
+  margin-bottom: 2%;
+}
+
+.TaterHead{
+  height:50%;
+  width:50%;
 }
 
 .appDescDiv {
-  /* border: 1px solid black; */
   height: 12vh;
 }
 
@@ -34,15 +40,10 @@
 }
 
 .imgDiv {
-  /* border: 1px dotted black; */
-  /* height: 200px; */
-  /* width: 200px; */
   align-content: center;
-  /* display: flex; */
 }
 
 .loginImg {
-  /* width: 32%; */
   margin: 30px 0px 50px 0px;
   max-width: 36%;
   border: 9px solid #ddd;
@@ -56,14 +57,259 @@
 
 .hrLogin {
   background-color: white;
+  display: inline-block; 
 }
 
 .loginSeg {
   margin: 0px 30px 0px 30px;
   height: 20vh;
-  /* width: 20vw; */
-  /* border: 1px solid rgb(0, 128, 128); */
-  /* border: 1px solid white; */
+  border-radius: 10px;
+}
+
+.loginSegText {
+  margin: 3vh 0px 0px 0px;
+  font-size: 2.5vw;
+}
+.clickHereText {
+  font-size: 2.5vw;
+  color: rgba(255, 255, 255, 0.838);
+}
+
+.buttonLanding {
+  color: rgba(255, 255, 255, 0.838) !important;
+  text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.434);
+}
+
+.loginText {
+  font-size: 4vw;
+}
+
+button {
+  border-radius: 10%;
+}
+
+.loader {
+  margin: auto;
+  height:50%;
+  width:50%;
+}
+
+.pHidden {
+  display: none;
+  font-size: 2em;
+}
+#react-walkway-selector_m3p2y {
+  opacity: 0.8;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+}
+
+/* Tablet Sized */
+@media screen and (max-width: 940px) and (min-width: 481px) {
+
+  #mainBody {
+    font-family: "Pridi", serif;
+    padding: 0;
+  }
+  
+  .landingMainDiv {
+    font-family: "Pridi", serif;
+    color: rgba(255, 255, 255, 0.838);
+    text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.434);
+  }
+  
+  .landingDiv2 {
+    padding: 5% 5% 5% 5%;
+  }
+  
+  .appName {
+    font-size: 6vw;
+    margin-bottom: 2%;
+  }
+  
+  .TaterHead{
+    height:50%;
+    width:50%;
+  }
+  
+  .appDescDiv {
+    height: 12vh;
+ 
+  }
+  
+  .appDescription {
+    font-size: 4vw;
+  }
+
+  p.appDescription {
+      margin-top:20px;
+  }
+  
+  .list {
+    list-style-type: none;
+  }
+  
+  .imgDiv {
+    align-content: center;
+  }
+  
+  .loginImg {
+    margin: 30px 0px 50px 0px;
+    max-width: 36%;
+    border: 9px solid #ddd;
+    border-radius: 50%;
+    border-style: double;
+  }
+  
+  .hr {
+    width: 78vw;
+  }
+  
+  .hrLogin {
+    background-color: white;
+    display: inline-block; 
+  }
+  
+  .loginSeg {
+    margin: 0px 30px 0px 30px;
+    height: 20vh;
+    border-radius: 10px;
+  }
+  
+  .loginSegText {
+    margin: 3vh 0px 0px 0px;
+    font-size: 2.5vw;
+  }
+  .clickHereText {
+    font-size: 3vw;
+    color: rgba(255, 255, 255, 0.838);
+  }
+  
+  .buttonLanding {
+    color: rgba(255, 255, 255, 0.838) !important;
+    text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.434);
+  }
+  
+  .loginText {
+    font-size: 4vw;
+  }
+  
+  button {
+    border-radius: 10%;
+  }
+  
+  .loader {
+    margin: auto;
+    height:50%;
+    width:50%;
+  }
+  
+  .pHidden {
+    display: none;
+    font-size: 2em;
+  }
+  #react-walkway-selector_m3p2y {
+    opacity: 0.8;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  }
+
+
+/* RESPONSIVE CELL PHONE VIEW  */
+
+@media screen and (max-width: 480px) {
+
+#mainBody {
+  font-family: "Pridi", serif;
+  padding: 0;
+}
+
+.landingMainDiv {
+  font-family: "Pridi", serif;
+  color: rgba(255, 255, 255, 0.838);
+  text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.434);
+}
+.landingDiv2 {
+  padding: 17% 5% 20% 5%;
+}
+
+.appName {
+  font-size: 8vw;
+}
+
+.appDescDiv {
+  height: 12vh;
+}
+
+.appDescription {
+  font-size: 4vw;
+  margin: 0 40px 0 40px;
+}
+
+.list {
+  list-style-type: none;
+}
+
+.imgDiv {
+  align-content: center;
+}
+
+.loginImg {
+  margin: 30px 0px 50px 0px;
+  max-width: 36%;
+  border: 9px solid #ddd;
+  border-radius: 50%;
+  border-style: double;
+}
+
+.hr {
+  width: 78vw;
+}
+
+.hrLogin {
+  background-color: white;
+  display: inline-block; 
+}
+
+.loginSeg {
+  margin: 0px 30px 0px 30px;
+  height: 20vh;
   border-radius: 10px;
 }
 
@@ -101,22 +347,6 @@ button {
   opacity: 0.8;
 }
 
-/* .loader {
-  position: relative;
-  left: 41%;
-  top: 39%;
-  background-position-x: 0%;
-  background-position-y: 0%;
-  border: 2px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 2px solid #72c9b9;
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 6s linear infinite;
-  animation: spin 6s linear infinite;
-  align-content: center;
-} */
-
 /* Safari */
 @-webkit-keyframes spin {
   0% {
@@ -134,4 +364,5 @@ button {
   100% {
     transform: rotate(360deg);
   }
+}
 }
