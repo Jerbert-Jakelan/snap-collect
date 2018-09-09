@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { Button, Card, CardText, CardTitle } from "reactstrap";
 import { setUser } from "../../ducks/reducer";
 import ProfileLanding from "./ProfileLanding/ProfileLanding";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Collections from "./Collections/Collections";
 
 class Avatar extends Component {
@@ -14,14 +14,20 @@ class Avatar extends Component {
     super(props);
     this.state = {
       profile: [],
-      collection: []
+      collection: [],
+      redirect: false
     };
   }
 
   componentDidMount = async () => {
     let user = await axios.get("/api/getProfile");
-    this.props.setUser(user.data[0]);
-    this.getCollections();
+    console.log(user);
+    if(user.data.message) {
+      this.setState({redirect: true});
+    } else {
+      this.props.setUser(user.data[0]);
+      this.getCollections();
+    }
   };
 
   getCollections = () => {
@@ -35,6 +41,9 @@ class Avatar extends Component {
     this.setState({ collection });
   };
   render() {
+    if(this.state.redirect) {
+      return <Redirect to="/"/>
+    }
     const { collection } = this.state;
     let looper2 = collection.map((e, i) => {
       return (

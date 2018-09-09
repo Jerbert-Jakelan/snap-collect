@@ -15,6 +15,8 @@ const pubController = require("./controllers/pubController");
 
 const app = express();
 
+app.use( express.static( `${__dirname}/../build` ) );
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -128,6 +130,11 @@ app.delete("/api/cards/:collection_id/:card_id", cardController.delCards);
 
 // this server port. must match what we put in auth0
 const port = 3001;
+
+const path = require('path');
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 app.listen(port, () => {
   console.log(`Listening on port: ${port}`);
