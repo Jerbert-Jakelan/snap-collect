@@ -4,6 +4,7 @@ import CollectionDetail from "./components/CollectionDetail/CollectionDetail";
 import Landing from "./components/Landing/Landing";
 import Login from "./components/Login/Login";
 import PublicCollection from './components/PublicCollection/PublicCollection';
+import MeetTheDevSquad from './components/DeveloperTeam/MeetTheDevSquad';
 
 class Routes extends Component {
   render() {
@@ -11,6 +12,7 @@ class Routes extends Component {
       <Switch>
         <Route path="/" component={Login} exact />
         <Route path="/dashboard" component={Landing} exact />
+        <Route path="/MeetTheDevSquad" component={MeetTheDevSquad}/>
         <Route path="/PublicCollection" component={PublicCollection} exact/>
         <Route path="/collection/:collection_id" component={CollectionDetail} />
       </Switch>
