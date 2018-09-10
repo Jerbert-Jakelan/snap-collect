@@ -4,6 +4,7 @@ import CardForm from "../CardForm/CardForm";
 import Cards from "../Card/Card";
 import { Alert } from "reactstrap";
 import { connect } from "react-redux";
+import {setUser} from '../../ducks/reducer';
 import "./CollectionDetail.css";
 import SVG from "../SVG/camera.svg";
 import Loader from "react-loader-spinner";
@@ -27,7 +28,10 @@ class CollectionDetail extends Component {
     this.toggle = this.toggle.bind(this);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    let user = await axios.get("/api/getProfile");
+    this.props.setUser(user.data[0]);
+
     this.getCollection();
     this.getCards();
   }
@@ -134,18 +138,25 @@ class CollectionDetail extends Component {
       placeholders.push(<CardPlaceHolder />);
     }
 
-    let cardForm =
-      this.props.user.user_id === this.state.collection.user_id ? (
-        this.state.loading ? (
-          <Loader type="Oval" color="#00BFFF" height="50" width="50" />
-        ) : (
-          <CardForm
-            collectionId={this.props.match.params.collection_id}
-            resolveSearch={this.resolveSearch}
-            updateLoading={this.updateLoading}
-          />
-        )
-      ) : null;
+    let cardForm = null;
+
+    if(this.props.user.user_id && this.state.collection) {
+
+      console.log(this.state.collection);
+      cardForm =
+        this.props.user.user_id === this.state.collection.user_id ? (
+          this.state.loading ? (
+            <Loader type="Oval" color="#00BFFF" height="50" width="50" />
+          ) : (
+            <CardForm
+              collectionId={this.props.match.params.collection_id}
+              resolveSearch={this.resolveSearch}
+              updateLoading={this.updateLoading}
+            />
+          )
+        ) : null;
+    }
+    
 
     if (this.state.empty) {
       return (
@@ -216,5 +227,5 @@ const mapStateToProps = state => state;
 
 export default connect(
   mapStateToProps,
-  null
+  {setUser}
 )(CollectionDetail);

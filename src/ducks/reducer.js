@@ -1,6 +1,6 @@
 const initialState = {
   user: {},
-  selectedCollection:null
+  selectedCollection: null
 }
 
 const SET_USER = 'SET_USER';
