@@ -31,6 +31,9 @@ class Nav extends Component {
             <Link to="/PublicCollection" className="route">
               Public Collections
             </Link>
+            <Link to="/MeetTheDevSquad" className="route">
+              Meet The Dev Team
+            </Link>
             <a
               onClick={() => this.props.setUser(false)}
               href={process.env.REACT_APP_LOGOUT_URL}
