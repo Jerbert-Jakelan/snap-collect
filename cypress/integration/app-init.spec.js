@@ -6,7 +6,15 @@ describe('On Page Init', () => {
 
   //Jeremy
   it('Can click public collections button', () => {
+    cy.server();
+    cy.route({
+      method: "GET",
+      url: "/api/getProfile",
+      response: "fixure:user"
+    });
     cy.visit('http://localhost:3000/#/dashboard');
+
+
     cy.get('.pubColBtn')
       .click();
 
