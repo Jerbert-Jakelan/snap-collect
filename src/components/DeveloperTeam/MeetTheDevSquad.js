@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Media, Row, Container, Col} from 'reactstrap';
 import jake from './jake.jpg';
-import robert from './robert.jpg';
+import robert2 from './robert2.jpg';
 import harlyn from './harlyn.jpg'
 import jermy from './jermy.jpg';
 import './MeetTheDevSquad.css';
@@ -45,7 +45,7 @@ return(
                         <Col  >
                         
                             <Media >
-                                <img style={{ width:'100%',height:'100vh'}} src={robert} alt="Food" />
+                                <img style={{ width:'100%',height:'100vh'}} src={robert2} alt="Food" />
                             </Media>
                         </Col>
                         <Col  >   
