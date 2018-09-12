@@ -226,13 +226,13 @@ class MeetTheDevSquad extends Component {
                   <a href="https://github.com/blermyjake" target="_blank">
                     {" "}
                     GitHub{" "}
-                    <a
-                      href="https://blermyjake.github.io/myPortfolio/"
-                      target="_blank"
-                    >
-                      {" "}
-                      Portfolio{" "}
-                    </a>
+                  </a>
+                  <a
+                    href="https://blermyjake.github.io/myPortfolio/"
+                    target="_blank"
+                  >
+                    {" "}
+                    Portfolio{" "}
                   </a>
                 </h5>
                 <br />
