@@ -193,10 +193,10 @@ a {
   } */
 }
 @media (max-width: 650px) {
-  img {
+  /* img {
     height: auto;
     width: 50vw;
-  }
+  } */
   .aboutMe {
     font-size: 12px;
   }
