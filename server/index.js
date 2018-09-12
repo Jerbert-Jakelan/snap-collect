@@ -90,7 +90,8 @@ app.get(
   "/login",
   passport.authenticate("auth0", {
     successRedirect: process.env.SUCCESS_REDIRECT,
-    failureRedirect: process.env.FAILURE_REDIRECT
+    failureRedirect: process.env.FAILURE_REDIRECT,
+    connection: 'google-oauth2'
     // failureFlash: false
   })
 );
