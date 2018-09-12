@@ -12,6 +12,10 @@
     box-shadow: 0px 0px 12px 0.01px white;
   }
 
+  a{
+    color: whitesmoke;
+  }
+
 
 .content{
   margin-top: 40%;

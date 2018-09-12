@@ -26,10 +26,7 @@ return(
                             <hr className="hrDev" />
                             <h4 heading className="pretty">Jake Wymer</h4>
                             <p>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-                                ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at,
-                                tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-                                fringilla. Donec lacinia congue felis in faucibus.
+                            I am a full-stack software engineer who specializes in building awesome web applications. I have been coding for over six years, turning what began as a hobby into a profession I love. I am a perpetual learner who enjoys solving everyday problems with software and tinkering with new technologies.
                             </p>  
                             <h5> Visit me @ : <a href="https://github.com/JakeWymer"> gitHub </a> <a href="https://www.linkedin.com/in/jake-wymer/"> LinkedIn </a></h5>
                             <br/>   
@@ -74,10 +71,7 @@ return(
                         <hr className="hrDev"/>
                             <Media heading className="pretty">Harlan Heath</Media>
                             <p>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-                                ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at,
-                                tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-                                fringilla. Donec lacinia congue felis in faucibus.
+                            My name is Harlan Heath and I am currently breaking into the world of Web Development. I started out in the IT field doing Desktop Support and while planning the next step in my career, I discovered my passion for web development. During my research I became eager to start in a field where people focus on collaboration, is mentally engaging, and varies day by day with new problems to solve. After completing a rigorous immersive web development program, I feel like I'm ready to continue learning, building, and developing a new career.
                             </p>
                             <h5> Visit me @ : <a href="https://github.com/HarlanHeath"> gitHub </a> <a href="https://www.linkedin.com/in/harlan-heath/"> LinkedIn </a></h5>
                             <br/>
@@ -105,10 +99,7 @@ return(
                         <hr className="hrDev"/>
                             <Media heading className="pretty">Jermy Blermy</Media>
                             <p>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-                                ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at,
-                                tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-                                fringilla. Donec lacinia congue felis in faucibus.
+                            I've lived throughout Asia for 18 years working with various charities and NGOs. I'm comfortable working in international settings with team members from around the world. I have a passion to help those less fortunate. And I believe working in web development can help make the world a better place. I made the decision to get into coding to give me one more tool to aid the types of work I've been involved in.
                             </p>
                             <h5> Visit me @ : <a href="https://github.com/blermyjake"> gitHub </a></h5>               
                             <br/>
