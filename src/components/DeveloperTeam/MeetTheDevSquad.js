@@ -199,7 +199,7 @@ class MeetTheDevSquad extends Component {
                 classname="aboutMeDiv"
                 className="content wow fadeInRight "
                 data-wow-duration="2s"
-                data-wow-offset="300"
+                data-wow-offset="100"
                 body
                 align="middle"
               >
@@ -240,6 +240,7 @@ class MeetTheDevSquad extends Component {
             </Col>
           </Row>
         </Container>
+        <br />
       </div>
     );
   }
