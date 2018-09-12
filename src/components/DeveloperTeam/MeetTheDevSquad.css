@@ -1,24 +1,28 @@
 /*Main font*/
-@import url('https://fonts.googleapis.com/css?family=Tangerine');
+@import url("https://fonts.googleapis.com/css?family=Tangerine");
 /* fallback font */
 .pretty {
-    font-family: 'Tangerine', serif;
-    font-size: 48px;
-    text-shadow: 4px 4px 4px #aaa;
-  }
-  .hrDev{
-    border-top: 1px solid rgba(0, 0, 0, 0.16);
-    width: 75%;
-    box-shadow: 0px 0px 12px 0.01px white;
-  }
+  font-family: "Tangerine", serif;
+  font-size: 48px;
+  text-shadow: 2px 2px 2px #ccc;
+}
+.hrDev {
+  border-top: 1px solid rgba(0, 0, 0, 0.16);
+  width: 75%;
+  box-shadow: 0px 0px 12px 0.01px white;
+}
 
-  a{
-    color: whitesmoke;
-  }
+a {
+  color: rgba(245, 245, 245, 0.783) !important;
+}
 
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 
-.content{
-  margin-top: 40%;
+.content {
+  margin-top: 23%;
 }
 
 /* fade left */
@@ -91,9 +95,8 @@
   animation-name: fadeInRight;
 }
 /*end fade right*/
-  
- 
-  /*Bounce with me playa playa*/
+
+/*Bounce with me playa playa*/
 @-webkit-keyframes bounceInUp {
   from,
   60%,
@@ -174,8 +177,64 @@
   -webkit-animation-name: bounceInUp;
   animation-name: bounceInUp;
 }
-/*End bounce*/
 
+@media (max-width: 990px) {
+  .aboutMe {
+    font-size: 1.5vw;
+  }
+  .content {
+    margin: 5px 0px -15px 0px;
+  }
+  /* .aboutPic {
+    display: float;
+  }
+  .aboutMeDiv {
+    display: float;
+  } */
+}
+@media (max-width: 650px) {
+  img {
+    height: auto;
+    width: 50vw;
+  }
+  .aboutMe {
+    font-size: 12px;
+  }
+  .meetDevCon {
+    display: inline-block;
+  }
+  .pretty {
+    font-size: 34px;
+  }
+  a {
+    font-size: 15px;
+  }
+  .visitMe {
+    font-size: 15px;
+  }
+  .aboutPicCol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 460px) {
+  .aboutMe {
+    font-size: 2vw;
+  }
+  .pretty {
+    font-size: 24px;
+  }
+  a {
+    font-size: 15px;
+  }
+  .visitMe {
+    font-size: 15px;
+  }
+}
+
+/*End bounce*/
 
 /* hit them with the smooth fade out*/
 /* @keyframes myfadeOut {

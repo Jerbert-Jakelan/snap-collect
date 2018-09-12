@@ -4,7 +4,7 @@ import CardForm from "../CardForm/CardForm";
 import Cards from "../Card/Card";
 import { Alert } from "reactstrap";
 import { connect } from "react-redux";
-import {setUser} from '../../ducks/reducer';
+import { setUser } from "../../ducks/reducer";
 import "./CollectionDetail.css";
 import SVG from "../SVG/camera.svg";
 import Loader from "react-loader-spinner";
@@ -140,8 +140,7 @@ class CollectionDetail extends Component {
 
     let cardForm = null;
 
-    if(this.props.user.user_id && this.state.collection) {
-
+    if (this.props.user.user_id && this.state.collection) {
       console.log(this.state.collection);
       cardForm =
         this.props.user.user_id === this.state.collection.user_id ? (
@@ -156,7 +155,6 @@ class CollectionDetail extends Component {
           )
         ) : null;
     }
-    
 
     if (this.state.empty) {
       return (
@@ -227,5 +225,5 @@ const mapStateToProps = state => state;
 
 export default connect(
   mapStateToProps,
-  {setUser}
+  { setUser }
 )(CollectionDetail);
