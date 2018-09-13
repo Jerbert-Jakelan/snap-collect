@@ -42,7 +42,7 @@ class Nav extends Component {
             </a>
           </div>
         </div>
-        <h2 className="header">Snap Collect</h2>
+        <h2 className="header">Snap Collector</h2>
       </div>
     );
   }

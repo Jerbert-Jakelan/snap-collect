@@ -12,6 +12,10 @@
   box-shadow: 0px 0px 12px 0.01px white;
 }
 
+.aboutMeJeremy {
+  text-shadow: 0px 0px 61px #aaaa;
+}
+
 a {
   color: rgba(245, 245, 245, 0.783) !important;
 }

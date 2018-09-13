@@ -211,7 +211,7 @@ class MeetTheDevSquad extends Component {
                 <Media heading className="pretty">
                   Jeremy Blakley
                 </Media>
-                <p className="aboutMe">
+                <p className="aboutMe aboutMeJeremy">
                   I've lived throughout Asia for 18 years working with various
                   charities and NGOs. I'm comfortable working in international
                   settings with team members from around the world. I have a
